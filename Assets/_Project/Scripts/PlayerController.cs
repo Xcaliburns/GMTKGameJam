@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     public float knockbackPushDuration = 0.2f; // Duration of the initial push
     public float knockbackStunDuration = 0.3f; // Duration of the stun after push
 
-    // Knockback state
-    private bool isKnockedBack = false;
+    // Knockback state   
+    public bool isKnockedBack = false;
     private bool isInPushPhase = false;
     private float knockbackTimer = 0f;
     private Rigidbody2D rb;
@@ -255,7 +255,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Collision detected with: " + collision.gameObject.name);
 
         // Check if the player collides with an enemy and it's the main player collider (not a child)
-        if (collision.gameObject.CompareTag("Enemy") && collision.collider.gameObject == this.gameObject)
+        // AND the player is not already knocked back
+        if (collision.gameObject.CompareTag("Enemy") && collision.collider.gameObject == this.gameObject && !isKnockedBack)
         {
             Debug.Log("Enemy collision detected on player body!");
 
@@ -278,8 +279,9 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Trigger detected with: " + other.gameObject.name);
 
-        // Check if the player collides with an enemy and it's the main player collider (not a child)
-        if (other.CompareTag("Enemy") && other.gameObject.GetComponent<Collider2D>() == GetComponent<Collider2D>())
+        // Check if the player collides with an enemy, it's the main player collider (not a child),
+        // AND the player is not already knocked back
+        if (other.CompareTag("Enemy") && other.gameObject.GetComponent<Collider2D>() == GetComponent<Collider2D>() && !isKnockedBack)
         {
             Debug.Log("Enemy trigger detected on player body!");
 
