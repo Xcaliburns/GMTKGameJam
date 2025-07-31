@@ -2,56 +2,79 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    public float speed = 10f; // Speed of the projectile
-    public float lifetime = 5f; // How long the projectile lasts before being destroyed
+    public float speed = 10f;
+    float lifetime ;
+    public float lifetimeMax = 5f;
     private PlayerController playerController;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Rigidbody2D rb;
+
+
     void Start()
     {
-        Destroy(gameObject, lifetime); // Destroy the projectile after its lifetime
-        // Get reference to the player's controller
-        playerController = FindObjectOfType<PlayerController>();
+        Destroy(gameObject, lifetimeMax); 
+        playerController = FindFirstObjectByType<PlayerController>();
+        rb = GetComponent<Rigidbody2D>();
+
+        // Check collider setup
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider == null)
+        {
+            Debug.LogWarning("No collider found on projectile - adding one");
+            CircleCollider2D newCollider = gameObject.AddComponent<CircleCollider2D>();
+            newCollider.isTrigger = true;
+            newCollider.radius = 0.25f;
+        }    
+
+        Debug.Log($"Enemy projectile spawned at {transform.position} with velocity {rb.linearVelocity}");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime); // Move the projectile forward
+        transform.Translate(Vector3.right * speed * Time.deltaTime);
+      
     }
+
+
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+       
+
+        // Don't destroy when hitting other enemies
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            return; // Ignore collision with other enemies
+            Debug.Log("Enemy projectile passing through: " + collision.gameObject.name);
+            return;
         }
+
+        // Special handling for player hits
         if (collision.gameObject.CompareTag("Player"))
         {
-           
-            // Plutôt, calculer la direction du projectile et appeler PlayerDefend
+            Debug.Log("Enemy projectile hit player");
             if (playerController != null && !playerController.isKnockedBack)
             {
-                // Calculer la direction du projectile vers le joueur pour le knockback
                 Vector2 hitDirection = transform.position - collision.transform.position;
-                
-                // Utiliser la méthode de défense existante
-                playerController.SendMessage("PlayerDefend", hitDirection, SendMessageOptions.DontRequireReceiver);
+
+                if (playerController.nbrShield > 0)
+                {
+                    playerController.nbrShield--;
+                    DavidUIManager.Instance.UpdateUI();
+
+                }
+
+                playerController.HandleDamage(hitDirection);
+                Destroy(gameObject);
+                Debug.Log(collision.name);
             }
-            
-            Destroy(gameObject);
+
+            //  Destroy(gameObject);
             return;
-        }       
-            Destroy(gameObject); // Destroy the projectile on collision with anything else
-        
+        }
 
+        // Destroy on all other collisions (including walls)
+        Debug.Log($"Enemy projectile hit: {collision.gameObject.name}, Tag: {collision.gameObject.tag}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}");
+       
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (!collision.gameObject.CompareTag("Player"))
-    //    {
-
-    //        Destroy(gameObject); // Destroy the projectile on collision
-    //    }       
-    // }
 }

@@ -3,47 +3,45 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    // Existing attack variables
+    // Attack properties
     public bool IsAttacking { get; private set; }
-    public float attackDuration = 0.25f; // How long the attack lasts
+    public float attackDuration = 0.25f;
     private float attackTimer = 0f;
-    
-    // Magic cooldown variables
-    public bool IsMagicOnCooldown { get; private set; }
-    public float magicCooldown = 0.5f; // Cooldown between magic projectiles
-    private float magicCooldownTimer = 0f;
-    
-    public float knockbackForce = 1f; // Force applied when defending against an attack
-    public float knockbackPushDuration = 0.2f; // Duration of the initial push
-    public float knockbackStunDuration = 0.3f; // Duration of the stun after push
+    private bool attackInput = false;
+    private bool currentAttackHasHit = false;
 
-    // Knockback state   
+    // Magic properties
+    public bool IsMagicOnCooldown { get; private set; }
+    public float magicCooldown = 0.5f;
+    private float magicCooldownTimer = 0f;
+    private bool magicProjectileInput = false;
+
+    // Knockback properties
+    public float knockbackForce = 1f;
+    public float knockbackPushDuration = 0.2f;
+    public float knockbackStunDuration = 0.3f;
     public bool isKnockedBack = false;
     private bool isInPushPhase = false;
     private float knockbackTimer = 0f;
-    private Rigidbody2D rb;
 
-    // Reference to the sword hitbox
+    // Movement properties
+    public float moveSpeed = 5f;
+
+    // Resources
+    public int nbrSword = 5;
+    public int nbrShield = 5;
+    public int nbrMagic = 5;
+
+    // References
+    private Rigidbody2D rb;
     public GameObject swordHitbox;
     public GameObject MagicProjectile;
     public float projectileOffset = 1f;
 
-
-    public float moveSpeed = 5f; // Speed of the player movement
-    public int nbrSword = 5; // Number of swords the player has
-    public int nbrShield = 5; // Number of shields the player has
-    public int nbrMagic = 5; // Number of magic projectiles the player has
-
-    private bool attackInput = false;
-    private bool currentAttackHasHit = false;
-    private bool magicProjectileInput = false; // Track magic projectile input
-
     void Start()
     {
-        // Get reference to rigidbody
         rb = GetComponent<Rigidbody2D>();
 
-        // Make sure sword is initially inactive
         if (swordHitbox != null)
         {
             swordHitbox.SetActive(false);
@@ -56,26 +54,58 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Check for attack input in Update for better responsiveness
+        HandleInput();
+        UpdateTimers();
+    }
+
+    void FixedUpdate()
+    {
+        if (!isKnockedBack)
+        {
+            PlayerMovement();
+        }
+
+        if (attackInput && !isKnockedBack)
+        {
+            PlayerAttack();
+            attackInput = false;
+        }
+
+        if (magicProjectileInput && !isKnockedBack)
+        {
+            ShootMagicProjectile();
+            magicProjectileInput = false;
+        }
+    }
+
+    void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && !isKnockedBack)
         {
             attackInput = true;
         }
 
-        // Check for magic projectile input
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             magicProjectileInput = true;
         }
+    }
 
-        // Handle attack timer and sword visibility
+    void UpdateTimers()
+    {
+        UpdateAttackTimer();
+        UpdateMagicCooldownTimer();
+        UpdateKnockbackTimer();
+    }
+
+    void UpdateAttackTimer()
+    {
         if (IsAttacking)
         {
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
             {
                 IsAttacking = false;
-                // Hide sword when attack ends
                 if (swordHitbox != null)
                 {
                     swordHitbox.SetActive(false);
@@ -83,8 +113,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        
-        // Handle magic cooldown timer
+    }
+
+    void UpdateMagicCooldownTimer()
+    {
         if (IsMagicOnCooldown)
         {
             magicCooldownTimer -= Time.deltaTime;
@@ -94,29 +126,28 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Magic ready to use again");
             }
         }
-        
-        // Handle knockback timer
+    }
+
+    void UpdateKnockbackTimer()
+    {
         if (isKnockedBack)
         {
             knockbackTimer -= Time.deltaTime;
 
-            // Check if we need to transition from push phase to stun phase
             if (isInPushPhase && knockbackTimer <= knockbackStunDuration)
             {
                 isInPushPhase = false;
                 if (rb != null)
                 {
-                    rb.linearVelocity = Vector2.zero; // Stop the push force
+                    rb.linearVelocity = Vector2.zero;
                     Debug.Log("Push phase ended, transitioning to stun phase");
                 }
             }
 
-            // Check if knockback is completely over
             if (knockbackTimer <= 0)
             {
                 isKnockedBack = false;
                 isInPushPhase = false;
-                // Stop any remaining knockback force when knockback ends
                 if (rb != null)
                 {
                     rb.linearVelocity = Vector2.zero;
@@ -126,69 +157,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        // Only allow movement if not being knocked back
-        if (!isKnockedBack)
-        {
-            PlayerMovement();
-        }
-
-        // Process attack input in FixedUpdate
-        if (attackInput && !isKnockedBack)
-        {
-            PlayerAttack();
-            attackInput = false;
-        }
-
-        // Process magic projectile input
-        if (magicProjectileInput && !isKnockedBack)
-        {
-            ShootMagicProjectile();
-            magicProjectileInput = false;
-        }
-    }
-
     void PlayerMovement()
     {
-        // Get the horizontal and vertical input axes
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
-        // Only rotate and move if there's actual input
         if (movement.magnitude > 0.1f)
         {
-            // Normalize the movement vector to prevent faster diagonal movement
             if (movement.magnitude > 1f)
             {
                 movement.Normalize();
             }
 
-            // Calculate rotation based on movement direction
             float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-
-            // Apply rotation to face the movement direction
-            // Subtract 90 degrees because typically sprites face up by default
             transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-
-            // Move the player
             transform.Translate(new Vector3(0, moveSpeed * Time.deltaTime, 0), Space.Self);
         }
     }
 
     void PlayerAttack()
     {
-        // Check if the player has any swords
         if (nbrSword > 0 && !IsAttacking)
         {
-            // Start attack
             IsAttacking = true;
             attackTimer = attackDuration;
-            currentAttackHasHit = false; // Reset hit flag for new attack
+            currentAttackHasHit = false;
 
-            // Show sword during attack
             if (swordHitbox != null)
             {
                 swordHitbox.SetActive(true);
@@ -196,7 +191,6 @@ public class PlayerController : MonoBehaviour
             }
 
             Debug.Log("Player attacks with a sword!");
-            // We'll only decrease sword count if we actually hit something
         }
         else if (nbrSword <= 0)
         {
@@ -204,49 +198,50 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // This method will be called by SwordHitbox when it hits an enemy
     public void RegisterSwordHit()
     {
         if (IsAttacking && !currentAttackHasHit)
         {
             currentAttackHasHit = true;
-            nbrSword--; // Decrease sword count only when we hit something
+            nbrSword--;
             Debug.Log("Enemy hit! Sword consumed.");
-
-            // Update UI
             DavidUIManager.Instance.UpdateUI();
         }
     }
 
-    void PlayerDefend(Vector2 hitDirection)
+   public bool CanDefend()
     {
-        // Check if the player has any shields and is not already knocked back
-        if (nbrShield > 0 && !isKnockedBack)
+        return nbrShield > 0 && !isKnockedBack;
+    }
+
+   public void PlayerDefend(Vector2 hitDirection)
+    {
+        if (!CanDefend()) return;
+       
+        DavidUIManager.Instance.UpdateUI();
+        
+        isKnockedBack = true;
+        isInPushPhase = true;
+        knockbackTimer = knockbackPushDuration + knockbackStunDuration;
+
+        if (rb != null)
         {
-            // Implement defend logic here
-            Debug.Log("Player defends with a shield!");
-            nbrShield--; // Decrease the number of shields after defending
-
-            // Apply knockback force in the opposite direction of the hit
-            if (rb != null)
-            {
-                // Enter knockback state
-                isKnockedBack = true;
-                isInPushPhase = true;
-                knockbackTimer = knockbackPushDuration + knockbackStunDuration;
-
-                // Normalize the direction and invert it to push away from the hit
-                Vector2 knockbackDirection = -hitDirection.normalized;
-
-                // Apply the force as an impulse                
-                rb.linearVelocity = Vector2.zero; // Reset velocity before applying force
-                rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-                Debug.Log("Player knocked back in direction: " + knockbackDirection + ", push phase beginning");
-            }
+            Vector2 knockbackDirection = -hitDirection.normalized;
+            rb.linearVelocity = Vector2.zero;
+            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            Debug.Log("Player knocked back in direction: " + knockbackDirection);
         }
-        if (nbrShield <= 0)
+    }
+
+    public void HandleDamage(Vector2 hitDirection)
+    {
+        if (CanDefend())
         {
-            Debug.Log("Player is dead");
+            PlayerDefend(hitDirection);
+        }
+        else
+        {
+            Debug.Log("Player is dead!");
         }
     }
 
@@ -254,48 +249,43 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Collision detected with: " + collision.gameObject.name);
 
-        // Check if the player collides with an enemy and it's the main player collider (not a child)
-        // AND the player is not already knocked back
         if (collision.gameObject.CompareTag("Enemy") && collision.collider.gameObject == this.gameObject && !isKnockedBack)
         {
-            Debug.Log("Enemy collision detected on player body!");
-
-            // Calculate hit direction from the collision contact point
             Vector2 hitDirection = collision.contacts[0].point - (Vector2)transform.position;
-
-            if (nbrShield > 0)
-            {
-                PlayerDefend(hitDirection);
-            }
-            else
-            {
-                Debug.Log("Player is dead!");
-            }
+            nbrShield--;
+            HandleDamage(hitDirection);
         }
     }
 
-    // For trigger collisions in 2D (if your colliders are set as triggers)
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Trigger detected with: " + other.gameObject.name);
-
-        // Check if the player collides with an enemy, it's the main player collider (not a child),
-        // AND the player is not already knocked back
-        if (other.CompareTag("Enemy") && other.gameObject.GetComponent<Collider2D>() == GetComponent<Collider2D>() && !isKnockedBack)
+        
+        if (other.CompareTag("SpikedTrap") && !isKnockedBack)
         {
-            Debug.Log("Enemy trigger detected on player body!");
-
-            // Calculate hit direction for triggers
+            if (nbrSword > 0) nbrSword--;
+            if (CanDefend()) PlayerDefend(Vector2.zero);
+            DavidUIManager.Instance.UpdateUI();
+        }
+        else if (other.CompareTag("CursedAxe") && !isKnockedBack)
+        {
             Vector2 hitDirection = other.transform.position - transform.position;
-
-            if (nbrShield > 0)
+            if (nbrSword > 0)
             {
-                PlayerDefend(hitDirection);
+                nbrSword--;
+                DavidUIManager.Instance.UpdateUI();
             }
-            else
-            {
-                Debug.Log("Player is dead!");
-            }
+            if (CanDefend()) PlayerDefend(hitDirection);
+        }
+        else if (other.CompareTag("Pit"))
+        {
+            Debug.Log("Player fell into a pit!");
+        }
+        else if (other.CompareTag("Enemy") && other.gameObject.GetComponent<Collider2D>() == GetComponent<Collider2D>() && !isKnockedBack)
+        {
+            Vector2 hitDirection = other.transform.position - transform.position;
+            nbrShield--;
+            HandleDamage(hitDirection);
         }
     }
 
@@ -303,20 +293,14 @@ public class PlayerController : MonoBehaviour
     {
         if (MagicProjectile != null && nbrMagic > 0 && !IsMagicOnCooldown)
         {
-            // Calculate spawn position in front of the player
             Vector3 spawnPosition = transform.position + transform.up * projectileOffset;
-
-            // Instantiate the projectile at the spawn position with the player's rotation
             GameObject projectile = Instantiate(MagicProjectile, spawnPosition, transform.rotation);
             nbrMagic--;
-            
-            // Start the magic cooldown
+
             IsMagicOnCooldown = true;
             magicCooldownTimer = magicCooldown;
-
-            // Update UI
             DavidUIManager.Instance.UpdateUI();
-            
+
             Debug.Log("Magic projectile fired!");
         }
         else if (IsMagicOnCooldown)
