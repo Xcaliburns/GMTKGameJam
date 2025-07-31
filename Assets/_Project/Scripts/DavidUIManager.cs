@@ -40,10 +40,10 @@ public class DavidUIManager : Singleton<DavidUIManager>
         if (playerController != null)
         {
             if (swordsText != null)
-                swordsText.text = "Épées: " + playerController.nbrEpees;
+                swordsText.text = "Épées: " + playerController.nbrSword;
                 
             if (shieldsText != null)
-                shieldsText.text = "Boucliers: " + playerController.nbrBouclier;
+                shieldsText.text = "Boucliers: " + playerController.nbrShield;
         }
     }
 }
