@@ -1805,6 +1805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDuration: 1
+  knockbackForce: 10
+  knockbackDuration: 0.2
   swordHitbox: {fileID: 46415237}
   moveSpeed: 5
   nbrEpees: 5
