@@ -27,9 +27,19 @@ public class EnemyProjectile : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerController.nbrShield--; // Decrease the player's shield count
-            Destroy(gameObject); 
-            return; 
+           
+            // Plutôt, calculer la direction du projectile et appeler PlayerDefend
+            if (playerController != null && !playerController.isKnockedBack)
+            {
+                // Calculer la direction du projectile vers le joueur pour le knockback
+                Vector2 hitDirection = transform.position - collision.transform.position;
+                
+                // Utiliser la méthode de défense existante
+                playerController.SendMessage("PlayerDefend", hitDirection, SendMessageOptions.DontRequireReceiver);
+            }
+            
+            Destroy(gameObject);
+            return;
         }       
             Destroy(gameObject); // Destroy the projectile on collision with anything else
         

@@ -602,6 +602,8 @@ MonoBehaviour:
   virtualCamera: {fileID: 8957718815826581711}
   fadeInDuration: 0.5
   fadeOutDuration: 0.5
+  teleportPosition: 0.246
+  pauseGameDuringTransition: 0
 --- !u!1 &7061479330199211222
 GameObject:
   m_ObjectHideFlags: 0
