@@ -28,6 +28,7 @@ public class SwordHitbox : MonoBehaviour
         if (playerController != null && playerController.IsAttacking && other.CompareTag("Enemy"))
         {
             Debug.Log("Sword hit enemy: " + other.gameObject.name);
+            playerController.RegisterSwordHit(); // Register the hit with the player controller
             Destroy(other.gameObject);
         }
     }

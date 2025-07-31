@@ -9,6 +9,8 @@ public class DavidUIManager : Singleton<DavidUIManager>
     [Header("UI Elements")]
     public TextMeshProUGUI swordsText;
     public TextMeshProUGUI shieldsText;
+    public TextMeshProUGUI MagicText;
+
     
     // Override the Awake method from Singleton
     protected override void Awake()
@@ -44,6 +46,8 @@ public class DavidUIManager : Singleton<DavidUIManager>
                 
             if (shieldsText != null)
                 shieldsText.text = "Boucliers: " + playerController.nbrShield;
+            if (MagicText != null)
+                MagicText.text = "Magie: " + playerController.nbrMagic;
         }
     }
 }
