@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6594528043283390991}
   - component: {fileID: 4292941670583495121}
   - component: {fileID: 3181614922782818363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 5226528043003349516}
   - component: {fileID: 8395865135380960492}
   - component: {fileID: 1164676741399636689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FireCamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,6 @@ MonoBehaviour:
   - {fileID: 4170268272134237976, guid: bfbaa4f9d84f6c24ca44a2dec1bcaaa1, type: 3}
   - {fileID: 1283274595003165135, guid: c898282246b50634fb7f222baec441eb, type: 3}
   - {fileID: 2616702166270570671}
-  - {fileID: 4367652696816565944, guid: 8afe6b63c64b8d047b059af8e73fcee5, type: 3}
   - {fileID: 6653448224692017977, guid: aa8951834fddaf24a9ffb2c8db2d1d69, type: 3}
   - {fileID: 745854828886229492, guid: bc5d93071a828e04b940fdcacdd85b6d, type: 3}
   - {fileID: 3886819589357735654, guid: 8bdf92090a638d647a83f625a23337a9, type: 3}
@@ -745,13 +744,16 @@ MonoBehaviour:
   - {fileID: 4286664862423161962, guid: 11115c1a4802ebc47be605eba2c173e6, type: 3}
   nextTiles: []
   nextTileChoosed: 
-  typeOfTile: 13
+  typeOfTile: 15
   lastTile: {fileID: 0}
   tilesChoosed: []
   RandomTileMap: 0
   tileToSpawn: {fileID: 0}
   tilesNoIssue: []
   ancientdoor: 0
+  layerTilemap:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &8323869450751765481
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +766,7 @@ GameObject:
   - component: {fileID: 1254294624454840375}
   - component: {fileID: 8183465351310734125}
   - component: {fileID: 4655892748831980613}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 482409152701769651}
   - component: {fileID: 5758299020047298753}
   - component: {fileID: 4051892800517774723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 5166933040237905358}
   - component: {fileID: 1168968548317114311}
   - component: {fileID: 7407418724760136567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2671,7 +2671,7 @@ GameObject:
   - component: {fileID: 5098180990571981741}
   - component: {fileID: 3778258489332507207}
   - component: {fileID: -6943974945974156869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UpDoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2726,7 +2726,6 @@ MonoBehaviour:
   - {fileID: 4170268272134237976, guid: bfbaa4f9d84f6c24ca44a2dec1bcaaa1, type: 3}
   - {fileID: 1283274595003165135, guid: c898282246b50634fb7f222baec441eb, type: 3}
   - {fileID: 2616702166270570671, guid: 8c742d79898ff9a45a271c403dfdfff0, type: 3}
-  - {fileID: 4367652696816565944, guid: 8afe6b63c64b8d047b059af8e73fcee5, type: 3}
   - {fileID: 6653448224692017977, guid: aa8951834fddaf24a9ffb2c8db2d1d69, type: 3}
   - {fileID: 745854828886229492, guid: bc5d93071a828e04b940fdcacdd85b6d, type: 3}
   - {fileID: 3886819589357735654, guid: 8bdf92090a638d647a83f625a23337a9, type: 3}
@@ -2735,4 +2734,13 @@ MonoBehaviour:
   - {fileID: 4286664862423161962, guid: 11115c1a4802ebc47be605eba2c173e6, type: 3}
   nextTiles: []
   nextTileChoosed: 
-  typeOfTile: 8
+  typeOfTile: 14
+  lastTile: {fileID: 0}
+  tilesChoosed: []
+  RandomTileMap: 0
+  tileToSpawn: {fileID: 0}
+  tilesNoIssue: []
+  ancientdoor: 0
+  layerTilemap:
+    serializedVersion: 2
+    m_Bits: 64

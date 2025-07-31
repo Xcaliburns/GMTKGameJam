@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 853779383}
   - component: {fileID: 853779382}
   - component: {fileID: 853779384}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2120,7 +2120,7 @@ GameObject:
   - component: {fileID: 974642010}
   - component: {fileID: 974642009}
   - component: {fileID: 974642011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GridEntrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2175,7 +2175,6 @@ MonoBehaviour:
   - {fileID: 4170268272134237976, guid: bfbaa4f9d84f6c24ca44a2dec1bcaaa1, type: 3}
   - {fileID: 1283274595003165135, guid: c898282246b50634fb7f222baec441eb, type: 3}
   - {fileID: 2616702166270570671, guid: 8c742d79898ff9a45a271c403dfdfff0, type: 3}
-  - {fileID: 4367652696816565944, guid: 8afe6b63c64b8d047b059af8e73fcee5, type: 3}
   - {fileID: 6653448224692017977, guid: aa8951834fddaf24a9ffb2c8db2d1d69, type: 3}
   - {fileID: 745854828886229492, guid: bc5d93071a828e04b940fdcacdd85b6d, type: 3}
   - {fileID: 3886819589357735654, guid: 8bdf92090a638d647a83f625a23337a9, type: 3}
@@ -2184,13 +2183,16 @@ MonoBehaviour:
   - {fileID: 4286664862423161962, guid: 11115c1a4802ebc47be605eba2c173e6, type: 3}
   nextTiles: []
   nextTileChoosed: 
-  typeOfTile: 14
+  typeOfTile: 16
   lastTile: {fileID: 0}
   tilesChoosed: []
-  RandomTileMap: 0
+  RandomTileMap: 25
   tileToSpawn: {fileID: 0}
   tilesNoIssue: []
   ancientdoor: 0
+  layerTilemap:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1297401428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,7 +2205,7 @@ GameObject:
   - component: {fileID: 1297401431}
   - component: {fileID: 1297401430}
   - component: {fileID: 1297401432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3056,7 +3058,7 @@ MonoBehaviour:
   - {fileID: 674242539249587680, guid: 30589e3b9db366b41ad335a635ead714, type: 3}
   - {fileID: 4093344814199832342, guid: bd286454e5e24ce468aca4c35e3d27d5, type: 3}
   - {fileID: 4286664862423161962, guid: 11115c1a4802ebc47be605eba2c173e6, type: 3}
-  numberOfTilesTarget: 25
+  numberOfTilesTarget: 500
   currentNumberOfTiles: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

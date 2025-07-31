@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 369675631335494726}
   - component: {fileID: 7521536597709972436}
   - component: {fileID: -7186717824236386503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoorUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,6 @@ MonoBehaviour:
   - {fileID: 4170268272134237976}
   - {fileID: 1283274595003165135, guid: c898282246b50634fb7f222baec441eb, type: 3}
   - {fileID: 2616702166270570671, guid: 8c742d79898ff9a45a271c403dfdfff0, type: 3}
-  - {fileID: 4367652696816565944, guid: 8afe6b63c64b8d047b059af8e73fcee5, type: 3}
   - {fileID: 6653448224692017977, guid: aa8951834fddaf24a9ffb2c8db2d1d69, type: 3}
   - {fileID: 745854828886229492, guid: bc5d93071a828e04b940fdcacdd85b6d, type: 3}
   - {fileID: 3886819589357735654, guid: 8bdf92090a638d647a83f625a23337a9, type: 3}
@@ -75,13 +74,16 @@ MonoBehaviour:
   - {fileID: 4286664862423161962, guid: 11115c1a4802ebc47be605eba2c173e6, type: 3}
   nextTiles: []
   nextTileChoosed: 
-  typeOfTile: 8
+  typeOfTile: 10
   lastTile: {fileID: 0}
   tilesChoosed: []
   RandomTileMap: 0
   tileToSpawn: {fileID: 0}
   tilesNoIssue: []
   ancientdoor: 0
+  layerTilemap:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &4277369633032231344
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +96,7 @@ GameObject:
   - component: {fileID: 7097170427507458880}
   - component: {fileID: 4438091298500632338}
   - component: {fileID: 917330308426606234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2084,7 +2086,7 @@ GameObject:
   - component: {fileID: 358670457972901787}
   - component: {fileID: 3744394797442909187}
   - component: {fileID: 2183234984732962539}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
