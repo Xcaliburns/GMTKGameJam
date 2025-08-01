@@ -3,20 +3,22 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    // Attack properties
-    public bool IsAttacking { get; private set; }
-    public float attackDuration = 0.25f;
+    [Header("Stats attaque")]
+    public GameObject swordPrefab;
+    public float attackDuration = 0.12f;
+    public float attackSpeedMultiplier = 0.3f;
+    public bool isAttacking = false;
     private float attackTimer = 0f;
     private bool attackInput = false;
     private bool currentAttackHasHit = false;
 
-    // Magic properties
+    [Header("Stats magie")]
     public bool IsMagicOnCooldown { get; private set; }
     public float magicCooldown = 0.5f;
     private float magicCooldownTimer = 0f;
     private bool magicProjectileInput = false;
 
-    // Knockback properties
+    [Header("Stats knockback")]
     public float knockbackForce = 1f;
     public float knockbackPushDuration = 0.2f;
     public float knockbackStunDuration = 0.3f;
@@ -24,46 +26,65 @@ public class PlayerController : MonoBehaviour
     private bool isInPushPhase = false;
     private float knockbackTimer = 0f;
 
-    // Movement properties
-    public float moveSpeed = 5f;
+    [Header("Stats déplacement")]
+    public float moveSpeed = 5f;      
+    public float acceleration = 15f;  
+    public float friction = 10f;
 
-    // Resources
+    private Vector2 velocity;         
+    private Vector2 inputDir;
+    private Vector2 lastMoveDir = Vector2.right;
+
+    [Header("Ressources")]
     public int nbrSword = 5;
     public int nbrShield = 5;
     public int nbrMagic = 5;
 
-    // References
+    [Header("Misc")]
     private Rigidbody2D rb;
-    public GameObject swordHitbox;
     public GameObject MagicProjectile;
     public float projectileOffset = 1f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
 
-        if (swordHitbox != null)
+        /*if (swordHitbox != null)
         {
             swordHitbox.SetActive(false);
         }
         else
         {
             Debug.LogWarning("Sword hitbox reference not set in PlayerController!");
-        }
+        }*/
     }
 
     void Update()
     {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        inputDir = new Vector2(moveX, moveY);
+
+        if (inputDir.sqrMagnitude > 0.01f)
+            lastMoveDir = inputDir.normalized;
+
+        if (inputDir.sqrMagnitude > 1f)
+            inputDir.Normalize();
+
+        
+
         HandleInput();
         UpdateTimers();
     }
 
     void FixedUpdate()
     {
-        if (!isKnockedBack)
+        /*if (!isKnockedBack)
         {
             PlayerMovement();
-        }
+        }*/
 
         if (attackInput && !isKnockedBack)
         {
@@ -76,13 +97,34 @@ public class PlayerController : MonoBehaviour
             ShootMagicProjectile();
             magicProjectileInput = false;
         }
+
+        float currentMaxSpeed = isAttacking ? moveSpeed * attackSpeedMultiplier : moveSpeed;
+
+        if (inputDir != Vector2.zero)
+        {
+            velocity = Vector2.MoveTowards(
+                velocity,
+                inputDir * currentMaxSpeed,
+                acceleration * Time.fixedDeltaTime
+            );
+        }
+        else
+        {
+            velocity = Vector2.MoveTowards(
+                velocity,
+                Vector2.zero,
+                friction * Time.fixedDeltaTime
+            );
+        }
+
+        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
 
     void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isKnockedBack)
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking && nbrSword > 0)
         {
-            attackInput = true;
+            StartCoroutine(AttackCoroutine());
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
@@ -93,14 +135,14 @@ public class PlayerController : MonoBehaviour
 
     void UpdateTimers()
     {
-        UpdateAttackTimer();
+        //UpdateAttackTimer();
         UpdateMagicCooldownTimer();
         UpdateKnockbackTimer();
     }
 
     void UpdateAttackTimer()
     {
-        if (IsAttacking)
+        /*if (IsAttacking)
         {
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
@@ -112,7 +154,30 @@ public class PlayerController : MonoBehaviour
                     Debug.Log("Attack ended, hiding sword");
                 }
             }
-        }
+        }*/
+    }
+    private System.Collections.IEnumerator AttackCoroutine()
+    {
+        isAttacking = true;
+
+        GameObject sword = Instantiate(
+            swordPrefab,
+            (Vector2)transform.position + lastMoveDir * 0.8f,
+            Quaternion.identity
+        );
+
+        float angle = Mathf.Atan2(lastMoveDir.y, lastMoveDir.x) * Mathf.Rad2Deg;
+        sword.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        SwordSlash slash = sword.GetComponent<SwordSlash>();
+        if (slash != null)
+            slash.direction = lastMoveDir;
+
+        currentAttackHasHit = false;
+
+        yield return new WaitForSeconds(attackDuration);
+
+        isAttacking = false;
     }
 
     void UpdateMagicCooldownTimer()
@@ -178,15 +243,15 @@ public class PlayerController : MonoBehaviour
 
     void PlayerAttack()
     {
-        if (nbrSword > 0 && !IsAttacking)
+        if (nbrSword > 0 && !isAttacking)
         {
-            IsAttacking = true;
+            isAttacking = true;
             attackTimer = attackDuration;
             currentAttackHasHit = false;
 
-            if (swordHitbox != null)
+            if (swordPrefab != null)
             {
-                swordHitbox.SetActive(true);
+                swordPrefab.SetActive(true);
                 Debug.Log("Attack started, showing sword");
             }
 
@@ -200,7 +265,7 @@ public class PlayerController : MonoBehaviour
 
     public void RegisterSwordHit()
     {
-        if (IsAttacking && !currentAttackHasHit)
+        if (isAttacking && !currentAttackHasHit)
         {
             currentAttackHasHit = true;
             nbrSword--;
