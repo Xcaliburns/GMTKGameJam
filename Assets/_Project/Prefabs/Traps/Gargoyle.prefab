@@ -128,6 +128,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1437162378234265863}
     m_Modifications:
+    - target: {fileID: 1588805138652842570, guid: f0dc5fd68bb6f2141821259e0920254a, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 3090587198166330015, guid: 66094099cd3f7434a88b4736630fa949, type: 3}
     - target: {fileID: 2973752210922034870, guid: f0dc5fd68bb6f2141821259e0920254a, type: 3}
       propertyPath: m_Name
       value: ProjectileSpawner
