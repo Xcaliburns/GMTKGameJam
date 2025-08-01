@@ -44,7 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db08b8bcd9e367443ab1653c5d18594a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3090587198166330015, guid: 34561d0760a69ef47b0eb11c6ec8dee4, type: 3}
-  spawnInterval: 2
+  projectilePrefab: {fileID: 3090587198166330015, guid: 66094099cd3f7434a88b4736630fa949, type: 3}
+  spawnInterval: 1.1
   rotationOffset: 0
+  randomizerDirectionFactor: 3
   synchronizedFiring: 1
+  useSalvo: 0
+  salvoCount: 3
+  salvoDelay: 0.1
