@@ -6,6 +6,7 @@ public class ProjectileSpawner : MonoBehaviour
     public GameObject projectilePrefab; // The projectile prefab to spawn
     public float spawnInterval = 2.0f; // Time interval between spawns
     public float rotationOffset = 0f; // Rotation offset in degrees
+    public float randomizerDirectionFactor = 3f;
     public bool synchronizedFiring = true;
     
     // Salvo parameters
@@ -69,9 +70,11 @@ public class ProjectileSpawner : MonoBehaviour
             Debug.LogWarning("No projectile prefab assigned!");
             return;
         }
-        
+
+        float randomSpread = Random.Range(-randomizerDirectionFactor, randomizerDirectionFactor);
+
         // Combine the parent's current rotation with the rotation offset
-        Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationOffset);
+        Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationOffset + randomSpread);
         GameObject projectile = Instantiate(projectilePrefab, transform.position, rotation);
     }
 }

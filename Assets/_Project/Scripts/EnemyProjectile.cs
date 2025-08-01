@@ -25,7 +25,12 @@ public class EnemyProjectile : MonoBehaviour
             newCollider.radius = 0.25f;
         }
 
-       
+        Vector2 dir = rb.linearVelocity.normalized;
+        if (dir != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     private void Update()
