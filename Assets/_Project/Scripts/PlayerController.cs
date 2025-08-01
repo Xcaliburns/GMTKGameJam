@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float attackSpeedMultiplier = 0.3f;
     public bool isAttacking = false;
     private bool attackInput = false;
+    public bool currentAttackHasHit = false;
 
     [Header("Stats magie")]
     public bool IsMagicOnCooldown { get; private set; }
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool isInPushPhase = false;
     private float knockbackTimer = 0f;
 
-    [Header("Stats déplacement")]
+    [Header("Stats dï¿½placement")]
     public float moveSpeed = 5f;
     public float acceleration = 15f;
     public float friction = 10f;
@@ -159,7 +160,7 @@ public class PlayerController : MonoBehaviour
             if (isInPushPhase && knockbackTimer <= knockbackStunDuration)
             {
                 isInPushPhase = false;
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 Debug.Log("Push phase ended, transitioning to stun phase");
             }
 
@@ -167,7 +168,7 @@ public class PlayerController : MonoBehaviour
             {
                 isKnockedBack = false;
                 isInPushPhase = false;
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 Debug.Log("Knockback ended, player can move again");
             }
         }
@@ -228,7 +229,7 @@ public class PlayerController : MonoBehaviour
         if (rb != null)
         {
             Vector2 knockbackDirection = -hitDirection.normalized;
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
             Debug.Log("Player knocked back in direction: " + knockbackDirection);
         }
@@ -260,5 +261,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogWarning("Magic Projectile prefab reference not set in PlayerController!");
         }
+    }
+
+    public void RegisterSwordHit()
+    {
+        currentAttackHasHit = true;
+        nbrSword--;
+        Debug.Log("Enemy hit! Sword consumed.");
+
+        DavidUIManager.Instance.UpdateUI();
     }
 }
