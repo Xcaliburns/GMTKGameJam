@@ -22,6 +22,7 @@ public class DavidUIManager : MonoBehaviour
 
     public GameObject mainMenuPanel;
     public GameObject gameOverPanel;
+    public GameObject choicePanel;
     public GameObject playerHUD;//icones de vie, mana, etc.
     [Header("important de le desactiver pendant les menus")]
     public GameObject FadeManager;
@@ -58,7 +59,7 @@ public class DavidUIManager : MonoBehaviour
         player.transform.position = StartPosition;
         Debug.Log("StartPosition is set to: " + StartPosition);
 
-    
+
         UpdateUI();
     }
 
@@ -187,6 +188,25 @@ public class DavidUIManager : MonoBehaviour
             Debug.LogError("MainMenu panel n'est pas assigné.");
         }
     }
+    public void QuitGame()
+    {
+        QuitGame();
+    }
 
+    public void AddSwordPoint()
+    {
+        playerController.nbrSword++;
+        choicePanel.SetActive(false);
+    }
+    public void AddShieldPoint()
+    {
+        playerController.nbrShield++;
+        choicePanel.SetActive(false);
+    }
+    public void AddMagicPoint()
+    {
+        playerController.nbrMagic++;
+        choicePanel.SetActive(false);
+    }
 
 }
