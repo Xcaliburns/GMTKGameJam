@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class DavidUIManager : MonoBehaviour
 {
     public static DavidUIManager Instance { get; private set; }
-    
+
     [Header("References")]
     public PlayerController playerController;
     public GameObject player;
-    public Vector2 StartPosition;
+    public Vector3 StartPosition;
 
     [Header("UI Elements")]
     public TextMeshProUGUI swordsText;
@@ -29,17 +29,17 @@ public class DavidUIManager : MonoBehaviour
 
     private void Awake()
     {
-        // Simple singleton pattern without DontDestroyOnLoad
         if (Instance == null)
         {
             Instance = this;
+            Debug.Log("DavidUIManager instance initialized.");
         }
         else if (Instance != this)
         {
             Destroy(gameObject);
         }
     }
-    
+
     void Start()
     {
         // If playerController isn't assigned in the inspector, try to find it
@@ -51,6 +51,7 @@ public class DavidUIManager : MonoBehaviour
         playerController.nbrShield = 5;
         playerController.nbrMagic = 5;
         player.transform.position = StartPosition;
+        Debug.Log("StartPosition is set to: " + StartPosition);
 
         //// Set up button listeners programmatically
         //if (startButton != null)
@@ -83,63 +84,83 @@ public class DavidUIManager : MonoBehaviour
         // Initial UI update
         UpdateUI();
     }
-    
+
     void Update()
     {
         // Update the UI every frame
         UpdateUI();
     }
-    
+
     public void UpdateUI()
     {
         if (playerController != null)
         {
             if (swordsText != null)
                 swordsText.text = "Épées: " + playerController.nbrSword;
-                
+            else
+                Debug.LogError("swordsText is not assigned in DavidUIManager!");
+
             if (shieldsText != null)
                 shieldsText.text = "Boucliers: " + playerController.nbrShield;
+            else
+                Debug.LogError("shieldsText is not assigned in DavidUIManager!");
+
             if (MagicText != null)
                 MagicText.text = "Magie: " + playerController.nbrMagic;
+            else
+                Debug.LogError("MagicText is not assigned in DavidUIManager!");
+        }
+        else
+        {
+            Debug.LogError("PlayerController is not assigned in DavidUIManager!");
         }
     }
-    
+
     public void StartGame()
     {
-        
         if (mainMenuPanel != null)
         {
             Debug.Log("Hiding main menu panel");
-           // FadeManager.SetActive(true);
             mainMenuPanel.SetActive(false);
+
             playerController.nbrSword = 5;
             playerController.nbrShield = 5;
             playerController.nbrMagic = 5;
-            player.transform.position = StartPosition;
+
+            if (player != null)
+            {
+                Debug.Log("Teleporting player to StartPosition: " + StartPosition);
+                player.transform.position = StartPosition;
+            }
+            else
+            {
+                Debug.LogError("Player reference is null in DavidUIManager!");
+            }
         }
         else
         {
             Debug.LogError("Main menu panel is not assigned in DavidUIManager");
         }
     }
-    
+
     public void ExitGame()
     {
         Debug.Log("ExitGame method called!");
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#else
         Application.Quit();
-        #endif
+#endif
     }
 
     public void Testclick()
-    {         Debug.Log("Test click method called!");
-        
+    {
+        Debug.Log("Test click method called!");
+
     }
     public void PlayerDied()
     {
-        //FadeManager.SetActive(false);
+
         gameOverPanel.SetActive(true);
     }
 
@@ -172,4 +193,6 @@ public class DavidUIManager : MonoBehaviour
             Debug.LogError("MainMenu panel n'est pas assigné.");
         }
     }
+
+
 }

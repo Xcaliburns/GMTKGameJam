@@ -197,9 +197,9 @@ public class PlayerController : MonoBehaviour
 
         if (nbrShield > 0)
         {
-            nbrShield--;
+            //nbrShield--;
             Debug.Log("Shield count decreased: " + nbrShield);
-            DavidUIManager.Instance.UpdateUI();
+            DavidUIManager.Instance.UpdateUI(); // Vérifiez que cette ligne est bien exécutée
         }
 
         if (CanDefend())
@@ -270,5 +270,75 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Enemy hit! Sword consumed.");
 
         DavidUIManager.Instance.UpdateUI();
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Trigger detected with: " + other.gameObject.name);
+
+
+        if (other.CompareTag("Pit"))
+        {
+            Debug.Log("Player fell into a pit!");
+            // Call game manager to handle pit fall
+            if (DavidUIManager.Instance != null)
+            {
+                DavidUIManager.Instance.PlayerDied();
+            }
+        }
+        if (other.CompareTag("SpikedTrap") && !isKnockedBack)
+        {
+            if (nbrSword > 0)
+            {
+                nbrMagic--;
+                HandleDamage(Vector2.zero);
+            }
+
+
+            if (other.CompareTag("Enemy") &&  !isKnockedBack)
+            {
+                Vector2 hitDirection = other.transform.position - transform.position;
+                nbrShield--;
+                HandleDamage(hitDirection);
+            }
+        }
+
+        void ShootMagicProjectile()
+        {
+            if (MagicProjectile != null && nbrMagic > 0 && !IsMagicOnCooldown)
+            {
+                Vector3 spawnPosition = transform.position + transform.up * projectileOffset;
+                GameObject projectile = Instantiate(MagicProjectile, spawnPosition, transform.rotation);
+                nbrMagic--;
+
+                IsMagicOnCooldown = true;
+                magicCooldownTimer = magicCooldown;
+                DavidUIManager.Instance.UpdateUI();
+
+                Debug.Log("Magic projectile fired!");
+            }
+            else if (IsMagicOnCooldown)
+            {
+                Debug.Log("Magic on cooldown!");
+            }
+            else if (nbrMagic <= 0)
+            {
+                Debug.Log("Out of magic charges!");
+            }
+            else
+            {
+                Debug.LogWarning("Magic Projectile prefab reference not set in PlayerController!");
+            }
+        }
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log("Collision detected with: " + collision.gameObject.name);
+
+            if (collision.gameObject.CompareTag("Enemy") &&  !isKnockedBack)
+            {
+                Vector2 hitDirection = collision.contacts[0].point - (Vector2)transform.position;
+                nbrShield--;
+                HandleDamage(hitDirection);
+            }
+        }
     }
 }

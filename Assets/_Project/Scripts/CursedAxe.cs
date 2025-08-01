@@ -67,4 +67,18 @@ public class CursedAxe : MonoBehaviour
         Gizmos.DrawSphere(startPoint.position, 0.2f);
         Gizmos.DrawSphere(endPoint.position, 0.2f);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            PlayerController playerController = collision.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                Vector2 hitDirection = transform.position - collision.transform.position;
+                playerController.nbrMagic--; 
+                playerController.HandleDamage(hitDirection); // Assuming HandleDamage handles the damage logic
+                Debug.Log("Cursed Axe hit the player!");
+            }
+        }
+    }
 }

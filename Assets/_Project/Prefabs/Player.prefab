@@ -169,6 +169,7 @@ MonoBehaviour:
   attackDuration: 0.15
   attackSpeedMultiplier: 0.6
   isAttacking: 0
+  currentAttackHasHit: 0
   magicCooldown: 0.5
   knockbackForce: 0
   knockbackPushDuration: 0
@@ -182,3 +183,4 @@ MonoBehaviour:
   nbrMagic: 5
   MagicProjectile: {fileID: 3090587198166330015, guid: 047c6ae5af81dc34baf89ed4e2dc26b2, type: 3}
   projectileOffset: 1
+  invulnerabilityDuration: 0.5
