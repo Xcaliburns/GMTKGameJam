@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
@@ -12,12 +12,17 @@ public class DavidUIManager : MonoBehaviour
     public Vector3 StartPosition;
 
     [Header("UI Elements")]
-    public TextMeshProUGUI swordsText;
-    public TextMeshProUGUI shieldsText;
-    public TextMeshProUGUI MagicText;
+    public Transform swordsContainer;
+    public Transform shieldsContainer;
+    public Transform magicContainer;
+
+    public Sprite swordSprite;
+    public Sprite shieldSprite;
+    public Sprite magicSprite;
 
     public GameObject mainMenuPanel;
     public GameObject gameOverPanel;
+    public GameObject playerHUD;//icones de vie, mana, etc.
     [Header("important de le desactiver pendant les menus")]
     public GameObject FadeManager;
 
@@ -53,35 +58,7 @@ public class DavidUIManager : MonoBehaviour
         player.transform.position = StartPosition;
         Debug.Log("StartPosition is set to: " + StartPosition);
 
-        //// Set up button listeners programmatically
-        //if (startButton != null)
-        //{
-        //    startButton.onClick.AddListener(StartGame);
-        //    Debug.Log("Start button listener added");
-        //}
-        //else
-        //{
-        //    Debug.LogError("Start button reference is missing");
-        //}
-
-        //if (exitButton != null)
-        //{
-        //    exitButton.onClick.AddListener(ExitGame);
-        //    Debug.Log("Exit button listener added");
-        //}
-
-        //// Set up retry button
-        //if (retryButton != null)
-        //{
-        //    retryButton.onClick.AddListener(() => {
-        //        if (DavidGameManager.Instance != null)
-        //        {
-        //            DavidGameManager.Instance.RestartGame();
-        //        }
-        //    });
-        //}
-
-        // Initial UI update
+    
         UpdateUI();
     }
 
@@ -95,24 +72,39 @@ public class DavidUIManager : MonoBehaviour
     {
         if (playerController != null)
         {
-            if (swordsText != null)
-                swordsText.text = "Épées: " + playerController.nbrSword;
-            else
-                Debug.LogError("swordsText is not assigned in DavidUIManager!");
-
-            if (shieldsText != null)
-                shieldsText.text = "Boucliers: " + playerController.nbrShield;
-            else
-                Debug.LogError("shieldsText is not assigned in DavidUIManager!");
-
-            if (MagicText != null)
-                MagicText.text = "Magie: " + playerController.nbrMagic;
-            else
-                Debug.LogError("MagicText is not assigned in DavidUIManager!");
+            UpdateSprites(swordsContainer, swordSprite, playerController.nbrSword);
+            UpdateSprites(shieldsContainer, shieldSprite, playerController.nbrShield);
+            UpdateSprites(magicContainer, magicSprite, playerController.nbrMagic);
         }
         else
         {
             Debug.LogError("PlayerController is not assigned in DavidUIManager!");
+        }
+    }
+
+    private void UpdateSprites(Transform container, Sprite sprite, int count)
+    {
+        // Clear existing sprites
+        foreach (Transform child in container)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Create new UI Images
+        for (int i = 0; i < count; i++)
+        {
+            GameObject newImageObject = new GameObject("Sprite");
+            newImageObject.transform.SetParent(container);
+            newImageObject.transform.localScale = Vector3.one;
+
+            // Add Image component
+            Image image = newImageObject.AddComponent<Image>();
+            image.sprite = sprite;
+
+            // Position the images horizontally
+            RectTransform rectTransform = newImageObject.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = new Vector2(i * 50f, 0); // Adjust spacing as needed
+            rectTransform.sizeDelta = new Vector2(50, 50); // Set size of the sprite
         }
     }
 
@@ -122,6 +114,7 @@ public class DavidUIManager : MonoBehaviour
         {
             Debug.Log("Hiding main menu panel");
             mainMenuPanel.SetActive(false);
+            playerHUD.SetActive(true);
 
             playerController.nbrSword = 5;
             playerController.nbrShield = 5;
@@ -160,12 +153,13 @@ public class DavidUIManager : MonoBehaviour
     }
     public void PlayerDied()
     {
-
+        playerHUD.SetActive(false);
         gameOverPanel.SetActive(true);
     }
 
     public void Retry()
     {
+        playerHUD.SetActive(true);
         gameOverPanel.SetActive(false);
         StartGame();
 
@@ -176,21 +170,21 @@ public class DavidUIManager : MonoBehaviour
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(false);
-            Debug.Log("GameOver panel désactivé.");
+            Debug.Log("GameOver panel dÃ©sactivÃ©.");
         }
         else
         {
-            Debug.LogError("GameOver panel n'est pas assigné.");
+            Debug.LogError("GameOver panel n'est pas assignÃ©.");
         }
 
         if (mainMenuPanel != null)
         {
             mainMenuPanel.SetActive(true);
-            Debug.Log("MainMenu panel activé.");
+            Debug.Log("MainMenu panel activÃ©.");
         }
         else
         {
-            Debug.LogError("MainMenu panel n'est pas assigné.");
+            Debug.LogError("MainMenu panel n'est pas assignÃ©.");
         }
     }
 

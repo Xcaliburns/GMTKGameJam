@@ -1504,9 +1504,12 @@ MonoBehaviour:
   playerController: {fileID: 949129336}
   player: {fileID: 949129335}
   StartPosition: {x: -32.85, y: -7.23, z: 0}
-  swordsText: {fileID: 2109926170}
-  shieldsText: {fileID: 78496736}
-  MagicText: {fileID: 1163089602}
+  swordsContainer: {fileID: 0}
+  shieldsContainer: {fileID: 0}
+  magicContainer: {fileID: 0}
+  swordPrefab: {fileID: 0}
+  shieldPrefab: {fileID: 0}
+  magicPrefab: {fileID: 0}
   mainMenuPanel: {fileID: 635496489}
   gameOverPanel: {fileID: 780447077}
   FadeManager: {fileID: 778978959}
@@ -2907,7 +2910,7 @@ Transform:
   m_GameObject: {fileID: 1539211338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.6763, y: 9.6124, z: -23.35752}
+  m_LocalPosition: {x: -11.94013, y: 9.662401, z: -23.35752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
