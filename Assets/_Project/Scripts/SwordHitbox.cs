@@ -25,7 +25,7 @@ public class SwordHitbox : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Only process collisions during attack
-        if (playerController != null && playerController.IsAttacking && other.CompareTag("Enemy"))
+        if (playerController != null && playerController.isAttacking && other.CompareTag("Enemy"))
         {
             Debug.Log("Sword hit enemy: " + other.gameObject.name);
             playerController.RegisterSwordHit(); // Register the hit with the player controller
