@@ -15,7 +15,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             if (_instance == null)
             {
                 // Cherche une instance existante dans la scène
-                _instance = FindObjectOfType<T>();
+                _instance = FindFirstObjectByType<T>();
 
                 // Si toujours null, créer un nouveau GameObject avec le composant T
                 if (_instance == null)
@@ -35,7 +35,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         if (_instance == null)
         {
             _instance = this as T;
-            DontDestroyOnLoad(gameObject); // Optionnel
+            //DontDestroyOnLoad(gameObject); // Optionnel
         }
         else if (_instance != this)
         {

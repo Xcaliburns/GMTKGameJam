@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: -3759844939184966301, guid: c88e78b4ea0d38249abef834f38fdd17, type: 3}
-  fireRate: 0.05
+  fireRate: 0.1
   rotationSpeed: 100
   nbDirections: 4
   clockwise: 1

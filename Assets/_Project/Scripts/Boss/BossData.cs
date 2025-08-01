@@ -13,7 +13,7 @@ public class BossData : ScriptableObject
     [Header("Bullet Patterns")]
     public float bulletPatternSwitchRate = 3f;
     public bool canSwitchBulletPattern = true;
-    public List<BulletPattern> bulletPaterns;
+    public List<BulletPattern> bulletPatPrefabs;
 
     [Header("Attack Types")]
     public float attackTypeSwitchRate = 3f;

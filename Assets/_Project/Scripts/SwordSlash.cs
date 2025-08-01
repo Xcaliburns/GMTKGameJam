@@ -30,11 +30,23 @@ public class SwordSlash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (playerController != null && other.CompareTag("Enemy"))
+        if (playerController == null) return;
+
+        if (other.CompareTag("Enemy"))
         {
             Debug.Log("Sword hit enemy: " + other.gameObject.name);
             playerController.RegisterSwordHit(); // Register the hit with the player controller
             Destroy(other.gameObject);
         }
+
+        else if (other.CompareTag("Boss"))
+        {
+            if (other.TryGetComponent(out Boss boss))
+            {
+                boss.SwitchPhase();
+                playerController.RegisterSwordHit(); // Register the hit with the player controller
+            }
+        }
+        Debug.Log("Sword hit: " + other.gameObject.name);
     }
 }

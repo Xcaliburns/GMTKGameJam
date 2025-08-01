@@ -10,6 +10,7 @@ TagManager:
   - SwordDamages
   - CursedAxe
   - Limit
+  - Boss
   layers:
   - Default
   - TransparentFX

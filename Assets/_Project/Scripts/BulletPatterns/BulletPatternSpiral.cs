@@ -27,8 +27,11 @@ public class BulletPatternSpiral : BulletPattern
 
             for (int i = 0; i < nbDirections; i++)
             {
-                Bullet bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-                bullet.direction = RotateVector(bullet.transform.right, i * (360f / nbDirections));
+                //float angle = transform.eulerAngles.z + i * (360f / nbDirections);
+                Bullet bullet = BulletPool.Instance.Pool.Get();
+                bullet.transform.position = transform.position;
+                //bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+                bullet.transform.right = RotateVector(transform.right, +i * (360f / nbDirections));
             }
         }
     }

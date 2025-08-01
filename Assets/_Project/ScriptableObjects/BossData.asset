@@ -18,7 +18,8 @@ MonoBehaviour:
   magicPoints: 3
   bulletPatternSwitchRate: 3
   canSwitchBulletPattern: 1
-  bulletPaterns:
+  bulletPatPrefabs:
+  - {fileID: 7191764846624481883, guid: cb4628fc60211c44aa1829b6d30bfd6a, type: 3}
   - {fileID: 7191764846624481883, guid: 8e21c66d0db312d4b91481b1218a60f9, type: 3}
   - {fileID: 7191764846624481883, guid: 3a9e24a42d5e9bd47bd18925535c16d5, type: 3}
   attackTypeSwitchRate: 3
