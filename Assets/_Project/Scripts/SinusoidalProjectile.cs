@@ -70,6 +70,11 @@ public class SinusoidalProjectile : MonoBehaviour
             PlayerController player = other.GetComponent<PlayerController>();
             if (player != null)
             {
+                if(player.isKnockedBack)
+                {
+                    return; // Ignore if player is already knocked back
+                }
+                player.nbrShield--;
                 Vector2 knockbackDirection = (player.transform.position - transform.position).normalized;
                 player.HandleDamage(knockbackDirection);
             }

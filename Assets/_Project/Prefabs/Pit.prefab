@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3086221782657676587}
   - component: {fileID: 6840897675586678406}
   - component: {fileID: 8308086919494629671}
+  - component: {fileID: -4626272096027290472}
   m_Layer: 0
   m_Name: Pit
   m_TagString: Pit
@@ -134,3 +135,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-4626272096027290472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281908030044323174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ca13a9ffbf48842b7a058ea207d455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

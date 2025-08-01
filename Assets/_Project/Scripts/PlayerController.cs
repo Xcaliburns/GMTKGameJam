@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private bool attackInput = false;
     private bool currentAttackHasHit = false;
 
+
     // Magic properties
     public bool IsMagicOnCooldown { get; private set; }
     public float magicCooldown = 0.5f;
@@ -37,6 +38,13 @@ public class PlayerController : MonoBehaviour
     public GameObject swordHitbox;
     public GameObject MagicProjectile;
     public float projectileOffset = 1f;
+
+    public bool IsPlayerAlive { get; private set; } = true;
+
+    // Invulnerability properties
+    public float invulnerabilityDuration = 0.5f;
+    private bool isInvulnerable = false;
+    private float invulnerabilityTimer = 0f;
 
     void Start()
     {
@@ -76,6 +84,10 @@ public class PlayerController : MonoBehaviour
             ShootMagicProjectile();
             magicProjectileInput = false;
         }
+        if (nbrShield < 0 || nbrMagic <0)
+        {
+            DavidUIManager.Instance.PlayerDied();
+        }
     }
 
     void HandleInput()
@@ -96,6 +108,7 @@ public class PlayerController : MonoBehaviour
         UpdateAttackTimer();
         UpdateMagicCooldownTimer();
         UpdateKnockbackTimer();
+        UpdateInvulnerabilityTimer();
     }
 
     void UpdateAttackTimer()
@@ -157,6 +170,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void UpdateInvulnerabilityTimer()
+    {
+        if (isInvulnerable)
+        {
+            invulnerabilityTimer -= Time.deltaTime;
+            if (invulnerabilityTimer <= 0)
+            {
+                isInvulnerable = false;
+                Debug.Log("Player is no longer invulnerable");
+            }
+        }
+    }
+
     void PlayerMovement()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -187,10 +213,8 @@ public class PlayerController : MonoBehaviour
             if (swordHitbox != null)
             {
                 swordHitbox.SetActive(true);
-                Debug.Log("Attack started, showing sword");
-            }
 
-            Debug.Log("Player attacks with a sword!");
+            }
         }
         else if (nbrSword <= 0)
         {
@@ -204,22 +228,34 @@ public class PlayerController : MonoBehaviour
         {
             currentAttackHasHit = true;
             nbrSword--;
-            Debug.Log("Enemy hit! Sword consumed.");
+
             DavidUIManager.Instance.UpdateUI();
         }
     }
 
-   public bool CanDefend()
+    public bool CanDefend()
     {
         return nbrShield > 0 && !isKnockedBack;
     }
 
-   public void PlayerDefend(Vector2 hitDirection)
+    public void PlayerDefend(Vector2 hitDirection)
     {
-        if (!CanDefend()) return;
-       
+        if (!CanDefend())
+        {
+            if (IsPlayerAlive)
+            {
+                Debug.Log("Player is dead!");
+                IsPlayerAlive = false;
+                // Call game manager to handle player death
+                if (DavidUIManager.Instance != null)
+                {
+                    DavidUIManager.Instance.PlayerDied();
+                }
+            }
+        }
+
         DavidUIManager.Instance.UpdateUI();
-        
+
         isKnockedBack = true;
         isInPushPhase = true;
         knockbackTimer = knockbackPushDuration + knockbackStunDuration;
@@ -235,14 +271,24 @@ public class PlayerController : MonoBehaviour
 
     public void HandleDamage(Vector2 hitDirection)
     {
+        if (isInvulnerable)
+        {
+            Debug.Log("Player is invulnerable, ignoring damage");
+            return;
+        }
+
         if (CanDefend())
         {
             PlayerDefend(hitDirection);
         }
         else
         {
-            Debug.Log("Player is dead!");
+            DavidUIManager.Instance.PlayerDied();
         }
+
+        // Activer l'invulnérabilité
+        isInvulnerable = true;
+        invulnerabilityTimer = invulnerabilityDuration;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -260,7 +306,7 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Trigger detected with: " + other.gameObject.name);
-        
+
         if (other.CompareTag("SpikedTrap") && !isKnockedBack)
         {
             if (nbrSword > 0) nbrSword--;
@@ -280,6 +326,11 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("Pit"))
         {
             Debug.Log("Player fell into a pit!");
+            // Call game manager to handle pit fall
+            if (DavidUIManager.Instance != null)
+            {
+                DavidUIManager.Instance.PlayerDied();
+            }
         }
         else if (other.CompareTag("Enemy") && other.gameObject.GetComponent<Collider2D>() == GetComponent<Collider2D>() && !isKnockedBack)
         {

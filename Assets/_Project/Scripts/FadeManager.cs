@@ -27,8 +27,8 @@ public class FadeManager : Singleton<FadeManager>
             canvasObj.transform.SetParent(transform);
             canvas = canvasObj.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.sortingOrder = 999; // Make sure it renders on top
-            
+            canvas.sortingOrder = -1; // not positive to ensure it renders behind other UI elements
+
             // Add required components
             canvasObj.AddComponent<CanvasScaler>();
             canvasObj.AddComponent<GraphicRaycaster>();

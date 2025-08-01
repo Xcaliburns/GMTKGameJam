@@ -8,18 +8,24 @@ public class DavidUIManager : MonoBehaviour
     
     [Header("References")]
     public PlayerController playerController;
-    
+    public GameObject player;
+    public Vector2 StartPosition;
+
     [Header("UI Elements")]
     public TextMeshProUGUI swordsText;
     public TextMeshProUGUI shieldsText;
     public TextMeshProUGUI MagicText;
 
     public GameObject mainMenuPanel;
-    
+    public GameObject gameOverPanel;
+    [Header("important de le desactiver pendant les menus")]
+    public GameObject FadeManager;
+
     // Add button references
     [Header("Buttons")]
     public Button startButton;
     public Button exitButton;
+    public Button retryButton;
 
     private void Awake()
     {
@@ -39,26 +45,41 @@ public class DavidUIManager : MonoBehaviour
         // If playerController isn't assigned in the inspector, try to find it
         if (playerController == null)
         {
-            playerController = FindObjectOfType<PlayerController>();
+            playerController = FindFirstObjectByType<PlayerController>();
         }
-        
-        // Set up button listeners programmatically
-        if (startButton != null)
-        {
-            startButton.onClick.AddListener(StartGame);
-            Debug.Log("Start button listener added");
-        }
-        else
-        {
-            Debug.LogError("Start button reference is missing");
-        }
-        
-        if (exitButton != null)
-        {
-            exitButton.onClick.AddListener(ExitGame);
-            Debug.Log("Exit button listener added");
-        }
-        
+        playerController.nbrSword = 5;
+        playerController.nbrShield = 5;
+        playerController.nbrMagic = 5;
+        player.transform.position = StartPosition;
+
+        //// Set up button listeners programmatically
+        //if (startButton != null)
+        //{
+        //    startButton.onClick.AddListener(StartGame);
+        //    Debug.Log("Start button listener added");
+        //}
+        //else
+        //{
+        //    Debug.LogError("Start button reference is missing");
+        //}
+
+        //if (exitButton != null)
+        //{
+        //    exitButton.onClick.AddListener(ExitGame);
+        //    Debug.Log("Exit button listener added");
+        //}
+
+        //// Set up retry button
+        //if (retryButton != null)
+        //{
+        //    retryButton.onClick.AddListener(() => {
+        //        if (DavidGameManager.Instance != null)
+        //        {
+        //            DavidGameManager.Instance.RestartGame();
+        //        }
+        //    });
+        //}
+
         // Initial UI update
         UpdateUI();
     }
@@ -85,11 +106,16 @@ public class DavidUIManager : MonoBehaviour
     
     public void StartGame()
     {
-        Debug.Log("StartGame method called!");
+        
         if (mainMenuPanel != null)
         {
             Debug.Log("Hiding main menu panel");
+           // FadeManager.SetActive(true);
             mainMenuPanel.SetActive(false);
+            playerController.nbrSword = 5;
+            playerController.nbrShield = 5;
+            playerController.nbrMagic = 5;
+            player.transform.position = StartPosition;
         }
         else
         {
@@ -105,5 +131,45 @@ public class DavidUIManager : MonoBehaviour
         #else
         Application.Quit();
         #endif
+    }
+
+    public void Testclick()
+    {         Debug.Log("Test click method called!");
+        
+    }
+    public void PlayerDied()
+    {
+        //FadeManager.SetActive(false);
+        gameOverPanel.SetActive(true);
+    }
+
+    public void Retry()
+    {
+        gameOverPanel.SetActive(false);
+        StartGame();
+
+    }
+
+    public void GoToMainMenu()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+            Debug.Log("GameOver panel désactivé.");
+        }
+        else
+        {
+            Debug.LogError("GameOver panel n'est pas assigné.");
+        }
+
+        if (mainMenuPanel != null)
+        {
+            mainMenuPanel.SetActive(true);
+            Debug.Log("MainMenu panel activé.");
+        }
+        else
+        {
+            Debug.LogError("MainMenu panel n'est pas assigné.");
+        }
     }
 }

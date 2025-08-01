@@ -52,23 +52,23 @@ public class EnemyProjectile : MonoBehaviour
         // Special handling for player hits
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Enemy projectile hit player");
+            //Debug.Log("Enemy projectile hit player");
             if (playerController != null && !playerController.isKnockedBack)
             {
                 Vector2 hitDirection = transform.position - collision.transform.position;
 
-                if (playerController.nbrShield > 0)
-                {
-                    playerController.nbrShield--;
-                    DavidUIManager.Instance.UpdateUI();
+                //    if (playerController.nbrShield > 0)
+                //    {
+                      playerController.nbrShield--;
+                //        DavidUIManager.Instance.UpdateUI();
 
-                }
+                //    }
 
                 playerController.HandleDamage(hitDirection);
                 Destroy(gameObject);
-               
-            }
 
+
+            }
             //  Destroy(gameObject);
             return;
         }
