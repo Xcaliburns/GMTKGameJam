@@ -1,8 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
-public class DavidUIManager : Singleton<DavidUIManager>
+public class DavidUIManager : MonoBehaviour
 {
+    public static DavidUIManager Instance { get; private set; }
+    
     [Header("References")]
     public PlayerController playerController;
     
@@ -11,12 +14,24 @@ public class DavidUIManager : Singleton<DavidUIManager>
     public TextMeshProUGUI shieldsText;
     public TextMeshProUGUI MagicText;
 
+    public GameObject mainMenuPanel;
     
-    // Override the Awake method from Singleton
-    protected override void Awake()
+    // Add button references
+    [Header("Buttons")]
+    public Button startButton;
+    public Button exitButton;
+
+    private void Awake()
     {
-        // Call the base implementation to ensure singleton functionality
-        base.Awake();
+        // Simple singleton pattern without DontDestroyOnLoad
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
     
     void Start()
@@ -25,6 +40,23 @@ public class DavidUIManager : Singleton<DavidUIManager>
         if (playerController == null)
         {
             playerController = FindObjectOfType<PlayerController>();
+        }
+        
+        // Set up button listeners programmatically
+        if (startButton != null)
+        {
+            startButton.onClick.AddListener(StartGame);
+            Debug.Log("Start button listener added");
+        }
+        else
+        {
+            Debug.LogError("Start button reference is missing");
+        }
+        
+        if (exitButton != null)
+        {
+            exitButton.onClick.AddListener(ExitGame);
+            Debug.Log("Exit button listener added");
         }
         
         // Initial UI update
@@ -49,5 +81,29 @@ public class DavidUIManager : Singleton<DavidUIManager>
             if (MagicText != null)
                 MagicText.text = "Magie: " + playerController.nbrMagic;
         }
+    }
+    
+    public void StartGame()
+    {
+        Debug.Log("StartGame method called!");
+        if (mainMenuPanel != null)
+        {
+            Debug.Log("Hiding main menu panel");
+            mainMenuPanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Main menu panel is not assigned in DavidUIManager");
+        }
+    }
+    
+    public void ExitGame()
+    {
+        Debug.Log("ExitGame method called!");
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
     }
 }

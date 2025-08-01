@@ -19,13 +19,13 @@ public class EnemyProjectile : MonoBehaviour
         Collider2D collider = GetComponent<Collider2D>();
         if (collider == null)
         {
-            Debug.LogWarning("No collider found on projectile - adding one");
+           
             CircleCollider2D newCollider = gameObject.AddComponent<CircleCollider2D>();
             newCollider.isTrigger = true;
             newCollider.radius = 0.25f;
         }
 
-        Debug.Log($"Enemy projectile spawned at {transform.position} with velocity {rb.linearVelocity}");
+       
     }
 
     private void Update()
@@ -45,7 +45,7 @@ public class EnemyProjectile : MonoBehaviour
         // Don't destroy when hitting other enemies
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy projectile passing through: " + collision.gameObject.name);
+          
             return;
         }
 
@@ -66,7 +66,7 @@ public class EnemyProjectile : MonoBehaviour
 
                 playerController.HandleDamage(hitDirection);
                 Destroy(gameObject);
-                Debug.Log(collision.name);
+               
             }
 
             //  Destroy(gameObject);
