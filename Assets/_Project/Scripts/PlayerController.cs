@@ -8,9 +8,7 @@ public class PlayerController : MonoBehaviour
     public float attackDuration = 0.12f;
     public float attackSpeedMultiplier = 0.3f;
     public bool isAttacking = false;
-    private float attackTimer = 0f;
     private bool attackInput = false;
-    private bool currentAttackHasHit = false;
 
     [Header("Stats magie")]
     public bool IsMagicOnCooldown { get; private set; }
@@ -27,11 +25,11 @@ public class PlayerController : MonoBehaviour
     private float knockbackTimer = 0f;
 
     [Header("Stats déplacement")]
-    public float moveSpeed = 5f;      
-    public float acceleration = 15f;  
+    public float moveSpeed = 5f;
+    public float acceleration = 15f;
     public float friction = 10f;
 
-    private Vector2 velocity;         
+    private Vector2 velocity;
     private Vector2 inputDir;
     private Vector2 lastMoveDir = Vector2.right;
 
@@ -56,15 +54,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-
-        /*if (swordHitbox != null)
-        {
-            swordHitbox.SetActive(false);
-        }
-        else
-        {
-            Debug.LogWarning("Sword hitbox reference not set in PlayerController!");
-        }*/
     }
 
     void Update()
@@ -80,22 +69,22 @@ public class PlayerController : MonoBehaviour
         if (inputDir.sqrMagnitude > 1f)
             inputDir.Normalize();
 
-        
-
         HandleInput();
         UpdateTimers();
     }
 
     void FixedUpdate()
     {
-        /*if (!isKnockedBack)
+        if (!isKnockedBack)
         {
-            PlayerMovement();
-        }*/
+            velocity = Vector2.Lerp(velocity, inputDir * moveSpeed, acceleration * Time.fixedDeltaTime);
+            velocity = Vector2.Lerp(velocity, Vector2.zero, friction * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        }
 
         if (attackInput && !isKnockedBack)
         {
-            PlayerAttack();
+            //PlayerAttack();
             attackInput = false;
         }
 
@@ -104,9 +93,6 @@ public class PlayerController : MonoBehaviour
             ShootMagicProjectile();
             magicProjectileInput = false;
         }
-    }
-
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
 
     void HandleInput()
@@ -124,29 +110,12 @@ public class PlayerController : MonoBehaviour
 
     void UpdateTimers()
     {
-        //UpdateAttackTimer();
         UpdateMagicCooldownTimer();
         UpdateKnockbackTimer();
         UpdateInvulnerabilityTimer();
     }
 
-    void UpdateAttackTimer()
-    {
-        /*if (IsAttacking)
-        {
-            attackTimer -= Time.deltaTime;
-            if (attackTimer <= 0)
-            {
-                IsAttacking = false;
-                if (swordHitbox != null)
-                {
-                    swordHitbox.SetActive(false);
-                    Debug.Log("Attack ended, hiding sword");
-                }
-            }
-        }*/
-    }
-    private System.Collections.IEnumerator AttackCoroutine()
+    private IEnumerator AttackCoroutine()
     {
         isAttacking = true;
 
@@ -162,8 +131,6 @@ public class PlayerController : MonoBehaviour
         SwordSlash slash = sword.GetComponent<SwordSlash>();
         if (slash != null)
             slash.direction = lastMoveDir;
-
-        currentAttackHasHit = false;
 
         yield return new WaitForSeconds(attackDuration);
 
@@ -192,21 +159,15 @@ public class PlayerController : MonoBehaviour
             if (isInPushPhase && knockbackTimer <= knockbackStunDuration)
             {
                 isInPushPhase = false;
-                if (rb != null)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                    Debug.Log("Push phase ended, transitioning to stun phase");
-                }
+                rb.velocity = Vector2.zero;
+                Debug.Log("Push phase ended, transitioning to stun phase");
             }
 
             if (knockbackTimer <= 0)
             {
                 isKnockedBack = false;
                 isInPushPhase = false;
-                if (rb != null)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                }
+                rb.velocity = Vector2.zero;
                 Debug.Log("Knockback ended, player can move again");
             }
         }
@@ -225,100 +186,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PlayerMovement()
-    {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-
-        if (movement.magnitude > 0.1f)
-        {
-            if (movement.magnitude > 1f)
-            {
-                movement.Normalize();
-            }
-
-            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-            transform.Translate(new Vector3(0, moveSpeed * Time.deltaTime, 0), Space.Self);
-        }
-    }
-
-    void PlayerAttack()
-    {
-        if (nbrSword > 0 && !isAttacking)
-        {
-            isAttacking = true;
-            attackTimer = attackDuration;
-            currentAttackHasHit = false;
-
-            if (swordPrefab != null)
-            {
-                swordHitbox.SetActive(true);
-                Debug.Log("Attack started, showing sword");
-            }
-
-            }
-        }
-        else if (nbrSword <= 0)
-        {
-            Debug.Log("No swords left to attack!");
-        }
-    }
-
-    public void RegisterSwordHit()
-    {
-        if (isAttacking && !currentAttackHasHit)
-        {
-            currentAttackHasHit = true;
-            nbrSword--;
-
-            DavidUIManager.Instance.UpdateUI();
-        }
-    }
-
-    public bool CanDefend()
-    {
-        return nbrShield > 0 && !isKnockedBack;
-    }
-
-    public void PlayerDefend(Vector2 hitDirection)
-    {
-        if (!CanDefend())
-        {
-            if (IsPlayerAlive)
-            {
-                Debug.Log("Player is dead!");
-                IsPlayerAlive = false;
-                // Call game manager to handle player death
-                if (DavidUIManager.Instance != null)
-                {
-                    DavidUIManager.Instance.PlayerDied();
-                }
-            }
-        }
-
-        DavidUIManager.Instance.UpdateUI();
-
-        isKnockedBack = true;
-        isInPushPhase = true;
-        knockbackTimer = knockbackPushDuration + knockbackStunDuration;
-
-        if (rb != null)
-        {
-            Vector2 knockbackDirection = -hitDirection.normalized;
-            rb.linearVelocity = Vector2.zero;
-            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-            Debug.Log("Player knocked back in direction: " + knockbackDirection);
-        }
-    }
-
     public void HandleDamage(Vector2 hitDirection)
     {
         if (isInvulnerable)
         {
             Debug.Log("Player is invulnerable, ignoring damage");
             return;
+        }
+
+        if (nbrShield > 0)
+        {
+            nbrShield--;
+            Debug.Log("Shield count decreased: " + nbrShield);
+            DavidUIManager.Instance.UpdateUI();
         }
 
         if (CanDefend())
@@ -330,57 +210,27 @@ public class PlayerController : MonoBehaviour
             DavidUIManager.Instance.PlayerDied();
         }
 
-        // Activer l'invulnérabilité
         isInvulnerable = true;
         invulnerabilityTimer = invulnerabilityDuration;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public bool CanDefend()
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
-
-        if (collision.gameObject.CompareTag("Enemy") && collision.collider.gameObject == this.gameObject && !isKnockedBack)
-        {
-            Vector2 hitDirection = collision.contacts[0].point - (Vector2)transform.position;
-            nbrShield--;
-            HandleDamage(hitDirection);
-        }
+        return nbrShield > 0 && !isKnockedBack;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void PlayerDefend(Vector2 hitDirection)
     {
-        Debug.Log("Trigger detected with: " + other.gameObject.name);
+        isKnockedBack = true;
+        isInPushPhase = true;
+        knockbackTimer = knockbackPushDuration + knockbackStunDuration;
 
-        if (other.CompareTag("SpikedTrap") && !isKnockedBack)
+        if (rb != null)
         {
-            if (nbrSword > 0) nbrSword--;
-            if (CanDefend()) PlayerDefend(Vector2.zero);
-            DavidUIManager.Instance.UpdateUI();
-        }
-        else if (other.CompareTag("CursedAxe") && !isKnockedBack)
-        {
-            Vector2 hitDirection = other.transform.position - transform.position;
-            if (nbrSword > 0)
-            {
-                nbrSword--;
-                DavidUIManager.Instance.UpdateUI();
-            }
-            if (CanDefend()) PlayerDefend(hitDirection);
-        }
-        else if (other.CompareTag("Pit"))
-        {
-            Debug.Log("Player fell into a pit!");
-            // Call game manager to handle pit fall
-            if (DavidUIManager.Instance != null)
-            {
-                DavidUIManager.Instance.PlayerDied();
-            }
-        }
-        else if (other.CompareTag("Enemy") && other.gameObject.GetComponent<Collider2D>() == GetComponent<Collider2D>() && !isKnockedBack)
-        {
-            Vector2 hitDirection = other.transform.position - transform.position;
-            nbrShield--;
-            HandleDamage(hitDirection);
+            Vector2 knockbackDirection = -hitDirection.normalized;
+            rb.velocity = Vector2.zero;
+            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            Debug.Log("Player knocked back in direction: " + knockbackDirection);
         }
     }
 
