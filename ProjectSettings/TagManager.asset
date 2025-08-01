@@ -9,6 +9,7 @@ TagManager:
   - SpikedTrap
   - SwordDamages
   - CursedAxe
+  - Limit
   layers:
   - Default
   - TransparentFX

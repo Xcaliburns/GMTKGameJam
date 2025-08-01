@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ProjectileSpawner : MonoBehaviour
 {
@@ -6,8 +7,14 @@ public class ProjectileSpawner : MonoBehaviour
     public float spawnInterval = 2.0f; // Time interval between spawns
     public float rotationOffset = 0f; // Rotation offset in degrees
     public bool synchronizedFiring = true;
+    
+    // Salvo parameters
+    public bool useSalvo = false;
+    public int salvoCount = 3;
+    public float salvoDelay = 0.1f;
 
     private float timer = 0f;
+    private bool firingInProgress = false;
     
     void Start()
     {
@@ -20,15 +27,39 @@ public class ProjectileSpawner : MonoBehaviour
 
     void Update()
     {
-        // Increment timer
-        timer += Time.deltaTime;
+        // Only increment timer if not already firing a salvo
+        if (!firingInProgress)
+        {
+            // Increment timer
+            timer += Time.deltaTime;
+            
+            // Check if it's time to spawn a projectile
+            if (timer >= spawnInterval)
+            {
+                if (useSalvo)
+                {
+                    StartCoroutine(FireSalvo());
+                }
+                else
+                {
+                    SpawnProjectile();
+                }
+                timer = 0f; // Reset timer
+            }
+        }
+    }
+    
+    IEnumerator FireSalvo()
+    {
+        firingInProgress = true;
         
-        // Check if it's time to spawn a projectile
-        if (timer >= spawnInterval)
+        for (int i = 0; i < salvoCount; i++)
         {
             SpawnProjectile();
-            timer = 0f; // Reset timer
+            yield return new WaitForSeconds(salvoDelay);
         }
+        
+        firingInProgress = false;
     }
     
     void SpawnProjectile()
@@ -42,8 +73,5 @@ public class ProjectileSpawner : MonoBehaviour
         // Combine the parent's current rotation with the rotation offset
         Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationOffset);
         GameObject projectile = Instantiate(projectilePrefab, transform.position, rotation);
-        
-        // The EnemyProjectile script handles its own movement in its Update method
-        // using Vector2.up * speed * Time.deltaTime
     }
 }

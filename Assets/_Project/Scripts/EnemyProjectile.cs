@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public float speed = 10f;
-    float lifetime ;
+    float lifetime;
     public float lifetimeMax = 5f;
     private PlayerController playerController;
     private Rigidbody2D rb;
@@ -11,7 +11,7 @@ public class EnemyProjectile : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, lifetimeMax); 
+        Destroy(gameObject, lifetimeMax);
         playerController = FindFirstObjectByType<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -23,7 +23,7 @@ public class EnemyProjectile : MonoBehaviour
             CircleCollider2D newCollider = gameObject.AddComponent<CircleCollider2D>();
             newCollider.isTrigger = true;
             newCollider.radius = 0.25f;
-        }    
+        }
 
         Debug.Log($"Enemy projectile spawned at {transform.position} with velocity {rb.linearVelocity}");
     }
@@ -31,7 +31,7 @@ public class EnemyProjectile : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
-      
+
     }
 
 
@@ -40,7 +40,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
+
 
         // Don't destroy when hitting other enemies
         if (collision.gameObject.CompareTag("Enemy"))
@@ -73,8 +73,14 @@ public class EnemyProjectile : MonoBehaviour
             return;
         }
 
-        // Destroy on all other collisions (including walls)
-        Debug.Log($"Enemy projectile hit: {collision.gameObject.name}, Tag: {collision.gameObject.tag}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}");
-       
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Destroy the projectile when it exits any collider
+        if (collision.gameObject.CompareTag("Limit"))
+        {
+
+            Destroy(gameObject);
+        }
     }
 }
