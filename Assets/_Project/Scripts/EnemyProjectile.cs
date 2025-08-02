@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemyProjectile : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class EnemyProjectile : MonoBehaviour
                 Vector2 hitDirection = transform.position - collision.transform.position;
 
                 playerController.nbrShield--;
+                playerController.audioSource.PlayOneShot(playerController.shieldBreakSound);
                 // Appeler HandleDamage pour gérer les dégâts et l'invulnérabilité
                 playerController.HandleDamage(hitDirection);
 
