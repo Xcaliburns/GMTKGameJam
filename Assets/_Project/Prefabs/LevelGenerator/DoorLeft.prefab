@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1147514198187313931}
   - component: {fileID: 6284925895815140740}
   - component: {fileID: 5360092273003159953}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,9 +759,12 @@ MonoBehaviour:
   - {fileID: 6653448224692017977, guid: aa8951834fddaf24a9ffb2c8db2d1d69, type: 3}
   - {fileID: 745854828886229492, guid: bc5d93071a828e04b940fdcacdd85b6d, type: 3}
   - {fileID: 3886819589357735654, guid: 8bdf92090a638d647a83f625a23337a9, type: 3}
-  - {fileID: 674242539249587680, guid: 30589e3b9db366b41ad335a635ead714, type: 3}
   - {fileID: 4093344814199832342, guid: bd286454e5e24ce468aca4c35e3d27d5, type: 3}
   - {fileID: 4286664862423161962, guid: 11115c1a4802ebc47be605eba2c173e6, type: 3}
+  - {fileID: 9155795805862846003, guid: cd108a1a0662d1c44b59ef14fe036075, type: 3}
+  - {fileID: 8297265382725519985, guid: 684a25453d349e2459d648b7a2486350, type: 3}
+  - {fileID: 8257347008429199401, guid: 4a3362ee611652f46b652827f4045e13, type: 3}
+  - {fileID: 8015240897206312021, guid: f526b902c68e6e44d817558423ae339d, type: 3}
   nextTiles: []
   nextTileChoosed: 
   typeOfTile: 8
@@ -774,6 +777,10 @@ MonoBehaviour:
   layerTilemap:
     serializedVersion: 2
     m_Bits: 64
+  layerWallTileMap:
+    serializedVersion: 2
+    m_Bits: 128
+  taskdelay: 2
 --- !u!1 &7266262556549235040
 GameObject:
   m_ObjectHideFlags: 0
