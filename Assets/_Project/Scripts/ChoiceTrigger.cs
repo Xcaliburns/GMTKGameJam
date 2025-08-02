@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class ChoiceTrigger : MonoBehaviour
 {
     public GameObject choicePanel; // Référence au panneau de choix
+    private float previousTimeScale; // Pour stocker l'échelle de temps précédente
     
     private void Start()
     {
@@ -12,6 +13,12 @@ public class ChoiceTrigger : MonoBehaviour
         {
             Debug.LogError("Le panneau de choix n'est pas assigné sur " + gameObject.name);
         }
+        
+        // S'assurer que le panneau est désactivé au démarrage
+        if (choicePanel != null)
+        {
+            choicePanel.SetActive(false);
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,8 +26,6 @@ public class ChoiceTrigger : MonoBehaviour
         // Vérifie si l'objet qui entre en collision est le joueur
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Joueur détecté par le trigger");
-            
             // Vérifier que le panneau est valide
             if (choicePanel == null)
             {
@@ -28,20 +33,22 @@ public class ChoiceTrigger : MonoBehaviour
                 return;
             }
             
-            int nbrChoice = Random.Range(1, 4); // Génère un nombre aléatoire entre 1 et 3
+            // Pause le jeu
+            PauseGame();
+            
+            int nbrChoice = Random.Range(1, 4); 
             Debug.Log("Nombre de choix à afficher: " + nbrChoice);
             
             // Active le panneau de choix
             choicePanel.SetActive(true);
             
-            // Vérifie si le panneau a des enfants
             if (choicePanel.transform.childCount == 0)
             {
                 Debug.LogError("Le panneau de choix n'a pas d'enfants (boutons)!");
+                ResumeGame();
                 return;
             }
             
-            // Crée une liste des boutons disponibles
             List<GameObject> allButtons = new List<GameObject>();
             for (int i = 0; i < choicePanel.transform.childCount; i++)
             {
@@ -51,10 +58,8 @@ public class ChoiceTrigger : MonoBehaviour
                 Debug.Log("Bouton trouvé: " + button.name);
             }
             
-            // Mélange la liste pour une sélection aléatoire
             ShuffleList(allButtons);
             
-            // Active seulement le nombre de boutons requis
             for (int i = 0; i < nbrChoice && i < allButtons.Count; i++)
             {
                 allButtons[i].SetActive(true);
@@ -74,5 +79,26 @@ public class ChoiceTrigger : MonoBehaviour
             list[k] = list[n];
             list[n] = value;
         }
+    }
+    
+    private void PauseGame()
+    {
+        // Sauvegarder l'échelle de temps actuelle
+        previousTimeScale = Time.timeScale;
+        // Mettre l'échelle de temps à 0 pour arrêter le jeu
+        Time.timeScale = 0f;
+        Debug.Log("Jeu en pause");
+    }
+    
+    public void ResumeGame()
+    {
+        // Restaurer l'échelle de temps précédente
+        Time.timeScale = previousTimeScale;
+        // Désactiver le panneau de choix
+        if (choicePanel != null)
+        {
+            choicePanel.SetActive(false);
+        }
+        Debug.Log("Jeu repris");
     }
 }

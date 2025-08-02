@@ -197,16 +197,19 @@ public class DavidUIManager : MonoBehaviour
     {
         playerController.nbrSword++;
         choicePanel.SetActive(false);
+        Time.timeScale = 1f; // Resume the game
     }
     public void AddShieldPoint()
     {
         playerController.nbrShield++;
         choicePanel.SetActive(false);
+        Time.timeScale = 1f;
     }
     public void AddMagicPoint()
     {
         playerController.nbrMagic++;
         choicePanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 }
