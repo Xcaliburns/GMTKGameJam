@@ -45,7 +45,6 @@ public class SwordSlash : MonoBehaviour
             if (other.TryGetComponent(out Boss boss))
             {
                 boss.SwitchPhase();
-                playerController.RegisterSwordHit(); // Register the hit with the player controller
             }
         }
         Debug.Log("Sword hit: " + other.gameObject.name);

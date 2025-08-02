@@ -8,6 +8,8 @@ public class BossState
     public Coroutine attackCoroutine;
     public int phase;
     public int shieldPoints, swordPoints, magicPoints;
+    public AttackType currAttackType;
+    public bool requiem;
     public BossState(BossData data)
     {
         phase = data.phase;
