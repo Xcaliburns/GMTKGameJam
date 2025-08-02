@@ -4,7 +4,7 @@ public class MusicMenuManager : MonoBehaviour
 {
     public AudioSource audiosource;
     public AudioClip[] musiquesMenu;
-    private int numberOfMusicMenu;
+    public int numberOfMusicMenu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

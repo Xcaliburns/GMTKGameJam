@@ -18,6 +18,7 @@ public class LevelGenerator : MonoBehaviour
     public LayerMask tilemapLayer;
     public bool spawnLastRoomBoss, isSpawning;
     public GameObject uiLoadingScreen;
+    public GameObject player;
     private void Awake()
     {
         if (Instance == null)
@@ -48,6 +49,7 @@ public class LevelGenerator : MonoBehaviour
 
             }
             await DetectNoIssueFarRoom();
+            player.GetComponent<PlayerController>().blockinputs = false;
             Destroy(uiLoadingScreen);
             SpawnIsFinish = true;
             isSpawning = false; // optionnel ici, car ça ne doit plus rerentrer de toute façon

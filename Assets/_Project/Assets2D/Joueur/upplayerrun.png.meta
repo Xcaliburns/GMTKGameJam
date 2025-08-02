@@ -1,61 +1,34 @@
 fileFormatVersion: 2
-guid: 4f7be8b78b9aac247acf2c70028b084f
+guid: 8e80c8174040da949acca9391fe99d3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1783518081659188481
-    second: warriorsheet_0
+      213: -1128260853783317957
+    second: upplayerrun_0
   - first:
-      213: -8490327733241656157
-    second: warriorsheet_1
+      213: -944833211203014142
+    second: upplayerrun_1
   - first:
-      213: -4142955894120403764
-    second: warriorsheet_2
+      213: -8314619952646391372
+    second: upplayerrun_2
   - first:
-      213: -166928543509060671
-    second: warriorsheet_3
+      213: 2427171636338371429
+    second: upplayerrun_3
   - first:
-      213: 8342783480187108665
-    second: warriorsheet_4
+      213: 2445506003484005088
+    second: upplayerrun_4
   - first:
-      213: 3148062877284905568
-    second: warriorsheet_5
+      213: -5543754597682377393
+    second: upplayerrun_5
   - first:
-      213: -4442923236884607580
-    second: warriorsheet_6
+      213: -114882584333500787
+    second: upplayerrun_6
   - first:
-      213: 4392516418015385149
-    second: warriorsheet_7
+      213: -9041000306825642395
+    second: upplayerrun_7
   - first:
-      213: -5870390820800391184
-    second: warriorsheet_8
-  - first:
-      213: 2352068689656828848
-    second: warriorsheet_9
-  - first:
-      213: 6319220698685928921
-    second: warriorsheet_10
-  - first:
-      213: -405672079084981990
-    second: warriorsheet_11
-  - first:
-      213: 1916812187342697915
-    second: warriorsheet_12
-  - first:
-      213: 1240878765483731226
-    second: warriorsheet_13
-  - first:
-      213: 8518959460957284246
-    second: warriorsheet_14
-  - first:
-      213: -8033402477424446154
-    second: warriorsheet_15
-  - first:
-      213: 3751627662300142221
-    second: warriorsheet_16
-  - first:
-      213: 1722265925040460488
-    second: warriorsheet_17
+      213: -2766705144252551426
+    second: upplayerrun_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -88,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -177,14 +150,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: warriorsheet_5
+      name: upplayerrun_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 825
-        width: 230
-        height: 403
-      alignment: 7
+        x: 106
+        y: 1242
+        width: 200
+        height: 397
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -192,21 +165,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 062392bf18a20bb20800000000000000
-      internalID: 3148062877284905568
+      spriteID: b3234443bbc9750f0800000000000000
+      internalID: -1128260853783317957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_7
+      name: upplayerrun_1
       rect:
         serializedVersion: 2
-        x: 1069
-        y: 824
-        width: 369
-        height: 500
-      alignment: 7
+        x: 486
+        y: 1220
+        width: 225
+        height: 406
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -214,206 +187,162 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d36d0edd86a55fc30800000000000000
-      internalID: 4392516418015385149
+      spriteID: 202b04a433743e2f0800000000000000
+      internalID: -944833211203014142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_8
+      name: upplayerrun_2
       rect:
         serializedVersion: 2
-        x: 2071
-        y: 831
-        width: 558
-        height: 592
-      alignment: 9
-      pivot: {x: 0.350998, y: 0}
+        x: 733
+        y: 1356
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f79a71b6ae288ea0800000000000000
-      internalID: -5870390820800391184
+      spriteID: 4b9f220b4398c9c80800000000000000
+      internalID: -8314619952646391372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_9
+      name: upplayerrun_3
       rect:
         serializedVersion: 2
-        x: 3292
-        y: 824
-        width: 522
-        height: 779
+        x: 879
+        y: 1209
+        width: 221
+        height: 398
       alignment: 9
-      pivot: {x: 0.2109137, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b3505ee20a34a020800000000000000
-      internalID: 2352068689656828848
+      spriteID: 56b2ad85ebb0fa120800000000000000
+      internalID: 2427171636338371429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_10
+      name: upplayerrun_4
       rect:
         serializedVersion: 2
-        x: 4597
-        y: 827
-        width: 378
-        height: 833
+        x: 1244
+        y: 1224
+        width: 262
+        height: 402
       alignment: 9
-      pivot: {x: -0.11217551, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d5787aaeb162b750800000000000000
-      internalID: 6319220698685928921
+      spriteID: 0e2dfb9d0ce20f120800000000000000
+      internalID: 2445506003484005088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_11
+      name: upplayerrun_5
       rect:
         serializedVersion: 2
-        x: 5746
-        y: 830
-        width: 392
-        height: 728
+        x: 1656
+        y: 1239
+        width: 229
+        height: 395
       alignment: 9
-      pivot: {x: -0.0533522, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1178d6b463ce5af0800000000000000
-      internalID: -405672079084981990
+      spriteID: f4d0433c090a013b0800000000000000
+      internalID: -5543754597682377393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_14
+      name: upplayerrun_6
       rect:
         serializedVersion: 2
-        x: 808
-        y: 59
-        width: 369
-        height: 701
+        x: 2054
+        y: 1219
+        width: 226
+        height: 406
       alignment: 9
-      pivot: {x: -0.15599029, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4bc55a4dad4112c41a20192140dcf0ce
-      internalID: 1319117087
+      spriteID: d8e3ce1f5ead76ef0800000000000000
+      internalID: -114882584333500787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_15
+      name: upplayerrun_7
       rect:
         serializedVersion: 2
-        x: 1951
-        y: 53
-        width: 405
-        height: 446
+        x: 116
+        y: 439
+        width: 226
+        height: 395
       alignment: 9
-      pivot: {x: -0.00021149391, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 482165a22d61cc042aa42932ea654d1c
-      internalID: -1323603022
+      spriteID: 56eb5794f1ae78280800000000000000
+      internalID: -9041000306825642395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_16
+      name: upplayerrun_8
       rect:
         serializedVersion: 2
-        x: 3151
-        y: 50
-        width: 369
-        height: 293
+        x: 507
+        y: 445
+        width: 222
+        height: 402
       alignment: 9
-      pivot: {x: -0.19948274, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d1fb2b560da3cf344838f1f8978dc9a6
-      internalID: -799114972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: warriorsheet_17
-      rect:
-        serializedVersion: 2
-        x: 4318
-        y: 38
-        width: 366
-        height: 311
-      alignment: 9
-      pivot: {x: -0.21500918, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03ffc5581443f2b40bb4bfe410ccbdfb
-      internalID: 37276264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: warriorsheet_18
-      rect:
-        serializedVersion: 2
-        x: 5482
-        y: 44
-        width: 477
-        height: 305
-      alignment: 9
-      pivot: {x: -0.16887058, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5612008d8549264a8b57ce705e38ea8
-      internalID: 17369003
+      spriteID: efea4967450ba99d0800000000000000
+      internalID: -2766705144252551426
       vertices: []
       indices: 
       edges: []
@@ -422,7 +351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 874431c4aa832604086f97fc2cad4d48
+    spriteID: 7cb04967b54b899468a6158d47710624
     internalID: 0
     vertices: []
     indices: 
@@ -430,29 +359,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      warriorsheet_0: 1783518081659188481
-      warriorsheet_1: -8490327733241656157
-      warriorsheet_10: 6319220698685928921
-      warriorsheet_11: -405672079084981990
-      warriorsheet_12: -949658893
-      warriorsheet_13: 915090891
-      warriorsheet_14: 1319117087
-      warriorsheet_15: -1323603022
-      warriorsheet_16: -799114972
-      warriorsheet_17: 37276264
-      warriorsheet_18: 17369003
-      warriorsheet_2: -4142955894120403764
-      warriorsheet_3: -166928543509060671
-      warriorsheet_4: 8342783480187108665
-      warriorsheet_5: 3148062877284905568
-      warriorsheet_6: -4442923236884607580
-      warriorsheet_7: 4392516418015385149
-      warriorsheet_8: -5870390820800391184
-      warriorsheet_9: 2352068689656828848
+      upplayerrun_0: -1128260853783317957
+      upplayerrun_1: -944833211203014142
+      upplayerrun_2: -8314619952646391372
+      upplayerrun_3: 2427171636338371429
+      upplayerrun_4: 2445506003484005088
+      upplayerrun_5: -5543754597682377393
+      upplayerrun_6: -114882584333500787
+      upplayerrun_7: -9041000306825642395
+      upplayerrun_8: -2766705144252551426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -11,6 +11,12 @@ public class PlayerController : MonoBehaviour
     private bool attackInput = false;
     public bool currentAttackHasHit = false;
 
+    [Header("BlockInputs")]
+    public bool blockinputs;
+    [Header("Movements")]
+    public float moveX;
+    public float moveY;
+
     [Header("Stats magie")]
     public bool IsMagicOnCooldown { get; private set; }
     public float magicCooldown = 0.5f;
@@ -30,7 +36,7 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 15f;
     public float friction = 10f;
 
-    private Vector2 velocity;
+    public Vector2 velocity;
     private Vector2 inputDir;
     private Vector2 lastMoveDir = Vector2.right;
 
@@ -76,8 +82,29 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        if (!blockinputs)
+        {
+             moveX = Input.GetAxisRaw("Horizontal");
+             moveY = Input.GetAxisRaw("Vertical");
+
+            if (Mathf.Floor(moveY) > 0f)
+            {
+                GetComponent<Animator>().SetFloat("Move", 1);
+            }
+            if (Mathf.Floor(moveX) > 0f)
+            {
+                GetComponent<Animator>().SetFloat("Move", 0);
+            }
+            if (Mathf.Floor(moveX) < 0f)
+            {
+                GetComponent<Animator>().SetFloat("Move", 0.25f);
+            }
+            if (Mathf.Floor(moveX) == 0f && Mathf.Floor(moveY) == 0f)
+            {
+                GetComponent<Animator>().SetFloat("Move", 0.5f);
+            }
+        }
+        
 
         inputDir = new Vector2(moveX, moveY);
 
@@ -98,6 +125,7 @@ public class PlayerController : MonoBehaviour
             velocity = Vector2.Lerp(velocity, inputDir * moveSpeed, acceleration * Time.fixedDeltaTime);
             velocity = Vector2.Lerp(velocity, Vector2.zero, friction * Time.fixedDeltaTime);
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+           
         }
 
         if (attackInput && !isKnockedBack)
@@ -117,6 +145,8 @@ public class PlayerController : MonoBehaviour
 
     void HandleInput()
     {
+        if (blockinputs) { return; }
+
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking && nbrSword > 0)
         {
             StartCoroutine(AttackCoroutine());
