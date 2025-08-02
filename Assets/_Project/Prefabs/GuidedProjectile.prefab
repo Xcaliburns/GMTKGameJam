@@ -168,3 +168,4 @@ MonoBehaviour:
   speed: 2
   lifetimeMax: 6
   rotationSpeed: 2
+  animationPrefab: {fileID: 3602733174871278386, guid: fca9aa9a49adb164b8c545b86d235a67, type: 3}

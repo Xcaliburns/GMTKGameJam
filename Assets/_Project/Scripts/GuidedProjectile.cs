@@ -10,6 +10,8 @@ public class GuidedProjectile : MonoBehaviour
     private Rigidbody2D rb;
     private float lifetime;
     private Vector3 velocity;
+    public GameObject animationPrefab;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,4 +84,13 @@ public class GuidedProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+ 
+        void OnDestroy()
+        {
+            GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
+            fx.transform.SetParent(null); // détaché du parent
+        }
+
+   
 }

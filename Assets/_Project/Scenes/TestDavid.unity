@@ -1441,6 +1441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
+      propertyPath: shieldBreakSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 94f6735d8d9fa1d4c99bcdbc14069ff5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3435,7 +3439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973752210922034870, guid: f0dc5fd68bb6f2141821259e0920254a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586664718511190730, guid: f0dc5fd68bb6f2141821259e0920254a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5147,7 +5151,7 @@ Transform:
   m_GameObject: {fileID: 1539211338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.94013, y: 9.662401, z: -23.35752}
+  m_LocalPosition: {x: -32.6763, y: 9.6124, z: -23.35752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6953,10 +6957,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2114491349}
     - target: {fileID: 2180259867648781767, guid: c4dd8c4ce80b79e41a0f2c7ee7905d18, type: 3}
-      propertyPath: magicSprite
-      value: 
-      objectReference: {fileID: 5856220077824354575, guid: 86cc1512beb489a499599daed160d81b, type: 3}
-    - target: {fileID: 2180259867648781767, guid: c4dd8c4ce80b79e41a0f2c7ee7905d18, type: 3}
       propertyPath: retryButton
       value: 
       objectReference: {fileID: 673520982}
@@ -6964,14 +6964,6 @@ PrefabInstance:
       propertyPath: startButton
       value: 
       objectReference: {fileID: 1174241491}
-    - target: {fileID: 2180259867648781767, guid: c4dd8c4ce80b79e41a0f2c7ee7905d18, type: 3}
-      propertyPath: swordSprite
-      value: 
-      objectReference: {fileID: -6706166778979548459, guid: aa50049cdab2fd14b96274818cb0f97c, type: 3}
-    - target: {fileID: 2180259867648781767, guid: c4dd8c4ce80b79e41a0f2c7ee7905d18, type: 3}
-      propertyPath: shieldSprite
-      value: 
-      objectReference: {fileID: 7878951576011287232, guid: aa9ab8fb5dde64b4db4d01e702bfd155, type: 3}
     - target: {fileID: 2180259867648781767, guid: c4dd8c4ce80b79e41a0f2c7ee7905d18, type: 3}
       propertyPath: gameOverPanel
       value: 
@@ -7228,10 +7220,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 606371521}
-    - target: {fileID: 615778609689967879, guid: 427bf9e298f46624183278feb2978efc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2045736079318083574, guid: 427bf9e298f46624183278feb2978efc, type: 3}
       propertyPath: m_Name
       value: Canvas
