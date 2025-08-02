@@ -2717,7 +2717,7 @@ MonoBehaviour:
   creditsPanel: {fileID: 1905691826}
   creditsText: {fileID: 1125078587}
   slidervolume: {fileID: 200427101}
-  nameOfScenePlay: AgamarLevelGenerator
+  nameOfScenePlay: KeromasScene
   buttonPlay: {fileID: 901903636}
 --- !u!1 &1433061998
 GameObject:

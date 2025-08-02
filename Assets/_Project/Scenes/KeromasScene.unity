@@ -127,26 +127,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 615778609689967879, guid: 427bf9e298f46624183278feb2978efc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2045736079318083574, guid: 427bf9e298f46624183278feb2978efc, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2045736079318083574, guid: 427bf9e298f46624183278feb2978efc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4413120107677998444, guid: 427bf9e298f46624183278feb2978efc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1333174443}
-    - target: {fileID: 4413120107677998444, guid: 427bf9e298f46624183278feb2978efc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
-      objectReference: {fileID: 0}
     - target: {fileID: 4747995811689901560, guid: 427bf9e298f46624183278feb2978efc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -235,18 +223,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1333174443}
-    - target: {fileID: 5536247783278065863, guid: 427bf9e298f46624183278feb2978efc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
     - target: {fileID: 8485911616841363649, guid: 427bf9e298f46624183278feb2978efc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1333174443}
-    - target: {fileID: 8485911616841363649, guid: 427bf9e298f46624183278feb2978efc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Retry
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

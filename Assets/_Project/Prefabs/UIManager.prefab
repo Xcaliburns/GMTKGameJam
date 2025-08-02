@@ -46,13 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   player: {fileID: 0}
-  StartPosition: {x: -32.85, y: -7.23, z: 0}
+  StartPosition: {x: 0, y: 0, z: 0}
   swordsContainer: {fileID: 0}
   shieldsContainer: {fileID: 0}
   magicContainer: {fileID: 0}
   swordSprite: {fileID: -6706166778979548459, guid: aa50049cdab2fd14b96274818cb0f97c, type: 3}
   shieldSprite: {fileID: 7878951576011287232, guid: aa9ab8fb5dde64b4db4d01e702bfd155, type: 3}
-  magicSprite: {fileID: 5856220077824354575, guid: 86cc1512beb489a499599daed160d81b, type: 3}
+  magicSprite: {fileID: -8495506653360166795, guid: 8ade43dd61d61a6488d1188bd47faf9b, type: 3}
   mainMenuPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
   choicePanel: {fileID: 0}

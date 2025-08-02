@@ -58,7 +58,7 @@ public class SpikedTrap : MonoBehaviour
         }
         sr.sprite = frames[2];
 
-        UpdateTrapColor(Color.red);
+        UpdateTrapColor(Color.white);
     }
     
     void DeactivateSpikes()
@@ -68,7 +68,7 @@ public class SpikedTrap : MonoBehaviour
         spikesExtended = false;
         sr.sprite = frames[0];
 
-        UpdateTrapColor(Color.green);
+        UpdateTrapColor(Color.white);
     }
     
     void UpdateTrapColor(Color color)

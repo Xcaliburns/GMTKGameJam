@@ -100,14 +100,19 @@ public class DavidUIManager : MonoBehaviour
             newImageObject.transform.SetParent(container);
             newImageObject.transform.localScale = Vector3.one;
 
-            // Add Image component
             Image image = newImageObject.AddComponent<Image>();
             image.sprite = sprite;
 
-            // Position the images horizontally
+            Vector2 spriteSize = sprite.rect.size;
+
+            float ppu = sprite.pixelsPerUnit;
+
+            Vector2 sizeInUnits = spriteSize / ppu;
+            float offsetX = i * sizeInUnits.x;
+
             RectTransform rectTransform = newImageObject.GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = new Vector2(i * 50f, 0); // Adjust spacing as needed
-            rectTransform.sizeDelta = new Vector2(50, 50); // Set size of the sprite
+            rectTransform.anchoredPosition = new Vector2(offsetX * 38, 0);
+            rectTransform.sizeDelta = sizeInUnits * 38;
         }
     }
 

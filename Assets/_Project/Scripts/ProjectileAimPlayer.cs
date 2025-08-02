@@ -53,4 +53,14 @@ public class ProjectileAimPlayer : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Destroy the projectile when it exits any collider
+        if (collision.gameObject.CompareTag("Limit"))
+        {
+
+            Destroy(gameObject);
+        }
+    }
 }

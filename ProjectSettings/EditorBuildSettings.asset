@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/AgamarLevelGenerator.unity
     guid: 6bcf32f84ca4f824c998ef9876a26f28
+  - enabled: 1
+    path: Assets/_Project/Scenes/KeromasScene.unity
+    guid: 016de5b9b80a9904fa72820d5ebe4f4f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
