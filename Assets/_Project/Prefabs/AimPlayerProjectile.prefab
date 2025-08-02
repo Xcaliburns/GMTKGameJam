@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8352329962695305834}
   - component: {fileID: 1610982247167201020}
   - component: {fileID: 4464103217464528535}
+  - component: {fileID: 7281527700589275633}
   m_Layer: 0
   m_Name: AimPlayerProjectile
   m_TagString: Enemy
@@ -167,3 +168,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &7281527700589275633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508176473586508105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33558b0f5c96a2489c864d5ec15d850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
