@@ -7,6 +7,7 @@ public class ProjectileAimPlayer : MonoBehaviour
 
     private Rigidbody2D rb;
     private PlayerController playerController;
+    public GameObject animationPrefab;
 
     void Start()
     {
@@ -62,5 +63,10 @@ public class ProjectileAimPlayer : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+    void OnDestroy()
+    {
+        GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
+        fx.transform.SetParent(null); // détaché du parent
     }
 }

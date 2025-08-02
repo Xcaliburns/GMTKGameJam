@@ -59,7 +59,7 @@ public class DavidUIManager : MonoBehaviour
         player.transform.position = StartPosition;
         Debug.Log("StartPosition is set to: " + StartPosition);
         // mettre le jeu en pause au démarrage
-        Time.timeScale = 0f; // Pause the game at the start
+       // Time.timeScale = 0f; // Pause the game at the start
 
 
         UpdateUI();

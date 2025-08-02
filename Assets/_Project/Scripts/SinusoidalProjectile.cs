@@ -6,7 +6,9 @@ public class SinusoidalProjectile : MonoBehaviour
     public float lifetimeMax = 15f;
     public float amplitude = 1f;     // How wide the sine wave is
     public float frequency = 2f;     // How many oscillations per second
+    public GameObject animationPrefab;
     
+
     private PlayerController playerController;
     private Rigidbody2D rb;
     private float lifetime;
@@ -90,5 +92,10 @@ public class SinusoidalProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    void OnDestroy()
+    {
+        GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
+        fx.transform.SetParent(null); // détaché du parent
     }
 }

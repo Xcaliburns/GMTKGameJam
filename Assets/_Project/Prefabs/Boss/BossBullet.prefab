@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetimeMax: 2
+  animationPrefab: {fileID: 3602733174871278386, guid: fca9aa9a49adb164b8c545b86d235a67, type: 3}
 --- !u!114 &6048718428420469438
 MonoBehaviour:
   m_ObjectHideFlags: 0

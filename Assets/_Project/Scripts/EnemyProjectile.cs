@@ -8,7 +8,7 @@ public class EnemyProjectile : MonoBehaviour
     public float lifetimeMax = 5f;
     private PlayerController playerController;
     private Rigidbody2D rb;
-
+    public GameObject animationPrefab;
 
     void Start()
     {
@@ -82,5 +82,10 @@ public class EnemyProjectile : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+    void OnDestroy()
+    {
+        GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
+        fx.transform.SetParent(null); // détaché du parent
     }
 }

@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
     [SerializeField] float lifetimeMax = 5f;
+    public GameObject animationPrefab;
 
     float lifeTime;
 
@@ -54,4 +55,10 @@ public class Bullet : MonoBehaviour
             BulletPool.Instance.Pool.ReturnToPool(this);
         }
     }
+    void OnDestroy()
+    {
+        GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
+        fx.transform.SetParent(null); // détaché du parent
+    }
+
 }

@@ -171,6 +171,7 @@ MonoBehaviour:
   lifetimeMax: 5
   amplitude: 15.2
   frequency: 1.5
+  animationPrefab: {fileID: 3602733174871278386, guid: fca9aa9a49adb164b8c545b86d235a67, type: 3}
 --- !u!114 &617429513801759985
 MonoBehaviour:
   m_ObjectHideFlags: 0

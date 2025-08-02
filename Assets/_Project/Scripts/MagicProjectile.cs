@@ -6,7 +6,9 @@ public class MagicProjectile : MonoBehaviour
 
     public float speed = 10f; // Speed of the projectile
     public float lifetime = 5f; // How long the projectile lasts before being destroyed
+    public GameObject animationPrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         Destroy(gameObject, lifetime); // Destroy the projectile after its lifetime
@@ -26,5 +28,11 @@ public class MagicProjectile : MonoBehaviour
             Destroy(collision.gameObject); // Destroy the enemy on collision
             Destroy(gameObject); // Destroy the projectile on collision
         }
+    }
+
+    void OnDestroy()
+    {
+        GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
+        fx.transform.SetParent(null); // détaché du parent
     }
 }
