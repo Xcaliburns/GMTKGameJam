@@ -1195,7 +1195,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 5.85
+    OrthographicSize: 5.01
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1730,6 +1730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3519868236851642379}
   - component: {fileID: 3091147692739417379}
+  - component: {fileID: 7466049629697323865}
   m_Layer: 0
   m_Name: Rm_All_Doors_0
   m_TagString: Untagged
@@ -1747,8 +1748,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8600001, y: 0.8600001, z: 0.8600001}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1580787791061651120}
   - {fileID: 3807647376126252985}
@@ -1825,6 +1826,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7466049629697323865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078599108249372442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af17ef4fb6b4b1d4993591a92a2009e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefs:
+  - {fileID: 2380571447915201465, guid: 56ac1e4cbc86dd146b09cb0fedd3efa8, type: 3}
+  - {fileID: 4163127230714715543, guid: fc744964337ac204d9d6be52d730e874, type: 3}
+  - {fileID: 7294962288231305415, guid: 195782d4358b4694fa63efc473222fe7, type: 3}
+  - {fileID: 4170268272134237976, guid: bfbaa4f9d84f6c24ca44a2dec1bcaaa1, type: 3}
+  - {fileID: 1283274595003165135, guid: c898282246b50634fb7f222baec441eb, type: 3}
+  - {fileID: 2616702166270570671, guid: 8c742d79898ff9a45a271c403dfdfff0, type: 3}
+  - {fileID: 6653448224692017977, guid: aa8951834fddaf24a9ffb2c8db2d1d69, type: 3}
+  - {fileID: 745854828886229492, guid: bc5d93071a828e04b940fdcacdd85b6d, type: 3}
+  - {fileID: 3886819589357735654, guid: 8bdf92090a638d647a83f625a23337a9, type: 3}
+  - {fileID: 4093344814199832342, guid: bd286454e5e24ce468aca4c35e3d27d5, type: 3}
+  - {fileID: 4286664862423161962, guid: 11115c1a4802ebc47be605eba2c173e6, type: 3}
+  - {fileID: 9155795805862846003, guid: cd108a1a0662d1c44b59ef14fe036075, type: 3}
+  - {fileID: 8297265382725519985, guid: 684a25453d349e2459d648b7a2486350, type: 3}
+  - {fileID: 8257347008429199401, guid: 4a3362ee611652f46b652827f4045e13, type: 3}
+  - {fileID: 8015240897206312021, guid: f526b902c68e6e44d817558423ae339d, type: 3}
+  nextTiles: []
+  nextTileChoosed: 
+  typeOfTile: 11
+  lastTile: {fileID: 0}
+  tilesChoosed: []
+  RandomTileMap: 0
+  tileToSpawn: {fileID: 0}
+  tilesNoIssue: []
+  ancientdoor: 0
+  layerTilemap:
+    serializedVersion: 2
+    m_Bits: 64
+  layerWallTileMap:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7917537562255746694
 GameObject:
   m_ObjectHideFlags: 0

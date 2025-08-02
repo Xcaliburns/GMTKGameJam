@@ -74,6 +74,7 @@ public class SinusoidalProjectile : MonoBehaviour
                 {
                     return; // Ignore if player is already knocked back
                 }
+                playerController.audioSource.PlayOneShot(playerController.shieldBreakSound);
                 playerController.nbrShield--;
                 Vector2 knockbackDirection = (player.transform.position - transform.position).normalized;
                 player.HandleDamage(knockbackDirection);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GuidedProjectile : MonoBehaviour
 {
@@ -61,8 +62,10 @@ public class GuidedProjectile : MonoBehaviour
         {
             // Deal damage or apply effects to player
             PlayerController player = other.GetComponent<PlayerController>();
-            if (player != null)
+            if (player != null && !playerController.isKnockedBack)
             {
+                playerController.audioSource.PlayOneShot(playerController.shieldBreakSound);
+                player.nbrShield--;
                 Vector2 knockbackDirection = (player.transform.position - transform.position).normalized;
                 player.HandleDamage(knockbackDirection);
             }

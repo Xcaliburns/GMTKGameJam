@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     [Header("Misc")]
     private Rigidbody2D rb;
     public GameObject MagicProjectile;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public float projectileOffset = 1f;
 
     [Header("Player Sounds")]
@@ -213,8 +213,7 @@ public class PlayerController : MonoBehaviour
 
         if (nbrShield > 0)
         {
-            //nbrShield--;
-            Debug.Log("Shield count decreased: " + nbrShield);
+           
             DavidUIManager.Instance.UpdateUI(); // Vérifiez que cette ligne est bien exécutée
         }
 
@@ -316,6 +315,7 @@ public class PlayerController : MonoBehaviour
 
             if (other.CompareTag("Enemy") &&  !isKnockedBack)
             {
+              
                 Vector2 hitDirection = other.transform.position - transform.position;
                 nbrShield--;
                 HandleDamage(hitDirection);
