@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 600
-  moveSpeed: 0.1
+  moveSpeed: 0.6
   startPoint: {fileID: 1245253783701743563}
   endPoint: {fileID: 4882606522049485263}
   showPath: 1
