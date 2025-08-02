@@ -10,7 +10,7 @@ public class NextTilemap : MonoBehaviour
     public List<string> nextTiles;
     public string nextTileChoosed;
     public enum TypeOfTile {DoorUp,DoorDown,DoorRightUp,DoorUpAndDown,DoorRightUpDown,DoorLeftUpDown, DoorLeft,DoorRight,LeftNoIssue,RightNoIssue
-            ,UpNoIssue,DownNoIssue,DoorLeftAndRight, DoorUpAndRight, DoorUpAndLeft,CampFire,Begin,DoorLeftAndDown, DoorRightAndDown,DoorUpLeftRight,DoorDownLeftRight };
+            ,UpNoIssue,DownNoIssue,DoorLeftAndRight, DoorUpAndRight, DoorUpAndLeft,CampFire,Begin,DoorLeftAndDown, DoorRightAndDown,DoorUpLeftRight,DoorDownLeftRight,DoorAllDirections};
     public TypeOfTile typeOfTile;
     public GameObject lastTile;
    [HideInInspector] public List<GameObject> tilesChoosed;
@@ -47,7 +47,8 @@ public class NextTilemap : MonoBehaviour
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndLeft|| aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndDown);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndDown
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(+18, 0, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x - 18, transform.position.y), 1f, layerTilemap))
@@ -59,6 +60,7 @@ public class NextTilemap : MonoBehaviour
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightAndDown
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections
                    );
                     await testBeforeSpawnTilemap(-18, 0, new List<GameObject>(tilesChoosed));
                 }
@@ -74,7 +76,8 @@ public class NextTilemap : MonoBehaviour
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndLeft
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(+18, 0, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 10), 1f, layerTilemap))
@@ -82,7 +85,8 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndDown
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, 10, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 10), 1f, layerTilemap))
@@ -91,7 +95,8 @@ public class NextTilemap : MonoBehaviour
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, -10, new List<GameObject>(tilesChoosed));
                 }
                 
@@ -105,7 +110,8 @@ public class NextTilemap : MonoBehaviour
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndLeft
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(+18, 0, new List<GameObject>(tilesChoosed));
                 }
                 
@@ -115,7 +121,8 @@ public class NextTilemap : MonoBehaviour
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, -10, new List<GameObject>(tilesChoosed));
                 }
                 
@@ -128,7 +135,8 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight ||
                      aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
-                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight);
+                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(-18, 0, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 10), 1f, layerTilemap))
@@ -136,7 +144,8 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndDown
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, 10, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 10), 1f, layerTilemap))
@@ -145,7 +154,8 @@ public class NextTilemap : MonoBehaviour
                       || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, -10, new List<GameObject>(tilesChoosed));
                 }
                 
@@ -158,7 +168,8 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight ||
                      aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
-                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight);
+                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(-18, 0, new List<GameObject>(tilesChoosed));
                 }
                
@@ -168,7 +179,8 @@ public class NextTilemap : MonoBehaviour
                       || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, -10, new List<GameObject>(tilesChoosed));
                 }
                 
@@ -181,7 +193,8 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
-                  || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
+                  || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, 10, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x + 18f, transform.position.y), 1f, layerTilemap))
@@ -190,7 +203,8 @@ public class NextTilemap : MonoBehaviour
                      || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndLeft
                     || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
-                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(18, 0, new List<GameObject>(tilesChoosed));
                 }
                 break;
@@ -206,7 +220,8 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndDown
                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                  || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
-                 || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
+                 || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, 10, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x - 18f, transform.position.y), 1f, layerTilemap))
@@ -216,7 +231,8 @@ public class NextTilemap : MonoBehaviour
                  || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                  || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight 
                  || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
-                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(-18f, 0, new List<GameObject>(tilesChoosed));
                 }
 
@@ -244,7 +260,8 @@ public class NextTilemap : MonoBehaviour
                 {
                     tilesChoosed = tilePrefs.FindAll(aaz =>  aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                  || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
-                 || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
+                 || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(0, 10,new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 10), 1f, layerTilemap))
@@ -253,7 +270,8 @@ public class NextTilemap : MonoBehaviour
                       || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                    await testBeforeSpawnTilemap(0,-10, new List<GameObject>(tilesChoosed));
                 }
                 break;
@@ -262,7 +280,9 @@ public class NextTilemap : MonoBehaviour
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 10), 1f, layerTilemap))
                 {
                     tilesChoosed = tilePrefs.FindAll(aaz =>  aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
-                 || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown);
+                 || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
                     await testBeforeSpawnTilemap(0, 10,new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x+18, transform.position.y), 1f, layerTilemap))
@@ -270,7 +290,8 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndDown
                       || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                    await testBeforeSpawnTilemap(18,0, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x-18, transform.position.y), 1f, layerTilemap))
@@ -279,7 +300,8 @@ public class NextTilemap : MonoBehaviour
                       || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                    await testBeforeSpawnTilemap(-18,0, new List<GameObject>(tilesChoosed));
                 }
                 break;
@@ -291,7 +313,8 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndDown
                       || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(18, 0, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x - 18, transform.position.y), 1f, layerTilemap))
@@ -300,7 +323,8 @@ public class NextTilemap : MonoBehaviour
                       || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
                     await testBeforeSpawnTilemap(-18, 0, new List<GameObject>(tilesChoosed));
                 }
                 if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 10), 1f, layerTilemap))
@@ -308,7 +332,47 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
                       || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
-                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight);
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
+                   await testBeforeSpawnTilemap(0,-10, new List<GameObject>(tilesChoosed));
+                }
+                break;
+                case TypeOfTile.DoorAllDirections:
+
+                if (!Physics2D.OverlapCircle(new Vector2(transform.position.x + 18, transform.position.y), 1f, layerTilemap))
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndDown
+                      || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
+                    await testBeforeSpawnTilemap(18, 0, new List<GameObject>(tilesChoosed));
+                }
+                if (!Physics2D.OverlapCircle(new Vector2(transform.position.x - 18, transform.position.y), 1f, layerTilemap))
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightAndDown
+                      || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
+                    await testBeforeSpawnTilemap(-18, 0, new List<GameObject>(tilesChoosed));
+                }
+                if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 10), 1f, layerTilemap))
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
+                      || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUp
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
+                   await testBeforeSpawnTilemap(0,-10, new List<GameObject>(tilesChoosed));
+                }
+                if (!Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 10), 1f, layerTilemap))
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown
+              || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown
+                || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections
+                || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
                    await testBeforeSpawnTilemap(0,-10, new List<GameObject>(tilesChoosed));
                 }
                 break;
@@ -322,7 +386,8 @@ public class NextTilemap : MonoBehaviour
         tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeft || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndLeft
                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
-                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
 
         RandomTileMap = Random.Range(0, tilesChoosed.Count);
         tileToSpawn = Instantiate(tilesChoosed[RandomTileMap], new Vector2(transform.position.x + 18f, transform.position.y), Quaternion.identity);
@@ -339,7 +404,8 @@ public class NextTilemap : MonoBehaviour
         tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRight
        || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight
        || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight
-                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                    || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight
+                   || aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorAllDirections);
         RandomTileMap = Random.Range(0, tilesChoosed.Count);
         tileToSpawn = Instantiate(tilesChoosed[RandomTileMap], new Vector2(transform.position.x - 18f, transform.position.y), Quaternion.identity);
         tileToSpawn.GetComponent<NextTilemap>().ancientdoor = ancientDoor.left;
@@ -415,6 +481,12 @@ public class NextTilemap : MonoBehaviour
                                !Physics2D.Raycast(origin, Vector2.left, 10, layerWallTileMap) &&
                                !Physics2D.Raycast(origin, Vector2.right, 10, layerWallTileMap);
                     break;
+                case TypeOfTile.DoorAllDirections:
+                    canSpawn = !Physics2D.Raycast(origin, Vector2.up, 7, layerWallTileMap) &&
+                               !Physics2D.Raycast(origin, Vector2.down, 7, layerWallTileMap) &&
+                               !Physics2D.Raycast(origin, Vector2.left, 10, layerWallTileMap) &&
+                               !Physics2D.Raycast(origin, Vector2.right, 10, layerWallTileMap);
+                    break;
 
                 // Ajoute ici d'autres cas si tu en as besoin
 
@@ -448,9 +520,129 @@ public class NextTilemap : MonoBehaviour
     {
         switch (typeOfTile)
         {
+            case TypeOfTile.DoorAllDirections:
+               bool left = Physics2D.Raycast(transform.position, Vector2.left, 10, layerWallTileMap);
+               bool right = Physics2D.Raycast(transform.position, Vector2.right, 10, layerWallTileMap);
+                bool up = Physics2D.Raycast(transform.position, Vector2.up, 7, layerWallTileMap);
+               bool down = Physics2D.Raycast(transform.position, Vector2.down, 7, layerWallTileMap);
+
+                if (left && up && down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.RightNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (left && up && !down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightAndDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (left && !up && !down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (!left && up && !down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (!left && !up && down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpLeftRight);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (left && !up && down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndRight);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (!left && up && down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (left && up && !down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightAndDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (left && !up && !down && !right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightAndDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (!left && !up && down && right)
+                {
+                    Debug.Log("Replace to DoorUpAndLeft");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndLeft);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (left && up && !down && right)
+                {
+                    Debug.Log("Replace to DownNoIssue");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (!left && !up && !down && right)
+                {
+                    Debug.Log("Replace to DownNoIssue");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftUpDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (left && !up && !down && right)
+                {
+                    Debug.Log("Replace to DoorUpAndDown");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (!left && up && !down && right)
+                {
+                    Debug.Log("Replace to DoorLeftAndDown");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (!left && up && down && right)
+                {
+                    Debug.Log("Replace to DoorUpAndDown");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                if (left && !up && down && right)
+                {
+                    Debug.Log("Replace to DoorLeftAndDown");
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndDown);
+                    var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                
+                break;
             case TypeOfTile.DoorLeftAndDown:
-                bool left = Physics2D.Raycast(transform.position, Vector2.left, 10, layerWallTileMap);
-                bool down = Physics2D.Raycast(transform.position, Vector2.down, 7, layerWallTileMap);
+                 left = Physics2D.Raycast(transform.position, Vector2.left, 10, layerWallTileMap);
+                 down = Physics2D.Raycast(transform.position, Vector2.down, 7, layerWallTileMap);
 
                 if (!left  && down)
                 {
@@ -473,7 +665,7 @@ public class NextTilemap : MonoBehaviour
                 break;
             case TypeOfTile.DoorLeftUpDown:
                  left = Physics2D.Raycast(transform.position, Vector2.left, 10, layerWallTileMap);
-                bool up = Physics2D.Raycast(transform.position, Vector2.up, 7, layerWallTileMap);
+                 up = Physics2D.Raycast(transform.position, Vector2.up, 7, layerWallTileMap);
                  down = Physics2D.Raycast(transform.position, Vector2.down, 7, layerWallTileMap);
 
                 if(!left && !up && down)
@@ -525,7 +717,7 @@ public class NextTilemap : MonoBehaviour
                 break;
 
             case TypeOfTile.DoorRightUpDown:
-                 bool right = Physics2D.Raycast(transform.position, Vector2.right, 10, layerWallTileMap);
+                 right = Physics2D.Raycast(transform.position, Vector2.right, 10, layerWallTileMap);
                  up = Physics2D.Raycast(transform.position, Vector2.up, 7, layerWallTileMap);
                  down = Physics2D.Raycast(transform.position, Vector2.down, 7, layerWallTileMap);
 
@@ -845,6 +1037,121 @@ public class NextTilemap : MonoBehaviour
         print("yyoyoyoyoyyo");
         switch (typeOfTile)
         {
+            case TypeOfTile.DoorAllDirections:
+                left = Physics2D.OverlapCircle(new Vector2(transform.position.x - 18, transform.position.y), 1, layerTilemap);
+                right = Physics2D.OverlapCircle(new Vector2(transform.position.x + 18, transform.position.y), 1, layerTilemap);
+                up = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 10), 1, layerTilemap);
+                down = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 10), 1, layerTilemap);
+                if (left && up && down && !right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x + 18, transform.position.y), Quaternion.identity);
+                }
+                if (left && up && !down && !right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x + 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.UpNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y-10), Quaternion.identity);
+                }
+                if (left && !up && down && !right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x + 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y+10), Quaternion.identity);
+                }
+                if (!left && up && down && !right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x + 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.RightNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x - 18, transform.position.y), Quaternion.identity);
+                }
+                if (!left && !up && down && !right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x + 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.RightNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x - 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y+10), Quaternion.identity);
+                }
+                if (left && !up && !down && !right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x + 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.UpNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y-10), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y+10), Quaternion.identity);
+                }
+                if (left && !up && !down && !right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x + 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.UpNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y-10), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y+10), Quaternion.identity);
+                }
+                if (!left && up && !down && !right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x + 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.RightNoIssue);
+                     ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x - 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.UpNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y-10), Quaternion.identity);
+                }
+                if (!left && !up && !down && right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.RightNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x - 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.UpNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y-10), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y+10), Quaternion.identity);
+                }
+                //possibilités sans right
+                if (!left && !up && down && right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.RightNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x - 18, transform.position.y), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y + 10), Quaternion.identity);
+                }
+                if (left && up && !down && right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.UpNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y - 10), Quaternion.identity);
+
+                }
+                if (left && !up && !down && right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.UpNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y - 10), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y + 10), Quaternion.identity);
+                }
+                if (!left && up && !down && right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.UpNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y - 10), Quaternion.identity);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.RightNoIssue);
+                    ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x - 18, transform.position.y), Quaternion.identity);
+                }
+                if (!left && up && down && right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.RightNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x - 18, transform.position.y), Quaternion.identity);
+                }
+                if (left && !up && down && right)
+                {
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
+                    var ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y + 10), Quaternion.identity);
+                }
+                break;
             case TypeOfTile.DoorLeftUpDown:
                  left = Physics2D.OverlapCircle(new Vector2(transform.position.x - 18, transform.position.y), 1, layerTilemap);
                  up = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 10), 1, layerTilemap);
