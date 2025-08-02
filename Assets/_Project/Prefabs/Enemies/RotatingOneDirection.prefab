@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5167124051929430247}
   - component: {fileID: -3868555371596843160}
   - component: {fileID: 9028158341328291865}
+  - component: {fileID: -2757890611956177641}
   m_Layer: 0
   m_Name: RotatingOneDirection
   m_TagString: Enemy
@@ -178,6 +179,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2757890611956177641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221848963125938191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065c87b83d41d1a48b95a0f3b0522500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPrefab: {fileID: 3602733174871278386, guid: fca9aa9a49adb164b8c545b86d235a67, type: 3}
 --- !u!1 &6859537110370342997
 GameObject:
   m_ObjectHideFlags: 0

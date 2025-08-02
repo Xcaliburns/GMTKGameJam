@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1847780099761299074}
   - component: {fileID: -1592552160253376483}
   - component: {fileID: 3516497626094142808}
+  - component: {fileID: 5565087214571321062}
   m_Layer: 0
   m_Name: OppositeShooting
   m_TagString: Enemy
@@ -109,6 +110,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5565087214571321062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523190535815675638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065c87b83d41d1a48b95a0f3b0522500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPrefab: {fileID: 3602733174871278386, guid: fca9aa9a49adb164b8c545b86d235a67, type: 3}
 --- !u!1 &7450904013691304877
 GameObject:
   m_ObjectHideFlags: 0
