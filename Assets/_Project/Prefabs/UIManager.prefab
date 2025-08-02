@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1302317429559541851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9133787201421802483}
+  - component: {fileID: 2180259867648781767}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9133787201421802483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302317429559541851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2180259867648781767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302317429559541851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775601315e14ac54f9a85a7fae52e4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  player: {fileID: 0}
+  StartPosition: {x: -32.85, y: -7.23, z: 0}
+  swordsContainer: {fileID: 0}
+  shieldsContainer: {fileID: 0}
+  magicContainer: {fileID: 0}
+  swordSprite: {fileID: -9188473566805506635, guid: 9ef28e43d18add74a9ade4bb19953add, type: 3}
+  shieldSprite: {fileID: -7641300568463921924, guid: b7c54b29c9c2dd94797c9bc9022b8dcd, type: 3}
+  magicSprite: {fileID: 3283904028351503229, guid: 13a8563258dd09749b8e1456b22caf54, type: 3}
+  mainMenuPanel: {fileID: 0}
+  gameOverPanel: {fileID: 0}
+  choicePanel: {fileID: 0}
+  playerHUD: {fileID: 0}
+  FadeManager: {fileID: 0}
+  startButton: {fileID: 0}
+  exitButton: {fileID: 0}
+  retryButton: {fileID: 0}
