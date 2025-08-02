@@ -550,7 +550,7 @@ public class NextTilemap : MonoBehaviour
                 if (!left && up && !down && !right)
                 {
                     Debug.Log("Replace to DoorUpAndLeft");
-                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndRight);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
                     var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
@@ -585,7 +585,7 @@ public class NextTilemap : MonoBehaviour
                 if (left && !up && !down && !right)
                 {
                     Debug.Log("Replace to DoorUpAndLeft");
-                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightAndDown);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorRightUpDown);
                     var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
@@ -627,14 +627,14 @@ public class NextTilemap : MonoBehaviour
                 if (!left && up && down && right)
                 {
                     Debug.Log("Replace to DoorUpAndDown");
-                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorUpAndDown);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.LeftNoIssue);
                     var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
                 if (left && !up && down && right)
                 {
                     Debug.Log("Replace to DoorLeftAndDown");
-                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorLeftAndDown);
+                    tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DoorDownLeftRight);
                     var ee = Instantiate(tilesChoosed[0], transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
@@ -1113,6 +1113,7 @@ public class NextTilemap : MonoBehaviour
                     tilesChoosed = tilePrefs.FindAll(aaz => aaz.GetComponent<NextTilemap>().typeOfTile == TypeOfTile.DownNoIssue);
                     ee = Instantiate(tilesChoosed[0], new Vector2(transform.position.x, transform.position.y+10), Quaternion.identity);
                 }
+              
                 //possibilités sans right
                 if (!left && !up && down && right)
                 {
