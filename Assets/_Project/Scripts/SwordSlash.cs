@@ -5,14 +5,15 @@ public class SwordSlash : MonoBehaviour
     public Vector2 direction;
     public float moveDistance = 0.3f;
     public float lifetime = 0.15f;
-    public PlayerController playerController;
 
+    private PlayerController playerController;
     private Vector2 startPos;
 
     void Start()
     {
         startPos = transform.position;
         Destroy(gameObject, lifetime);
+        playerController = FindAnyObjectByType<PlayerController>();
 
         if (playerController == null)
         {
