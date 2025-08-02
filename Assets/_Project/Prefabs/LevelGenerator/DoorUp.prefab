@@ -90,7 +90,6 @@ MonoBehaviour:
   layerWallTileMap:
     serializedVersion: 2
     m_Bits: 128
-  taskdelay: 2
 --- !u!1 &4277369633032231344
 GameObject:
   m_ObjectHideFlags: 0

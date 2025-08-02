@@ -147,10 +147,10 @@ TextureImporter:
       name: Sprite_Sheet_Ghost_Dying_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 197
-        height: 366
+        width: 200
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: Sprite_Sheet_Ghost_Dying_1
       rect:
         serializedVersion: 2
-        x: 206
+        x: 200
         y: 0
-        width: 192
-        height: 366
+        width: 200
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: Sprite_Sheet_Ghost_Dying_2
       rect:
         serializedVersion: 2
-        x: 437
-        y: 159
-        width: 147
-        height: 207
+        x: 400
+        y: 0
+        width: 200
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: Sprite_Sheet_Ghost_Dying_3
       rect:
         serializedVersion: 2
-        x: 621
-        y: 121
-        width: 152
-        height: 193
+        x: 600
+        y: 0
+        width: 200
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +235,10 @@ TextureImporter:
       name: Sprite_Sheet_Ghost_Dying_4
       rect:
         serializedVersion: 2
-        x: 817
-        y: 13
-        width: 147
-        height: 194
+        x: 800
+        y: 0
+        width: 200
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,55 +253,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Sprite_Sheet_Ghost_Dying_5
-      rect:
-        serializedVersion: 2
-        x: 632
-        y: 76
-        width: 46
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6897da22aac02e140800000000000000
-      internalID: 4747370882067691910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Sheet_Ghost_Dying_6
-      rect:
-        serializedVersion: 2
-        x: 680
-        y: 83
-        width: 88
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1efd780d79e8d85c0800000000000000
-      internalID: -4211553293831774239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 33766dad0d219614da08e44512c3276e
     internalID: 0
     vertices: []
     indices: 
@@ -309,15 +265,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Sprite_Sheet_Ghost_Dying_0: 5984105346067823504
       Sprite_Sheet_Ghost_Dying_1: -7730807381576950219
       Sprite_Sheet_Ghost_Dying_2: 8789186090637042041
       Sprite_Sheet_Ghost_Dying_3: 2698772021075529631
       Sprite_Sheet_Ghost_Dying_4: -6069947733088318588
-      Sprite_Sheet_Ghost_Dying_5: 4747370882067691910
-      Sprite_Sheet_Ghost_Dying_6: -4211553293831774239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

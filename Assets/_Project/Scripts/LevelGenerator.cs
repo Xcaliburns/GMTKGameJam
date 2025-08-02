@@ -17,6 +17,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject prefBossLeft,prefBossRight,prefBossDown,prefBossUp;
     public LayerMask tilemapLayer;
     public bool spawnLastRoomBoss, isSpawning;
+    public GameObject uiLoadingScreen;
     private void Awake()
     {
         if (Instance == null)
@@ -39,14 +40,15 @@ public class LevelGenerator : MonoBehaviour
         {
             isSpawning = true;
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 20; i++)
             {
                 await VerifySuperpositionsTilemap();
                 await verifytilemap();
                 await verifyNoIssues();
 
             }
-
+            await DetectNoIssueFarRoom();
+            Destroy(uiLoadingScreen);
             SpawnIsFinish = true;
             isSpawning = false; // optionnel ici, car ça ne doit plus rerentrer de toute façon
         }
@@ -100,7 +102,7 @@ public class LevelGenerator : MonoBehaviour
         }
         await Task.Yield();
     }
-    public void DetectNoIssueFarRoom()
+    public async Task DetectNoIssueFarRoom()
     {
         spawnLastRoomBoss = true;
         List<NextTilemap> transformList = Object.FindObjectsByType<NextTilemap>(FindObjectsSortMode.None).ToList();
@@ -303,7 +305,7 @@ public class LevelGenerator : MonoBehaviour
                 return;
             }
         }
-        
+        await Task.Yield();
     }
     private void OnDrawGizmos()
     {
