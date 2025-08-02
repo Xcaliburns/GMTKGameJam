@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour
 
         if (nbrShield > 0)
         {
-           
+            audioSource.PlayOneShot(shieldSound);
             DavidUIManager.Instance.UpdateUI(); // Vérifiez que cette ligne est bien exécutée
         }
 

@@ -16,8 +16,10 @@ public class SpikedTrap : MonoBehaviour
     private SpriteRenderer sr;
     private int index;
 
-    [Header("SoundSettings")]
+    [Header("Sound Settings")]
     public AudioClip activateSound;
+    private AudioSource audioSource;
+    
     void Start()
     {
         spikeCollider = GetComponent<BoxCollider2D>();
@@ -34,6 +36,31 @@ public class SpikedTrap : MonoBehaviour
 
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = frames[2];
+        
+        // Setup audio source
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.spatialBlend = 1.0f; // Son entièrement spatial
+            
+            // Utiliser un mode de diminution logarithmique (plus naturel et plus rapide)
+            audioSource.rolloffMode = AudioRolloffMode.Custom;
+            
+            // Diminution plus rapide avec des distances réduites
+            audioSource.minDistance = 1.0f;
+            audioSource.maxDistance = 8.0f; // Réduit de 20 à 8 pour une diminution plus rapide
+            
+            // Créer une courbe personnalisée pour une diminution rapide
+            AnimationCurve rolloffCurve = new AnimationCurve();
+            rolloffCurve.AddKey(0.0f, 1.0f);            // Distance min = volume max
+            rolloffCurve.AddKey(0.25f, 0.5f);           // À 25% de la distance max, volume à 50%
+            rolloffCurve.AddKey(0.5f, 0.2f);            // À 50% de la distance max, volume à 20%
+            rolloffCurve.AddKey(1.0f, 0.0f);            // Distance max = volume nul
+            
+            // Appliquer la courbe personnalisée
+            audioSource.SetCustomCurve(AudioSourceCurveType.CustomRolloff, rolloffCurve);
+        }
     }
     
     IEnumerator SpikeCycle()
@@ -52,12 +79,14 @@ public class SpikedTrap : MonoBehaviour
         spikeCollider.enabled = true;
         spikeCollider.isTrigger = true;
         spikesExtended = true;
-        if (activateSound != null)
+        
+        if (activateSound != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(activateSound, transform.position);
+            audioSource.clip = activateSound;
+            audioSource.Play();
         }
+        
         sr.sprite = frames[2];
-
         UpdateTrapColor(Color.white);
     }
     
@@ -67,7 +96,6 @@ public class SpikedTrap : MonoBehaviour
         spikeCollider.isTrigger = false;
         spikesExtended = false;
         sr.sprite = frames[0];
-
         UpdateTrapColor(Color.white);
     }
     
@@ -79,7 +107,4 @@ public class SpikedTrap : MonoBehaviour
             renderer.material.color = color;
         }
     }
-
-  
-
 }

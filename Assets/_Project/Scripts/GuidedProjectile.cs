@@ -10,6 +10,7 @@ public class GuidedProjectile : MonoBehaviour
     private Rigidbody2D rb;
     private float lifetime;
     private Vector3 velocity;
+    public GameObject animationDestroyPrefab;
     public GameObject animationPrefab;
 
 
@@ -28,7 +29,7 @@ public class GuidedProjectile : MonoBehaviour
             
             // Set initial rotation to face the movement direction
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 
@@ -53,7 +54,7 @@ public class GuidedProjectile : MonoBehaviour
 
             // Update rotation to face movement direction
             float angle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
     
@@ -88,7 +89,7 @@ public class GuidedProjectile : MonoBehaviour
  
         void OnDestroy()
         {
-            GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
+            GameObject fx = Instantiate(animationDestroyPrefab, transform.position, Quaternion.identity);
             fx.transform.SetParent(null); // détaché du parent
         }
 
