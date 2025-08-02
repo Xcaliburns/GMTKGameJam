@@ -75,6 +75,8 @@ MonoBehaviour:
   - {fileID: 8297265382725519985, guid: 684a25453d349e2459d648b7a2486350, type: 3}
   - {fileID: 8257347008429199401, guid: 4a3362ee611652f46b652827f4045e13, type: 3}
   - {fileID: 8015240897206312021, guid: f526b902c68e6e44d817558423ae339d, type: 3}
+  - {fileID: 3907675686821962045, guid: c40e034575886ab4f8fa5efcc2d50df5, type: 3}
+  - {fileID: 3907675686821962045, guid: c40e034575886ab4f8fa5efcc2d50df5, type: 3}
   nextTiles: []
   nextTileChoosed: 
   typeOfTile: 4
