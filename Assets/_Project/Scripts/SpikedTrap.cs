@@ -10,6 +10,14 @@ public class SpikedTrap : MonoBehaviour
     private bool spikesExtended = false;
     private Collider2D spikeCollider;
 
+    [Header("Animation Settings")]
+    public Sprite[] frames;
+    public float frameRate = 2f;
+    private SpriteRenderer sr;
+    private int index;
+
+    [Header("SoundSettings")]
+    public AudioClip activateSound;
     void Start()
     {
         spikeCollider = GetComponent<BoxCollider2D>();
@@ -23,6 +31,9 @@ public class SpikedTrap : MonoBehaviour
             spikeCollider.enabled = false;
             StartCoroutine(SpikeCycle());
         }
+
+        sr = GetComponent<SpriteRenderer>();
+        sr.sprite = frames[2];
     }
     
     IEnumerator SpikeCycle()
@@ -41,7 +52,12 @@ public class SpikedTrap : MonoBehaviour
         spikeCollider.enabled = true;
         spikeCollider.isTrigger = true;
         spikesExtended = true;
-        
+        if (activateSound != null)
+        {
+            AudioSource.PlayClipAtPoint(activateSound, transform.position);
+        }
+        sr.sprite = frames[2];
+
         UpdateTrapColor(Color.red);
     }
     
@@ -50,7 +66,8 @@ public class SpikedTrap : MonoBehaviour
         spikeCollider.enabled = false;
         spikeCollider.isTrigger = false;
         spikesExtended = false;
-        
+        sr.sprite = frames[0];
+
         UpdateTrapColor(Color.green);
     }
     
@@ -62,5 +79,7 @@ public class SpikedTrap : MonoBehaviour
             renderer.material.color = color;
         }
     }
+
+  
 
 }
