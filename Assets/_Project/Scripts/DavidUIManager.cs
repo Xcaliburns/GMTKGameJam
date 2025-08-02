@@ -58,6 +58,8 @@ public class DavidUIManager : MonoBehaviour
         playerController.nbrMagic = 5;
         player.transform.position = StartPosition;
         Debug.Log("StartPosition is set to: " + StartPosition);
+        // mettre le jeu en pause au démarrage
+        Time.timeScale = 0f; // Pause the game at the start
 
 
         UpdateUI();
@@ -111,6 +113,7 @@ public class DavidUIManager : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1f;
         if (mainMenuPanel != null)
         {
             Debug.Log("Hiding main menu panel");
@@ -156,6 +159,7 @@ public class DavidUIManager : MonoBehaviour
     {
         playerHUD.SetActive(false);
         gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void Retry()
