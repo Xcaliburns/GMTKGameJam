@@ -16,6 +16,7 @@ public class DestroyOnWallTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the object that entered the trigger is tagged as "Wall"
+      
         if (collision.CompareTag("Wall"))
         {
             // Destroy the game object this script is attached to
