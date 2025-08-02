@@ -284,34 +284,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: moveSpeed
-      value: 10.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: knockbackForce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: knockbackPushDuration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: knockbackStunDuration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704363554508032143, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: m_Volume
-      value: 0.488
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704363554508032143, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704363554508032143, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
-      value: 1.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -415,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 1700558191}
     - target: {fileID: 4176103227461913609, guid: da8feef3a8d66054a8c3f39a2680f5ed, type: 3}
       propertyPath: numberOfTilesTarget
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5344387215272089243, guid: da8feef3a8d66054a8c3f39a2680f5ed, type: 3}
       propertyPath: m_LocalPosition.x

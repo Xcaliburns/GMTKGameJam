@@ -173,18 +173,18 @@ MonoBehaviour:
   isAttacking: 0
   currentAttackHasHit: 1
   magicCooldown: 0.5
-  knockbackForce: 0.5
-  knockbackPushDuration: 0.33
-  knockbackStunDuration: 0.5
+  knockbackForce: 0
+  knockbackPushDuration: 0
+  knockbackStunDuration: 0
   isKnockedBack: 0
-  moveSpeed: 7.8
+  moveSpeed: 10.45
   acceleration: 30
   friction: 18
   nbrSword: 5
   nbrShield: 5
   nbrMagic: 5
   MagicProjectile: {fileID: 3090587198166330015, guid: 047c6ae5af81dc34baf89ed4e2dc26b2, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 7704363554508032143}
   projectileOffset: 1
   attackSuccessSound: {fileID: 8300000, guid: 8280b34e0ba6c1649b19a387d5e7ceac, type: 3}
   attackFailSound: {fileID: 8300000, guid: 87032c1f7a766424e8e810b89a4085bc, type: 3}
@@ -209,7 +209,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.488
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -283,7 +283,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
