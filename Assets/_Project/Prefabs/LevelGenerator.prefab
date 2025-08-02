@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 7078599108249372442, guid: 7e1e6860bdf29ff4391e4dfed1226523, type: 3}
   - {fileID: 7078599108249372442, guid: 2ba794a4835f5b64e9f954ed49a7f560, type: 3}
   - {fileID: 7078599108249372442, guid: 9d5412f11995a0642a2594d35470f2da, type: 3}
-  - {fileID: 2616702166270570671, guid: 8c742d79898ff9a45a271c403dfdfff0, type: 3}
+  - {fileID: 7078599108249372442, guid: 08613b8fcaf06d64db601c8db385a215, type: 3}
   - {fileID: 7078599108249372442, guid: a01e0e9283426064398a9544092a85b6, type: 3}
   - {fileID: 7078599108249372442, guid: 55f9f5ffea1c5644a95aa1346604d6ae, type: 3}
   - {fileID: 7078599108249372442, guid: e384fe89a9dc07c41b6b7b5acb94456a, type: 3}
@@ -66,14 +66,15 @@ MonoBehaviour:
   nextTilemapsSpawned: []
   beginRoom: {fileID: 0}
   listtilesnoissue: []
-  prefFireCampLeft: {fileID: 2616702166270570671, guid: 734e785ed4166134a8dea95c1d42fda2, type: 3}
-  prefFireCampUp: {fileID: 2616702166270570671, guid: 8c742d79898ff9a45a271c403dfdfff0, type: 3}
-  prefBossLeft: {fileID: 4171951910579525220, guid: 5d5329196b4cb9242bcb7c1230d2591b, type: 3}
-  prefBossRight: {fileID: 6979613198081933663, guid: cba3895d5355eb042a12d791a5cf7940, type: 3}
-  prefBossDown: {fileID: 8536001505651417637, guid: 0215b41b26262e14ba1b8e1c3047abba, type: 3}
-  prefBossUp: {fileID: 9042092891805583703, guid: dc1a8e7524383a94991560b74184eba1, type: 3}
+  prefFireCampLeft: {fileID: 7078599108249372442, guid: 38857ca9d7faa0d419235c73c6332e9a, type: 3}
+  prefFireCampUp: {fileID: 7078599108249372442, guid: 08613b8fcaf06d64db601c8db385a215, type: 3}
+  prefBossLeft: {fileID: 7078599108249372442, guid: ab49893c724497146b77db20bef0defa, type: 3}
+  prefBossRight: {fileID: 7078599108249372442, guid: 8fc301bcde7aaf2409ab45c00156265c, type: 3}
+  prefBossDown: {fileID: 7078599108249372442, guid: 491e0ce2feb5c3b48a17d3cd94e79572, type: 3}
+  prefBossUp: {fileID: 7078599108249372442, guid: bd05599661569e843ba3e585325fd175, type: 3}
   tilemapLayer:
     serializedVersion: 2
     m_Bits: 64
   spawnLastRoomBoss: 0
   isSpawning: 0
+  uiLoadingScreen: {fileID: 0}
