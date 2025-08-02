@@ -50,9 +50,9 @@ MonoBehaviour:
   swordsContainer: {fileID: 0}
   shieldsContainer: {fileID: 0}
   magicContainer: {fileID: 0}
-  swordSprite: {fileID: -9188473566805506635, guid: 9ef28e43d18add74a9ade4bb19953add, type: 3}
-  shieldSprite: {fileID: -7641300568463921924, guid: b7c54b29c9c2dd94797c9bc9022b8dcd, type: 3}
-  magicSprite: {fileID: 3283904028351503229, guid: 13a8563258dd09749b8e1456b22caf54, type: 3}
+  swordSprite: {fileID: -6706166778979548459, guid: aa50049cdab2fd14b96274818cb0f97c, type: 3}
+  shieldSprite: {fileID: 7878951576011287232, guid: aa9ab8fb5dde64b4db4d01e702bfd155, type: 3}
+  magicSprite: {fileID: 5856220077824354575, guid: 86cc1512beb489a499599daed160d81b, type: 3}
   mainMenuPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
   choicePanel: {fileID: 0}
