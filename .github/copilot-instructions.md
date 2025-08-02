@@ -2,7 +2,7 @@
 - Project name: GMTKGameJam
 - Unity version: Unity 6000.1.13f1
 - Active game object:
-  - Name: Canvas
+  - Name: UIManager
   - Tag: Untagged
-  - Layer: UI
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
