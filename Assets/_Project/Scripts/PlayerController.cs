@@ -255,8 +255,10 @@ public class PlayerController : MonoBehaviour
     {
         if (MagicProjectile != null && nbrMagic > 0 && !IsMagicOnCooldown)
         {
-            Vector3 spawnPosition = transform.position + transform.up * projectileOffset;
+            Vector3 spawnPosition = transform.position + (Vector3)lastMoveDir * projectileOffset;
             GameObject projectile = Instantiate(MagicProjectile, spawnPosition, transform.rotation);
+            projectile.transform.up = lastMoveDir;
+
             nbrMagic--;
 
             IsMagicOnCooldown = true;
@@ -326,6 +328,7 @@ public class PlayerController : MonoBehaviour
             {
                 Vector3 spawnPosition = transform.position + transform.up * projectileOffset;
                 GameObject projectile = Instantiate(MagicProjectile, spawnPosition, transform.rotation);
+                projectile.transform.up = lastMoveDir;
                 nbrMagic--;
 
                 IsMagicOnCooldown = true;

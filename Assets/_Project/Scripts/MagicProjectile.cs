@@ -15,7 +15,8 @@ public class MagicProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime); // Move the projectile forward
+        //transform.Translate(Vector2.up * speed * Time.deltaTime); // Move the projectile forward
+        transform.position += transform.up * speed * Time.deltaTime; // Move the projectile forward
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
