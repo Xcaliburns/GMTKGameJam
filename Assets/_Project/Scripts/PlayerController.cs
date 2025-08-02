@@ -64,10 +64,13 @@ public class PlayerController : MonoBehaviour
     private bool isInvulnerable = false;
     private float invulnerabilityTimer = 0f;
 
+    private SpriteRenderer playerSprite;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        playerSprite = GetComponent<SpriteRenderer>();
         rb.gravityScale = 0;
     }
 
@@ -213,10 +216,15 @@ public class PlayerController : MonoBehaviour
 
         if (nbrShield > 0)
         {
+            // Flash blanc pour montrer que le joueur est protégé
+            Debug.Log("Player defended against damage with shield");
+            StartCoroutine(FlashEffect());
+            
             audioSource.PlayOneShot(shieldSound);
-            DavidUIManager.Instance.UpdateUI(); // Vérifiez que cette ligne est bien exécutée
+            DavidUIManager.Instance.UpdateUI();
+            nbrShield--;
         }
-
+        
         if (CanDefend())
         {
             PlayerDefend(hitDirection);
@@ -360,6 +368,24 @@ public class PlayerController : MonoBehaviour
                 nbrShield--;
                 HandleDamage(hitDirection);
             }
+        }
+    }
+
+    // Coroutine pour l'effet de flash
+    private IEnumerator FlashEffect()
+    {
+        Color originalColor = playerSprite.color;
+        
+        // Répéter le flash 3 fois
+        for (int i = 0; i < 3; i++)
+        {
+            // Changer en blanc
+            playerSprite.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+            
+            // Revenir à la couleur d'origine
+            playerSprite.color = originalColor;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
