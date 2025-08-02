@@ -88,7 +88,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -177,125 +177,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: warriorsheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 834
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 10538cbee3450c810800000000000000
-      internalID: 1783518081659188481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: warriorsheet_1
-      rect:
-        serializedVersion: 2
-        x: 1023
-        y: 834
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3accb7909eb4c2a80800000000000000
-      internalID: -8490327733241656157
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: warriorsheet_2
-      rect:
-        serializedVersion: 2
-        x: 2046
-        y: 834
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ccca7da80934186c0800000000000000
-      internalID: -4142955894120403764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: warriorsheet_3
-      rect:
-        serializedVersion: 2
-        x: 3069
-        y: 834
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c3e445cf53feadf0800000000000000
-      internalID: -166928543509060671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: warriorsheet_4
-      rect:
-        serializedVersion: 2
-        x: 4092
-        y: 834
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93dbc8e8f5587c370800000000000000
-      internalID: 8342783480187108665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: warriorsheet_5
       rect:
         serializedVersion: 2
-        x: 5115
-        y: 834
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 825
+        width: 230
+        height: 403
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -309,37 +199,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: warriorsheet_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4ad0a2d0bd09752c0800000000000000
-      internalID: -4442923236884607580
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: warriorsheet_7
       rect:
         serializedVersion: 2
-        x: 1023
-        y: 0
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1069
+        y: 824
+        width: 369
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -356,12 +224,12 @@ TextureImporter:
       name: warriorsheet_8
       rect:
         serializedVersion: 2
-        x: 2046
-        y: 0
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2071
+        y: 831
+        width: 558
+        height: 592
+      alignment: 9
+      pivot: {x: 0.350998, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -378,12 +246,12 @@ TextureImporter:
       name: warriorsheet_9
       rect:
         serializedVersion: 2
-        x: 3069
-        y: 0
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3292
+        y: 824
+        width: 522
+        height: 779
+      alignment: 9
+      pivot: {x: 0.2109137, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -400,12 +268,12 @@ TextureImporter:
       name: warriorsheet_10
       rect:
         serializedVersion: 2
-        x: 4092
-        y: 0
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4597
+        y: 827
+        width: 378
+        height: 833
+      alignment: 9
+      pivot: {x: -0.11217551, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -422,12 +290,12 @@ TextureImporter:
       name: warriorsheet_11
       rect:
         serializedVersion: 2
-        x: 5115
-        y: 0
-        width: 1023
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5746
+        y: 830
+        width: 392
+        height: 728
+      alignment: 9
+      pivot: {x: -0.0533522, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -436,6 +304,116 @@ TextureImporter:
       bones: []
       spriteID: a1178d6b463ce5af0800000000000000
       internalID: -405672079084981990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warriorsheet_14
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 59
+        width: 369
+        height: 701
+      alignment: 9
+      pivot: {x: -0.15599029, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc55a4dad4112c41a20192140dcf0ce
+      internalID: 1319117087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warriorsheet_15
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 53
+        width: 405
+        height: 446
+      alignment: 9
+      pivot: {x: -0.00021149391, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482165a22d61cc042aa42932ea654d1c
+      internalID: -1323603022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warriorsheet_16
+      rect:
+        serializedVersion: 2
+        x: 3151
+        y: 50
+        width: 369
+        height: 293
+      alignment: 9
+      pivot: {x: -0.19948274, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1fb2b560da3cf344838f1f8978dc9a6
+      internalID: -799114972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warriorsheet_17
+      rect:
+        serializedVersion: 2
+        x: 4318
+        y: 38
+        width: 366
+        height: 311
+      alignment: 9
+      pivot: {x: -0.21500918, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03ffc5581443f2b40bb4bfe410ccbdfb
+      internalID: 37276264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warriorsheet_18
+      rect:
+        serializedVersion: 2
+        x: 5482
+        y: 44
+        width: 477
+        height: 305
+      alignment: 9
+      pivot: {x: -0.16887058, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5612008d8549264a8b57ce705e38ea8
+      internalID: 17369003
       vertices: []
       indices: 
       edges: []
@@ -454,12 +432,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":1023.0,"y":834.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       warriorsheet_0: 1783518081659188481
       warriorsheet_1: -8490327733241656157
       warriorsheet_10: 6319220698685928921
       warriorsheet_11: -405672079084981990
+      warriorsheet_12: -949658893
+      warriorsheet_13: 915090891
+      warriorsheet_14: 1319117087
+      warriorsheet_15: -1323603022
+      warriorsheet_16: -799114972
+      warriorsheet_17: 37276264
+      warriorsheet_18: 17369003
       warriorsheet_2: -4142955894120403764
       warriorsheet_3: -166928543509060671
       warriorsheet_4: 8342783480187108665

@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6395721295436447240}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.85, y: -7.23, z: 0}
+  m_LocalPosition: {x: -35.389496, y: -4.011156, z: 0}
   m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 3148062877284905568, guid: 4f7be8b78b9aac247acf2c70028b084f, type: 3}
   m_Color: {r: 0.07208972, g: 0.24131662, b: 0.5660378, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,6 +184,7 @@ MonoBehaviour:
   nbrShield: 5
   nbrMagic: 5
   MagicProjectile: {fileID: 3090587198166330015, guid: 047c6ae5af81dc34baf89ed4e2dc26b2, type: 3}
+  audioSource: {fileID: 0}
   projectileOffset: 1
   attackSuccessSound: {fileID: 8300000, guid: 8280b34e0ba6c1649b19a387d5e7ceac, type: 3}
   attackFailSound: {fileID: 8300000, guid: 87032c1f7a766424e8e810b89a4085bc, type: 3}
