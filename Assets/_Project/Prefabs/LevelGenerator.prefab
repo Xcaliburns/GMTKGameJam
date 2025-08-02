@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6184874206549236044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5344387215272089243}
+  - component: {fileID: 4176103227461913609}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5344387215272089243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184874206549236044}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.89351, y: 13.73889, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4176103227461913609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184874206549236044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820905abdfa41ae44830347e3f0745f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefs:
+  - {fileID: 7078599108249372442, guid: fd54efcec71656146ade7da09f4400c6, type: 3}
+  - {fileID: 7078599108249372442, guid: 09102eb4b91249648bbcf62ba4d84d15, type: 3}
+  - {fileID: 7078599108249372442, guid: 7e1e6860bdf29ff4391e4dfed1226523, type: 3}
+  - {fileID: 7078599108249372442, guid: 2ba794a4835f5b64e9f954ed49a7f560, type: 3}
+  - {fileID: 7078599108249372442, guid: 9d5412f11995a0642a2594d35470f2da, type: 3}
+  - {fileID: 2616702166270570671, guid: 8c742d79898ff9a45a271c403dfdfff0, type: 3}
+  - {fileID: 7078599108249372442, guid: a01e0e9283426064398a9544092a85b6, type: 3}
+  - {fileID: 7078599108249372442, guid: 55f9f5ffea1c5644a95aa1346604d6ae, type: 3}
+  - {fileID: 7078599108249372442, guid: e384fe89a9dc07c41b6b7b5acb94456a, type: 3}
+  - {fileID: 7078599108249372442, guid: 18b7d31c08fec544aabed1b962d39d2f, type: 3}
+  - {fileID: 7078599108249372442, guid: fb683d368078a2c4a8bae6967ff13201, type: 3}
+  - {fileID: 7078599108249372442, guid: b6cd5359cfc687648b873caa15a277c7, type: 3}
+  - {fileID: 7078599108249372442, guid: 9a6cf46ddc1bfd749bfef65c740967c9, type: 3}
+  - {fileID: 7078599108249372442, guid: d56a00fdf256e434ca31972bee281bd7, type: 3}
+  - {fileID: 7078599108249372442, guid: eb6d8335252d8f0499b9d2adb395bb8f, type: 3}
+  numberOfTilesTarget: 10
+  currentNumberOfTiles: 0
+  SpawnIsFinish: 0
+  nextTilemapsSpawned: []
+  beginRoom: {fileID: 0}
+  listtilesnoissue: []
+  prefFireCampLeft: {fileID: 2616702166270570671, guid: 734e785ed4166134a8dea95c1d42fda2, type: 3}
+  prefFireCampUp: {fileID: 2616702166270570671, guid: 8c742d79898ff9a45a271c403dfdfff0, type: 3}
+  prefBossLeft: {fileID: 4171951910579525220, guid: 5d5329196b4cb9242bcb7c1230d2591b, type: 3}
+  prefBossRight: {fileID: 6979613198081933663, guid: cba3895d5355eb042a12d791a5cf7940, type: 3}
+  prefBossDown: {fileID: 8536001505651417637, guid: 0215b41b26262e14ba1b8e1c3047abba, type: 3}
+  prefBossUp: {fileID: 9042092891805583703, guid: dc1a8e7524383a94991560b74184eba1, type: 3}
+  tilemapLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  spawnLastRoomBoss: 0
+  isSpawning: 0
