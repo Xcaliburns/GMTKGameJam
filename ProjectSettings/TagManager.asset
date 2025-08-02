@@ -11,6 +11,7 @@ TagManager:
   - CursedAxe
   - Limit
   - Boss
+  - BonusPoint
   layers:
   - Default
   - TransparentFX

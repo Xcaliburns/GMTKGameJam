@@ -211,5 +211,12 @@ public class DavidUIManager : MonoBehaviour
         choicePanel.SetActive(false);
         Time.timeScale = 1f;
     }
-
+    public void AddCustomPoints(int swordPoints, int shieldPoints, int magicPoints)
+    {
+        playerController.nbrSword += swordPoints;
+        playerController.nbrShield += shieldPoints;
+        playerController.nbrMagic += magicPoints;
+        choicePanel.SetActive(false);
+        Time.timeScale = 1f; // Resume the game
+    }
 }
