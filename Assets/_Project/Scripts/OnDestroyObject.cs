@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class OnDestroyObject : MonoBehaviour
 {
-
     public GameObject animationPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,9 +15,14 @@ public class OnDestroyObject : MonoBehaviour
     {
         
     }
+
+    // Only one OnDestroy method is allowed
     void OnDestroy()
     {
-        GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
-        fx.transform.SetParent(null); // détaché du parent
+        if (animationPrefab != null)
+        {
+            GameObject fx = Instantiate(animationPrefab, transform.position, Quaternion.identity);
+            fx.transform.SetParent(null); // détaché du parent
+        }
     }
 }
