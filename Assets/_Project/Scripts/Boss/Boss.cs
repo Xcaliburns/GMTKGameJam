@@ -18,6 +18,10 @@ public class Boss : MonoBehaviour
         state = new(data);
         LoadPhase2Displayer();
         StartPhase();
+
+        phase2Displayer.SetAttackAmount(AttackType.Magic, player.nbrMagic);
+        phase2Displayer.SetAttackAmount(AttackType.Sword, player.nbrSword);
+        phase2Displayer.SetAttackAmount(AttackType.Shield, player.nbrShield);
     }
 
     private void OnDisable()
