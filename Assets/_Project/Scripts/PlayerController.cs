@@ -42,7 +42,20 @@ public class PlayerController : MonoBehaviour
     [Header("Misc")]
     private Rigidbody2D rb;
     public GameObject MagicProjectile;
+    private AudioSource audioSource;
     public float projectileOffset = 1f;
+
+    [Header("Player Sounds")]
+    public AudioClip attackSuccessSound;
+    public AudioClip attackFailSound;
+    public AudioClip magicSound;
+    public AudioClip shieldBreakSound;
+    public AudioClip swordBreakSound;
+    public AudioClip magicBreakSound;
+    public AudioClip deathSound;
+    public AudioClip shieldSound;
+    public AudioClip WalkSound;
+
 
     public bool IsPlayerAlive { get; private set; } = true;
 
@@ -54,6 +67,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         rb.gravityScale = 0;
     }
 
@@ -89,9 +103,11 @@ public class PlayerController : MonoBehaviour
             attackInput = false;
         }
 
-        if (magicProjectileInput && !isKnockedBack)
+        if (magicProjectileInput && !isKnockedBack && nbrMagic>0)
         {
+            audioSource.PlayOneShot(magicSound);
             ShootMagicProjectile();
+            
             magicProjectileInput = false;
         }
     }
@@ -266,7 +282,9 @@ public class PlayerController : MonoBehaviour
     public void RegisterSwordHit()
     {
         currentAttackHasHit = true;
+        Debug.Log("attack 1" + nbrSword);
         nbrSword--;
+        Debug.Log("attack 2" + nbrSword);
         Debug.Log("Enemy hit! Sword consumed.");
 
         DavidUIManager.Instance.UpdateUI();
@@ -287,7 +305,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("SpikedTrap") && !isKnockedBack)
         {
-            if (nbrSword > 0)
+            if (nbrMagic > 0)
             {
                 nbrMagic--;
                 HandleDamage(Vector2.zero);
