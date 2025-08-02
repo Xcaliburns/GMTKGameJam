@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6116391899898621664}
   - component: {fileID: -7993763817569864590}
   - component: {fileID: -3237614930851682991}
+  - component: {fileID: 617429513801759985}
   m_Layer: 0
   m_Name: SinusProjectile
   m_TagString: Enemy
@@ -170,3 +171,15 @@ MonoBehaviour:
   lifetimeMax: 5
   amplitude: 15.2
   frequency: 1.5
+--- !u!114 &617429513801759985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090587198166330015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33558b0f5c96a2489c864d5ec15d850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

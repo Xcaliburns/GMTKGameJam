@@ -12,6 +12,7 @@ TagManager:
   - Limit
   - Boss
   - BonusPoint
+  - Wall
   layers:
   - Default
   - TransparentFX

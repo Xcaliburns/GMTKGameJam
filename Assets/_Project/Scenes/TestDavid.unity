@@ -5151,7 +5151,7 @@ Transform:
   m_GameObject: {fileID: 1539211338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.6763, y: 9.6124, z: -23.35752}
+  m_LocalPosition: {x: -11.94013, y: 9.662401, z: -23.35752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6976,6 +6976,14 @@ PrefabInstance:
       propertyPath: magicContainer
       value: 
       objectReference: {fileID: 2039524320}
+    - target: {fileID: 2180259867648781767, guid: c4dd8c4ce80b79e41a0f2c7ee7905d18, type: 3}
+      propertyPath: StartPosition.x
+      value: 32.48788
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180259867648781767, guid: c4dd8c4ce80b79e41a0f2c7ee7905d18, type: 3}
+      propertyPath: StartPosition.y
+      value: -6.716437
+      objectReference: {fileID: 0}
     - target: {fileID: 2180259867648781767, guid: c4dd8c4ce80b79e41a0f2c7ee7905d18, type: 3}
       propertyPath: swordsContainer
       value: 
