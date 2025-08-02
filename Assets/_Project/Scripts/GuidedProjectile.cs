@@ -63,6 +63,7 @@ public class GuidedProjectile : MonoBehaviour
             PlayerController player = other.GetComponent<PlayerController>();
             if (player != null)
             {
+                player.nbrShield--;
                 Vector2 knockbackDirection = (player.transform.position - transform.position).normalized;
                 player.HandleDamage(knockbackDirection);
             }
