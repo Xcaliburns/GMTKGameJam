@@ -183,12 +183,14 @@ MonoBehaviour:
   moveSpeed: 10.45
   acceleration: 30
   friction: 18
+  velocity: {x: 0, y: 0}
   nbrSword: 5
   nbrShield: 5
   nbrMagic: 5
   MagicProjectile: {fileID: 3090587198166330015, guid: 047c6ae5af81dc34baf89ed4e2dc26b2, type: 3}
   audioSource: {fileID: 7704363554508032143}
   projectileOffset: 1
+  dialogueManager: {fileID: 0}
   attackSuccessSound: {fileID: 8300000, guid: 8280b34e0ba6c1649b19a387d5e7ceac, type: 3}
   attackFailSound: {fileID: 8300000, guid: 87032c1f7a766424e8e810b89a4085bc, type: 3}
   magicSound: {fileID: 8300000, guid: 3958909c8dde4b548944ec74ecb1b620, type: 3}

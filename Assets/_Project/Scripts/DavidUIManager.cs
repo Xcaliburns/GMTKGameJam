@@ -15,6 +15,7 @@ public class DavidUIManager : MonoBehaviour
     public Transform swordsContainer;
     public Transform shieldsContainer;
     public Transform magicContainer;
+    public RectTransform IconsBackground;
 
     public Sprite swordSprite;
     public Sprite shieldSprite;
@@ -73,7 +74,16 @@ public class DavidUIManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        if (playerController != null)
+        UpdateAllSprites(shieldsContainer, IconsBackground,
+            swordSprite, playerController.nbrSword,
+            shieldSprite, playerController.nbrShield,
+            magicSprite, playerController.nbrMagic,
+            38f,
+            5f,
+            15f
+            );
+
+        /*if (playerController != null)
         {
             UpdateSprites(swordsContainer, swordSprite, playerController.nbrSword);
             UpdateSprites(shieldsContainer, shieldSprite, playerController.nbrShield);
@@ -82,7 +92,7 @@ public class DavidUIManager : MonoBehaviour
         else
         {
             Debug.LogError("PlayerController is not assigned in DavidUIManager!");
-        }
+        }*/
     }
 
     private void UpdateSprites(Transform container, Sprite sprite, int count)
@@ -114,6 +124,87 @@ public class DavidUIManager : MonoBehaviour
             rectTransform.anchoredPosition = new Vector2(offsetX * 38, 0);
             rectTransform.sizeDelta = sizeInUnits * 38;
         }
+    }
+
+    public void UpdateAllSprites(
+        Transform container, RectTransform background,
+        Sprite swordSprite, int swordCount,
+        Sprite shieldSprite, int shieldCount,
+        Sprite magicSprite, int magicCount,
+        float scale = 38f,
+        float iconSpacing = 5f,
+        float groupSpacing = 15f,
+        float backgroundPadding = 10f)
+    {
+        foreach (Transform child in container)
+        {
+            Destroy(child.gameObject);
+        }
+
+        float GetGroupWidth(Sprite sprite, int count)
+        {
+            if (sprite == null || count <= 0) return 0f;
+
+            Vector2 spriteSize = sprite.rect.size;
+            float ppu = sprite.pixelsPerUnit;
+            Vector2 sizeInUnits = spriteSize / ppu;
+
+            float widthPerIcon = sizeInUnits.x * scale;
+            return (count * widthPerIcon) + ((count - 1) * iconSpacing);
+        }
+
+        float totalWidth = 0f;
+        int groupsAdded = 0;
+
+        if (swordCount > 0) { totalWidth += GetGroupWidth(swordSprite, swordCount); groupsAdded++; }
+        if (shieldCount > 0) { totalWidth += GetGroupWidth(shieldSprite, shieldCount); groupsAdded++; }
+        if (magicCount > 0) { totalWidth += GetGroupWidth(magicSprite, magicCount); groupsAdded++; }
+
+        if (groupsAdded > 1) totalWidth += (groupsAdded - 1) * groupSpacing;
+
+        if (background != null)
+        {
+            Vector2 bgSize = background.sizeDelta;
+            bgSize.x = totalWidth + backgroundPadding;
+            background.sizeDelta = bgSize;
+        }
+
+        float currentX = -totalWidth / 2f;
+
+        void AddSprites(Sprite sprite, int count)
+        {
+            if (sprite == null || count <= 0) return;
+
+            Vector2 spriteSize = sprite.rect.size;
+            float ppu = sprite.pixelsPerUnit;
+            Vector2 sizeInUnits = spriteSize / ppu;
+
+            float widthPerIcon = sizeInUnits.x * scale;
+
+            for (int i = 0; i < count; i++)
+            {
+                GameObject newImageObject = new GameObject(sprite.name);
+                newImageObject.transform.SetParent(container);
+                newImageObject.transform.localScale = Vector3.one;
+
+                Image image = newImageObject.AddComponent<Image>();
+                image.sprite = sprite;
+
+                RectTransform rectTransform = newImageObject.GetComponent<RectTransform>();
+                rectTransform.anchoredPosition = new Vector2(currentX, 0);
+                rectTransform.sizeDelta = sizeInUnits * scale;
+
+                currentX += widthPerIcon + iconSpacing;
+            }
+
+            currentX -= iconSpacing;
+
+            currentX += groupSpacing;
+        }
+
+        AddSprites(swordSprite, swordCount);
+        AddSprites(shieldSprite, shieldCount);
+        AddSprites(magicSprite, magicCount);
     }
 
     public void StartGame()

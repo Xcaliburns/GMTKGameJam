@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public string[] dialogueLines; // Les phrases du dialogue
     public float typingSpeed = 0.02f; // Vitesse d'affichage des lettres
 
+    public bool IsDialogueActive => dialoguePanel != null && dialoguePanel.activeSelf;
     private int currentLineIndex;
     private bool isTyping;      // On est en train d'afficher lettre par lettre
     private bool skipTyping;    // Le joueur veut passer directement
@@ -53,6 +54,13 @@ public class DialogueManager : MonoBehaviour
                 // Sinon ligne suivante
                 ShowNextLine();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerPrefs.DeleteKey(firstTimeKey);
+            PlayerPrefs.Save();
+            Debug.Log("🔄 Dialogue d'intro réinitialisé !");
         }
     }
 
