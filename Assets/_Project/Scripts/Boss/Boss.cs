@@ -14,8 +14,7 @@ public class Boss : MonoBehaviour
     PlayerController player;
 
     void OnEnable()
-    {
-        state = new(data);
+    {    
         LoadPhase2Displayer();
         StartPhase();
 
