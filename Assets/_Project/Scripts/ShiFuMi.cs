@@ -166,7 +166,7 @@ public class ShiFuMi : MonoBehaviour
 
         // Display boss choice
         if (bossChoiceText != null)
-            bossChoiceText.text = $"Boss chose: {bossChoice}";
+            bossChoiceText.text = $"Boss choice: {bossChoice}";
 
         // Allow player to respond
         canPlayerRespond = true;
@@ -261,7 +261,7 @@ public class ShiFuMi : MonoBehaviour
             StopCoroutine(timerCoroutine);
 
         if (playerChoiceText != null)
-            playerChoiceText.text = $"You chose: {playerChoice}";
+            playerChoiceText.text = $"You choose: {playerChoice}";
 
         DetermineWinner();
     }
@@ -283,9 +283,9 @@ public class ShiFuMi : MonoBehaviour
         else if (playerChoice == bossChoice)
         {
             // In case of a draw, player wins and boss loses a point
-            result = "DRAW - YOU WIN!\nBoss loses a point!";
-            resultColor = winColor;
-            ReduceBossStat(bossChoice);
+            result = "DRAW - YOU LOSE!\nYou lose a point!";
+            resultColor = loseColor;
+            ReducePlayerStat(playerChoice);
         }
         else
         {
