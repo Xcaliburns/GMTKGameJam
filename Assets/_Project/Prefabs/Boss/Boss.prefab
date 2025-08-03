@@ -45,6 +45,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4349baf371f29a740842db3987bf273a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resultText: {fileID: 0}
+  timerText: {fileID: 0}
+  playerChoiceText: {fileID: 0}
+  bossChoiceText: {fileID: 0}
+  playerStatsText: {fileID: 0}
+  bossStatsText: {fileID: 0}
+  swordButton: {fileID: 0}
+  shieldButton: {fileID: 0}
+  magicButton: {fileID: 0}
+  responseTime: 3
+  winColor: {r: 0, g: 1, b: 0, a: 1}
+  loseColor: {r: 1, g: 0, b: 0, a: 1}
+  drawColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  bossSwordStats: 3
+  bossShieldStats: 3
+  bossMagicStats: 3
+  playerController: {fileID: 0}
 --- !u!58 &8302272574497133650
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -248,4 +265,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f54a2a65f78df074aab8709d166abeee, type: 2}
-  phase2DisplayerPrefab: {fileID: 0}
+  phase2DisplayerPrefab: {fileID: 5535027882478932338, guid: 035e32af5be989d4e87f34fa7aee3244, type: 3}
