@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -321,6 +322,8 @@ public class PlayerController : MonoBehaviour
     public void RegisterSwordHit()
     {
         currentAttackHasHit = true;
+        audioSource.clip = attackFailSound;
+        audioSource.Play();
         Debug.Log("attack 1" + nbrSword);
         nbrSword--;
         Debug.Log("attack 2" + nbrSword);
@@ -410,7 +413,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             // Changer en blanc
-            playerSprite.color = Color.white;
+            playerSprite.color = Color.red;
             yield return new WaitForSeconds(0.1f);
             
             // Revenir à la couleur d'origine
