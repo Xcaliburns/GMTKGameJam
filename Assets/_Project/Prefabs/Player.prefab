@@ -154,7 +154,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.39115885}
+  m_Offset: {x: 0, y: 0}
   m_Radius: 0.41617998
 --- !u!114 &6718523386605895413
 MonoBehaviour:
@@ -185,9 +185,9 @@ MonoBehaviour:
   acceleration: 30
   friction: 18
   velocity: {x: 0, y: 0}
-  nbrSword: 5
-  nbrShield: 5
-  nbrMagic: 5
+  nbrSword: 3
+  nbrShield: 3
+  nbrMagic: 3
   MagicProjectile: {fileID: 3090587198166330015, guid: 047c6ae5af81dc34baf89ed4e2dc26b2, type: 3}
   audioSource: {fileID: 7704363554508032143}
   projectileOffset: 1

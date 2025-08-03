@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &388335086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,13 +634,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: blockinputs
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: currentAttackHasHit
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 1753829578}
     - target: {fileID: 7704363554508032143, guid: cf09e85142787964581944a9d8de08dd, type: 3}
       propertyPath: m_Volume
       value: 0.488
@@ -2389,6 +2385,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3508704689087931552, guid: 427bf9e298f46624183278feb2978efc, type: 3}
   m_PrefabInstance: {fileID: 432324780}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1753829578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4929678801705474782, guid: 37b37861a60234c4492e56cffc298116, type: 3}
+  m_PrefabInstance: {fileID: 1945404099286520908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3708977b0a4b2cb43ada86816ea429cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1821911316
 GameObject:
   m_ObjectHideFlags: 0
