@@ -2183,6 +2183,7 @@ MonoBehaviour:
   enemys: []
   cambrain: {fileID: 0}
   blockDoor: {fileID: 8371895015912048071}
+  audiosource: {fileID: 8103448028960091631}
 --- !u!1 &7590089721843086275
 GameObject:
   m_ObjectHideFlags: 0
