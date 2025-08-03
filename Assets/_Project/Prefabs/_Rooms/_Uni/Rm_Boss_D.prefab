@@ -2752,6 +2752,10 @@ PrefabInstance:
       propertyPath: phase2DisplayerPrefab
       value: 
       objectReference: {fileID: 5535027882478932338, guid: 035e32af5be989d4e87f34fa7aee3244, type: 3}
+    - target: {fileID: 7990037559102955297, guid: 7aef2b7e318ce6e429c4d262b363fd49, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
