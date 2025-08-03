@@ -9,6 +9,7 @@ public class DisableAndActivateEnemys : MonoBehaviour
     public List <EnemyComponent> enemys = new List<EnemyComponent>();
     public CinemachineCamera cambrain;
     public GameObject blockDoor;
+    public AudioSource audiosource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +30,11 @@ public class DisableAndActivateEnemys : MonoBehaviour
             }
             else if(GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.bossRoom)
             {
+                if(audiosource != null)
+                {
+                    audiosource.enabled = true;
+                    
+                }
                 if (blockDoor != null)
                 {
                     blockDoor.SetActive(true);
@@ -55,6 +61,11 @@ public class DisableAndActivateEnemys : MonoBehaviour
             if (blockDoor != null)
             {
                 blockDoor.SetActive(false);
+            }
+            if (audiosource != null)
+            {
+                audiosource.enabled = false;
+
             }
             disableEnemys();
         }
