@@ -68,7 +68,7 @@ public class GuidedProjectile : MonoBehaviour
             if (player != null && !playerController.isKnockedBack)
             {
                 playerController.audioSource.PlayOneShot(playerController.shieldBreakSound);
-                player.nbrShield--;
+                //player.nbrShield--;
                 Vector2 knockbackDirection = (player.transform.position - transform.position).normalized;
                 player.HandleDamage(knockbackDirection);
             }
