@@ -8,6 +8,10 @@ public class MusicMenuManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (musiquesMenu.Length == 1)
+        {
+            audiosource.loop = true;
+        }
         audiosource.resource = musiquesMenu[numberOfMusicMenu];
         audiosource.Play();
     }
@@ -18,16 +22,7 @@ public class MusicMenuManager : MonoBehaviour
         if(audiosource.time == audiosource.clip.length)
         {
             audiosource.Stop();
-            if(musiquesMenu.Length == 1)
-            {
-                numberOfMusicMenu = 0;
-                audiosource.resource = musiquesMenu[numberOfMusicMenu];
-                audiosource.Play();
-                return;
-
-            }
-            else
-            {
+          
                 if (numberOfMusicMenu == musiquesMenu.Length - 1)
                 {
                     numberOfMusicMenu = 0;
@@ -42,10 +37,6 @@ public class MusicMenuManager : MonoBehaviour
                     audiosource.Play();
                     return;
                 }
-            }
-         
-            
-           
         }
     }
 
