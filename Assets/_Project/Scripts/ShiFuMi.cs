@@ -38,6 +38,9 @@ public class ShiFuMi : MonoBehaviour
     [Header("Player Reference")]
     public PlayerController playerController;
 
+    [Header("Auto Start Game")]
+    public bool autoStartGame = false;
+
     private Choice playerChoice;
     private Choice bossChoice;
     private Color defaultTextColor;
@@ -45,6 +48,9 @@ public class ShiFuMi : MonoBehaviour
     private int dodgePhaseCount = 0;
     private bool gameOver = false;
     private Coroutine timerCoroutine;
+    
+    // Event that gets fired when the game ends
+    public System.Action<bool> onGameComplete;
 
     void Start()
     {
@@ -68,10 +74,40 @@ public class ShiFuMi : MonoBehaviour
         if (resultText != null)
             defaultTextColor = resultText.color;
 
+        // Only auto-start if configured to do so
+        if (autoStartGame)
+        {
+            StartGame();
+        }
+        else
+        {
+            // Initialize UI without starting the game
+            if (timerText != null)
+                timerText.text = "";
+            if (resultText != null)
+                resultText.text = "Waiting for battle...";
+            if (playerChoiceText != null)
+                playerChoiceText.text = "";
+            if (bossChoiceText != null)
+                bossChoiceText.text = "";
+                
+            UpdateStatsDisplay();
+            UpdateButtonInteractability();
+        }
+    }
+
+    // New method to start the game when triggered
+    public void StartGame()
+    {
+        // Reset game state
+        gameOver = false;
+        canPlayerRespond = false;
+        dodgePhaseCount = 0;
+        
         // Start the first boss turn
+        UpdateStatsDisplay();
         UpdateButtonInteractability();
         StartNextBossTurn();
-        UpdateStatsDisplay();
     }
 
     void Update()
@@ -397,6 +433,9 @@ public class ShiFuMi : MonoBehaviour
                 resultText.color = loseColor;
             }
         }
+        
+        // Call the onGameComplete event
+        onGameComplete?.Invoke(playerWon);
     }
 
     private IEnumerator ShowFinalMessage(string message, float delay)
