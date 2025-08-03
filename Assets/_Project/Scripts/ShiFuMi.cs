@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI; // For Button elements
 using TMPro; // For TextMeshProUGUI
-using System;
+
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.Cinemachine;
+
 
 public class ShiFuMi : MonoBehaviour
 {
@@ -51,7 +55,7 @@ public class ShiFuMi : MonoBehaviour
     
     // Event that gets fired when the game ends
     public System.Action<bool> onGameComplete;
-
+    public GameObject panelwin, panelloose;
     void Start()
     {
         // Find player controller if not assigned
@@ -423,12 +427,15 @@ public class ShiFuMi : MonoBehaviour
             {
                 resultText.text = "VICTORY!\nThe boss has lost all stats!";
                 resultText.color = winColor;
-
+                var dddd = Object.FindFirstObjectByType<DontDestroyCanva>();
+                Instantiate(panelwin,  dddd.transform);
                 // Add final message about replacing the boss
                 StartCoroutine(ShowFinalMessage("You have replaced the boss!\nEnd of run.", 3f));
             }
             else
             {
+                var dddd = Object.FindFirstObjectByType<DontDestroyCanva>();
+                Instantiate(panelloose, dddd.transform);
                 resultText.text = "DEFEAT!\nYou have lost all your stats!";
                 resultText.color = loseColor;
             }
