@@ -5,9 +5,14 @@ public class MusicMenuManager : MonoBehaviour
     public AudioSource audiosource;
     public AudioClip[] musiquesMenu;
     public int numberOfMusicMenu;
+    public static MusicMenuManager instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if(instance == null)
+        {
+           instance  = this;
+        }
         if (musiquesMenu.Length == 1)
         {
             audiosource.loop = true;
@@ -19,7 +24,11 @@ public class MusicMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(audiosource.time == audiosource.clip.length)
+        if (instance == null)
+        {
+            instance = this;
+        }
+        if (audiosource.time == audiosource.clip.length)
         {
             audiosource.Stop();
           

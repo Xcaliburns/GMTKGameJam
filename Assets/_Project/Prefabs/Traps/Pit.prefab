@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4626272096027290472}
   - component: {fileID: 586424561939915632}
   - component: {fileID: 922012022013832489}
+  - component: {fileID: 8339107211753203120}
   m_Layer: 0
   m_Name: Pit
   m_TagString: Pit
@@ -222,3 +223,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.030461911, y: 0.00000005597331}
   m_Size: {x: 2.9989295, y: 0.61433333}
   m_Direction: 1
+--- !u!114 &8339107211753203120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281908030044323174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698974f6b9e9f6409c45573af10d0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

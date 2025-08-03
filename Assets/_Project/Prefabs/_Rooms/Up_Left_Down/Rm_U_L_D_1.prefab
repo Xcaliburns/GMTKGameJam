@@ -1778,6 +1778,7 @@ GameObject:
   - component: {fileID: 3519868236851642379}
   - component: {fileID: 3091147692739417379}
   - component: {fileID: 5556581903874230751}
+  - component: {fileID: 6550522152149949502}
   m_Layer: 0
   m_Name: Rm_U_L_D_1
   m_TagString: Untagged
@@ -1916,6 +1917,20 @@ MonoBehaviour:
   layerWallTileMap:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &6550522152149949502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078599108249372442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753388ecbee59eb4bad57bff6b13d141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemys: []
+  cambrain: {fileID: 0}
 --- !u!1 &7917537562255746694
 GameObject:
   m_ObjectHideFlags: 0

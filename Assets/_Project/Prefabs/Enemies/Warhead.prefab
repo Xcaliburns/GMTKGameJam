@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 1787339044115516800}
   - component: {fileID: 8490595385426704187}
   - component: {fileID: -6891464074768735462}
+  - component: {fileID: 816392370249553079}
   m_Layer: 0
   m_Name: Warhead
   m_TagString: Enemy
@@ -209,6 +210,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPrefab: {fileID: 3602733174871278386, guid: fca9aa9a49adb164b8c545b86d235a67, type: 3}
+--- !u!114 &816392370249553079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926060588642572314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698974f6b9e9f6409c45573af10d0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9010667329541042145
 PrefabInstance:
   m_ObjectHideFlags: 0

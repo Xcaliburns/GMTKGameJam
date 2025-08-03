@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: -4220349145049990534}
   - component: {fileID: 1632887626369304626}
   - component: {fileID: -8524153595582563613}
+  - component: {fileID: -4091484512811646942}
   m_Layer: 0
   m_Name: AimPlayer
   m_TagString: Enemy
@@ -209,6 +210,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPrefab: {fileID: 3602733174871278386, guid: fca9aa9a49adb164b8c545b86d235a67, type: 3}
+--- !u!114 &-4091484512811646942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649088133890445364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698974f6b9e9f6409c45573af10d0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &721387306156641028
 PrefabInstance:
   m_ObjectHideFlags: 0

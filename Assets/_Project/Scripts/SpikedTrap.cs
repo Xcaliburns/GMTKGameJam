@@ -73,7 +73,10 @@ public class SpikedTrap : MonoBehaviour
             DeactivateSpikes();
         }
     }
-    
+    private void OnEnable()
+    {
+        StartCoroutine(SpikeCycle());
+    }
     void ActivateSpikes()
     {
         spikeCollider.enabled = true;

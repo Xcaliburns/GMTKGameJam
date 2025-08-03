@@ -1020,6 +1020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 395548383045776096}
+  - component: {fileID: 5633976884858264473}
   m_Layer: 0
   m_Name: FireCamp (1)
   m_TagString: Untagged
@@ -1044,6 +1045,18 @@ Transform:
   - {fileID: 7624369779248277464}
   m_Father: {fileID: 3519868236851642379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5633976884858264473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116880904204503122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698974f6b9e9f6409c45573af10d0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3242501084546099388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +1981,7 @@ GameObject:
   - component: {fileID: 3519868236851642379}
   - component: {fileID: 3091147692739417379}
   - component: {fileID: 3326852629573655431}
+  - component: {fileID: 1381532064552027539}
   m_Layer: 0
   m_Name: Rm_FireCamp_L_R
   m_TagString: Untagged
@@ -2081,7 +2095,7 @@ MonoBehaviour:
   - {fileID: 7078599108249372442, guid: eb6d8335252d8f0499b9d2adb395bb8f, type: 3}
   nextTiles: []
   nextTileChoosed: 
-  typeOfTile: 12
+  typeOfTile: 15
   lastTile: {fileID: 0}
   tilesChoosed: []
   RandomTileMap: 0
@@ -2094,6 +2108,20 @@ MonoBehaviour:
   layerWallTileMap:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1381532064552027539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078599108249372442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753388ecbee59eb4bad57bff6b13d141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemys: []
+  cambrain: {fileID: 0}
 --- !u!1 &7917537562255746694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2763,7 @@ GameObject:
   - component: {fileID: 7624369779248277464}
   - component: {fileID: 6942412348536187105}
   - component: {fileID: 3890799638888221125}
+  - component: {fileID: 2996903843811450825}
   m_Layer: 0
   m_Name: FireCampTrigger
   m_TagString: Firecamp
@@ -2815,6 +2844,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d44e2e93f41ac40bb720b92336464e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &2996903843811450825
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801807088692440376}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 82cdff4e381975f4e9aa6f3e7bc7c594, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8870892424232324346
 GameObject:
   m_ObjectHideFlags: 0
