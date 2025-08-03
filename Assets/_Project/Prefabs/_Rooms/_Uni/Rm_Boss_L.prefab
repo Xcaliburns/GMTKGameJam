@@ -2801,11 +2801,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 297543700727040540, guid: 7aef2b7e318ce6e429c4d262b363fd49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.71
+      value: 4.52
       objectReference: {fileID: 0}
     - target: {fileID: 297543700727040540, guid: 7aef2b7e318ce6e429c4d262b363fd49, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6809504
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 297543700727040540, guid: 7aef2b7e318ce6e429c4d262b363fd49, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2851,6 +2851,10 @@ PrefabInstance:
       propertyPath: phase2DisplayerPrefab
       value: 
       objectReference: {fileID: 5535027882478932338, guid: 035e32af5be989d4e87f34fa7aee3244, type: 3}
+    - target: {fileID: 5746907296364824344, guid: 7aef2b7e318ce6e429c4d262b363fd49, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.27
+      objectReference: {fileID: 0}
     - target: {fileID: 7990037559102955297, guid: 7aef2b7e318ce6e429c4d262b363fd49, type: 3}
       propertyPath: m_Enabled
       value: 0
