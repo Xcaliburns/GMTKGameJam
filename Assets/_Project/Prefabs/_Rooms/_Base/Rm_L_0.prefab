@@ -1786,6 +1786,7 @@ MonoBehaviour:
   - {fileID: 7078599108249372442, guid: 09102eb4b91249648bbcf62ba4d84d15, type: 3}
   - {fileID: 7078599108249372442, guid: 9270dbb2231b0224b8210c9ad53dc8da, type: 3}
   - {fileID: 7078599108249372442, guid: 101f0e2df32a25c41ba6ec26b68e97dd, type: 3}
+  - {fileID: 7078599108249372442, guid: cdf84558b1c12664a8cea0ede3a1868a, type: 3}
   spawnDelay: 20
   destroyDelay: 5
 --- !u!1 &7680791603359667172
