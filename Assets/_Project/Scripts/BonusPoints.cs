@@ -30,6 +30,12 @@ public class BonusPoints : MonoBehaviour
     public float backgroundPaddingY = 20f;
     public float offsetX = 0.15f;
 
+    [Header("Settings")]
+    public AudioClip swordPointGain;
+    public AudioClip shieldPointGain;
+    public AudioClip magicPointGain;
+    public AudioSource audioSource;
+
     private int swordPoints;
     private int shieldPoints;
     private int magicPoints;
@@ -68,6 +74,19 @@ public class BonusPoints : MonoBehaviour
             playerController.nbrSword += swordPoints; // Award sword points
             playerController.nbrShield += shieldPoints; // Award shield points
             playerController.nbrMagic += magicPoints; // Award magic points
+
+            if(swordPoints > 0)
+            {
+                audioSource.PlayOneShot(swordPointGain);
+            }
+            if (shieldPoints > 0)
+            {
+                audioSource.PlayOneShot(shieldPointGain);
+            }
+            if (magicPoints > 0)
+            {
+                audioSource.PlayOneShot(magicPointGain);
+            }
 
             // Destroy this bonus point object after awarding points
             boxCollider.enabled = false; // Disable the collider to prevent further triggers

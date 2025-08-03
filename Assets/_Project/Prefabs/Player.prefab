@@ -198,9 +198,9 @@ MonoBehaviour:
   shieldBreakSound: {fileID: 0}
   swordBreakSound: {fileID: 0}
   magicBreakSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  shieldSound: {fileID: 0}
-  WalkSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 40b30e07c4c45f74e861a0d8a6441d75, type: 3}
+  shieldSound: {fileID: 8300000, guid: 94f6735d8d9fa1d4c99bcdbc14069ff5, type: 3}
+  WalkSound: {fileID: 8300000, guid: 69604e9e2cbdacf4bba14f0df82cefa0, type: 3}
   invulnerabilityDuration: 0.5
 --- !u!82 &7704363554508032143
 AudioSource:

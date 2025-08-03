@@ -12,9 +12,14 @@ public class CursedAxe : MonoBehaviour
     public bool showPath = true;
     public Color pathColor = Color.red;
 
+    public AudioSource audioSource;
+    public AudioClip swoosh;
+
     private float journeyProgress = 0f;
     private bool movingForward = true;
-    
+    private float lastAngle = 0f;
+    private float rotationAccumulated = 0f;
+
     void Start()
     {
         if (startPoint != null)
@@ -34,8 +39,20 @@ public class CursedAxe : MonoBehaviour
         
         // Rotate the axe
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
-        
-        // Update journey progress
+
+        float currentAngle = transform.eulerAngles.z;
+
+        float delta = Mathf.DeltaAngle(lastAngle, currentAngle);
+        lastAngle = currentAngle;
+
+        rotationAccumulated += delta;
+
+        if (Mathf.Abs(rotationAccumulated) >= 660f)
+        {
+            rotationAccumulated %= 660f;
+            audioSource.PlayOneShot(swoosh);
+        }
+
         if (movingForward)
         {
             journeyProgress += moveSpeed * Time.deltaTime;

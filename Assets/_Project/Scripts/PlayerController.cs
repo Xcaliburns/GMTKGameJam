@@ -269,6 +269,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(deathSound);
             DavidUIManager.Instance.PlayerDied();
         }
 
@@ -405,7 +406,7 @@ public class PlayerController : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy") &&  !isKnockedBack)
             {
                 Vector2 hitDirection = collision.contacts[0].point - (Vector2)transform.position;
-                nbrShield--;
+                //nbrShield--;
                 HandleDamage(hitDirection);
             }
         }
