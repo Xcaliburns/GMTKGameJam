@@ -2843,6 +2843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2008331702955865466, guid: 7aef2b7e318ce6e429c4d262b363fd49, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3421748427051003292, guid: 7aef2b7e318ce6e429c4d262b363fd49, type: 3}
       propertyPath: phase2DisplayerPrefab
       value: 
