@@ -16,7 +16,7 @@ public class RandomSpawner : MonoBehaviour
     {
       
 
-        int randomIndex = Random.Range(0, prefabs.Length - 1);
+        int randomIndex = Random.Range(0, prefabs.Length);
         GameObject prefabToSpawn = prefabs[randomIndex];
 
         Instantiate(prefabToSpawn, transform.position, transform.rotation);

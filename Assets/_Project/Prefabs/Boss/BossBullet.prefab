@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20df9d8866082e143bacaae552c2f76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
   lifetimeMax: 2
   animationPrefab: {fileID: 3602733174871278386, guid: fca9aa9a49adb164b8c545b86d235a67, type: 3}
 --- !u!114 &6048718428420469438

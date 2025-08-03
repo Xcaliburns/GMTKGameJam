@@ -1791,6 +1791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemys: []
   cambrain: {fileID: 0}
+  blockDoor: {fileID: 0}
 --- !u!1 &7680791603359667172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1219849176989339042, guid: 4150e355e0028e84187ca84df4b1f4fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.86
+      value: -1.28
       objectReference: {fileID: 0}
     - target: {fileID: 1219849176989339042, guid: 4150e355e0028e84187ca84df4b1f4fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2978,7 +2979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1219849176989339042, guid: 4150e355e0028e84187ca84df4b1f4fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.52
+      value: 1.76
       objectReference: {fileID: 0}
     - target: {fileID: 1219849176989339042, guid: 4150e355e0028e84187ca84df4b1f4fd, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1930,6 +1930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemys: []
   cambrain: {fileID: 0}
+  blockDoor: {fileID: 0}
 --- !u!1 &7917537562255746694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,7 +2728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950683693106865567, guid: e41e187a342050745964d22b5c32b6c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.96
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 8950683693106865567, guid: e41e187a342050745964d22b5c32b6c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2913,7 +2914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950683693106865567, guid: e41e187a342050745964d22b5c32b6c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 8950683693106865567, guid: e41e187a342050745964d22b5c32b6c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2975,7 +2976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950683693106865567, guid: e41e187a342050745964d22b5c32b6c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.24
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8950683693106865567, guid: e41e187a342050745964d22b5c32b6c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3037,7 +3038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950683693106865567, guid: e41e187a342050745964d22b5c32b6c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5937928
+      value: 2.19
       objectReference: {fileID: 0}
     - target: {fileID: 8950683693106865567, guid: e41e187a342050745964d22b5c32b6c4, type: 3}
       propertyPath: m_LocalPosition.z
