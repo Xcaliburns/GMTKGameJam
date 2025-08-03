@@ -476,6 +476,7 @@ MonoBehaviour:
   swordsContainer: {fileID: 0}
   shieldsContainer: {fileID: 0}
   magicContainer: {fileID: 0}
+  IconsBackground: {fileID: 0}
   swordSprite: {fileID: 0}
   shieldSprite: {fileID: 0}
   magicSprite: {fileID: 0}
@@ -604,6 +605,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2020209353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
+  m_PrefabInstance: {fileID: 875896426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e26f3e59579aa49ab64d5d671a129a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2076380029
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,7 +632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2076380031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,8 +646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  player: {fileID: 0}
-  canvas: {fileID: 0}
+  player: {fileID: 2020209353}
+  canvas: {fileID: 1636142261}
   gameSpeed: 1
   isMusicEnabled: 1
   isSoundEffectsEnabled: 1

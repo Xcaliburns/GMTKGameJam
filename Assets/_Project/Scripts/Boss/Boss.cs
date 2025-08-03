@@ -15,6 +15,12 @@ public class Boss : MonoBehaviour
 
     void OnEnable()
     {    
+        // Initialize state before using it
+        if (state == null)
+        {
+            state = new BossState(data);
+        }
+        
         LoadPhase2Displayer();
         StartPhase();
 
@@ -145,6 +151,10 @@ public class Boss : MonoBehaviour
 
     void StopCurrentAttack()
     {
+        // Safety check to prevent NullReferenceException
+        if (state == null)
+            return;
+            
         if (state.attackCoroutine != null)
         {
             StopCoroutine(state.attackCoroutine);
