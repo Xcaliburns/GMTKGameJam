@@ -731,7 +731,7 @@ MonoBehaviour:
   text: You Beat the boss but the curse loop continue
   textMeshPro: {fileID: 1626464449192690549}
   loadsceneretry: KeromasScene
-  loadscenecontinue: KeromasScene
+  loadscenecontinue: Save
   loadscenemainmenu: Menu
   buttons:
   - {fileID: 3412363546211658241}

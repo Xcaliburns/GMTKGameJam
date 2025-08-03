@@ -38,6 +38,7 @@ public class ShiFuMiTrigger : MonoBehaviour
 
     private void Start()
     {
+       
         var CanvaTomove=   Object.FindFirstObjectByType<DontDestroyCanva>();
         PanelToMove.transform.parent = CanvaTomove.transform;
     }
@@ -66,6 +67,9 @@ public class ShiFuMiTrigger : MonoBehaviour
         {
             shiFuMiPanel.SetActive(true);
             shiFuMiGame .enabled=true;
+            shiFuMiGame.bossMagicStats = PlayerPrefs.GetInt("Magic");
+            shiFuMiGame.bossShieldStats = PlayerPrefs.GetInt("Shield");
+            shiFuMiGame.bossSwordStats = PlayerPrefs.GetInt("Sword");
         }
         
         // Si le composant ShiFuMi a été fourni, démarrer le jeu

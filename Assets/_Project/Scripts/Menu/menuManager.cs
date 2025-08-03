@@ -69,6 +69,15 @@ public class menuManager : MonoBehaviour
     }
     public void LoadScenePlay(string nameOfScene)
     {
+       
+            PlayerPrefs.SetInt("Sword", 3);
+        
+        
+            PlayerPrefs.SetInt("Magic", 3);
+        
+      
+            PlayerPrefs.SetInt("Shield", 3);
+        
         SceneManager.LoadSceneAsync(nameOfScene);
     }
 }

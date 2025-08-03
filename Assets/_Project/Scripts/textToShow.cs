@@ -35,6 +35,22 @@ public class textToShow : MonoBehaviour
     }
     public void Loadscenee(string nameofscene)
     {
+        var ezezsssssss = Object.FindFirstObjectByType<ShiFuMi>();
+        var player = Object.FindFirstObjectByType<PlayerController>();
+        if (loadscenecontinue == "Save")
+        {
+            
+                PlayerPrefs.SetInt("Sword", player.nbrSword);
+            
+            
+                PlayerPrefs.SetInt("Magic", player.nbrMagic);
+            
+                PlayerPrefs.SetInt("Shield", player.nbrShield);
+            
+        }
+           
+        var dddd = Object.FindFirstObjectByType<DontDestroyCanva>();
+        Destroy(dddd.gameObject);
         SceneManager.LoadSceneAsync(nameofscene);
     }
 }
