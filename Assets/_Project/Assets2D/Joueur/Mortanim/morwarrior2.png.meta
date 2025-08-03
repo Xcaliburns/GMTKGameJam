@@ -1,16 +1,55 @@
 fileFormatVersion: 2
-guid: 2cc6711c70456364384fedcbfdc92f57
+guid: 722073dc2588e0047908fdf6f22c9ecd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7354100971038191800
-    second: Sprite_Sheet_Boss_Dying_0
+      213: -1884194268528793869
+    second: morwarrior2_0
   - first:
-      213: -2196865881321218476
-    second: Sprite_Sheet_Boss_Dying_1
+      213: 6496966848692155430
+    second: morwarrior2_1
   - first:
-      213: -874151156442160239
-    second: Sprite_Sheet_Boss_Dying_2
+      213: -8180249935626193966
+    second: morwarrior2_2
+  - first:
+      213: -8255602891411116009
+    second: morwarrior2_3
+  - first:
+      213: 100992047695893630
+    second: morwarrior2_4
+  - first:
+      213: -5978596084650506593
+    second: morwarrior2_5
+  - first:
+      213: 9094944405217317334
+    second: morwarrior2_6
+  - first:
+      213: -1474159817158840845
+    second: morwarrior2_7
+  - first:
+      213: -5554431732010886133
+    second: morwarrior2_8
+  - first:
+      213: -1370482231487789219
+    second: morwarrior2_9
+  - first:
+      213: -4346655322325091454
+    second: morwarrior2_10
+  - first:
+      213: 8059439512583732911
+    second: morwarrior2_11
+  - first:
+      213: 9122691081480879545
+    second: morwarrior2_12
+  - first:
+      213: 1366237160175575012
+    second: morwarrior2_13
+  - first:
+      213: 3779342964799472734
+    second: morwarrior2_14
+  - first:
+      213: 8893725467249658631
+    second: morwarrior2_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,13 +171,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_Sheet_Boss_Dying_0
+      name: morwarrior2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1000
-        height: 800
+        width: 767
+        height: 1668
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84fc9ea612cf0f990800000000000000
-      internalID: -7354100971038191800
+      spriteID: 3f6a380bb4ff9d5e0800000000000000
+      internalID: -1884194268528793869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Sheet_Boss_Dying_1
+      name: morwarrior2_1
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 767
         y: 0
-        width: 1000
-        height: 800
+        width: 767
+        height: 1668
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45e5ca4de1a2381e0800000000000000
-      internalID: -2196865881321218476
+      spriteID: 624f8cd2decd92a50800000000000000
+      internalID: 6496966848692155430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Sheet_Boss_Dying_2
+      name: morwarrior2_2
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 1534
         y: 0
-        width: 1000
-        height: 800
+        width: 767
+        height: 1668
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,8 +230,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 193a44897246ed3f0800000000000000
-      internalID: -874151156442160239
+      spriteID: 2d3b61d360ae97e80800000000000000
+      internalID: -8180249935626193966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morwarrior2_3
+      rect:
+        serializedVersion: 2
+        x: 2301
+        y: 0
+        width: 767
+        height: 1668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 710b0ca09e43e6d80800000000000000
+      internalID: -8255602891411116009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morwarrior2_4
+      rect:
+        serializedVersion: 2
+        x: 3068
+        y: 0
+        width: 767
+        height: 1668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e749d087bbbc66100800000000000000
+      internalID: 100992047695893630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morwarrior2_5
+      rect:
+        serializedVersion: 2
+        x: 3835
+        y: 0
+        width: 767
+        height: 1668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f968dd67982c70da0800000000000000
+      internalID: -5978596084650506593
       vertices: []
       indices: 
       edges: []
@@ -201,7 +306,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e0815705ec6cb5144864e8ff29a8e728
+    spriteID: 6e633baa2448a1a4f92b1a50c3d22ba8
     internalID: 0
     vertices: []
     indices: 
@@ -211,11 +316,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":800.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":767.0,"y":1668.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Sprite_Sheet_Boss_Dying_0: -7354100971038191800
-      Sprite_Sheet_Boss_Dying_1: -2196865881321218476
-      Sprite_Sheet_Boss_Dying_2: -874151156442160239
+      morwarrior2_0: -1884194268528793869
+      morwarrior2_1: 6496966848692155430
+      morwarrior2_2: -8180249935626193966
+      morwarrior2_3: -8255602891411116009
+      morwarrior2_4: 100992047695893630
+      morwarrior2_5: -5978596084650506593
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
