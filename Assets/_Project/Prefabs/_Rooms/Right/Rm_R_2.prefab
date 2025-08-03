@@ -1552,7 +1552,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 8957718815826581711}
   fadeInDuration: 0.5
   fadeOutDuration: 0.5
-  teleportPosition: 0.357
+  teleportPosition: 0.255
   pauseGameDuringTransition: 0
   invincibilityAfterTransition: 0.5
 --- !u!1 &7061479330199211222
@@ -1789,6 +1789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemys: []
   cambrain: {fileID: 0}
+  blockDoor: {fileID: 0}
+  audiosource: {fileID: 0}
 --- !u!1 &7590089721843086275
 GameObject:
   m_ObjectHideFlags: 0
