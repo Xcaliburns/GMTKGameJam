@@ -27,21 +27,17 @@ public class DisableAndActivateEnemys : MonoBehaviour
             {
                MusicMenuManager.instance.audiosource.enabled = false;
             }
-            else
-            {
-                MusicMenuManager.instance.audiosource.enabled = true;
-                if(!MusicMenuManager.instance.audiosource.isPlaying)
-                {
-                    MusicMenuManager.instance.audiosource.Play();
-                }
-            }
-            if(GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.bossRoom)
+            else if(GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.bossRoom)
             {
                MusicMenuManager.instance.audiosource.enabled = false;
             }
             else
             {
-                blockDoor.SetActive(true);
+                if(blockDoor != null)
+                {
+                    blockDoor.SetActive(true);
+                }
+                
                 MusicMenuManager.instance.audiosource.enabled = true;
                 if(!MusicMenuManager.instance.audiosource.isPlaying)
                 {
