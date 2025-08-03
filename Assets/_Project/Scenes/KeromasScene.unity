@@ -565,21 +565,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 736174403911669320, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 6012364587891835650, guid: 2e957eda4407e444a8075df4317559de, type: 3}
-    - target: {fileID: 736174403911669320, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 736174403911669320, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 736174403911669320, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+    - target: {fileID: 461806625487841360, guid: cf09e85142787964581944a9d8de08dd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5823707796732495686, guid: cf09e85142787964581944a9d8de08dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -625,37 +613,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6395721295436447240, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1753829578}
-    - target: {fileID: 7704363554508032143, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: m_Volume
-      value: 0.488
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704363554508032143, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704363554508032143, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
-      value: 1.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6395721295436447240, guid: cf09e85142787964581944a9d8de08dd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2111114648}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf09e85142787964581944a9d8de08dd, type: 3}
 --- !u!1 &448625856 stripped
 GameObject:
@@ -2877,28 +2842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e26f3e59579aa49ab64d5d671a129a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2111114648
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111114639}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b264e00775dd71f4f837f67b02e86115, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1945404099286520908
 PrefabInstance:
   m_ObjectHideFlags: 0

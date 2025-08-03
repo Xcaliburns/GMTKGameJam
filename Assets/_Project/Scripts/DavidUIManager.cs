@@ -54,9 +54,9 @@ public class DavidUIManager : MonoBehaviour
         {
             playerController = FindFirstObjectByType<PlayerController>();
         }
-        playerController.nbrSword = 5;
-        playerController.nbrShield = 5;
-        playerController.nbrMagic = 5;
+        playerController.nbrSword = 3;
+        playerController.nbrShield = 3;
+        playerController.nbrMagic = 3;
         player.transform.position = StartPosition;
         Debug.Log("StartPosition is set to: " + StartPosition);
         // mettre le jeu en pause au démarrage

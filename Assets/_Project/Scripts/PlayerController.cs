@@ -101,6 +101,10 @@ public class PlayerController : MonoBehaviour
             {
                 GetComponent<Animator>().SetFloat("Move", 0.25f);
             }
+            if(Mathf.Floor(moveY) < 0f)
+            {
+                GetComponent<Animator>().SetFloat("Move", 0.75f);
+            }
             if (Mathf.Floor(moveX) == 0f && Mathf.Floor(moveY) == 0f)
             {
                 GetComponent<Animator>().SetFloat("Move", 0.5f);
@@ -175,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
         GameObject sword = Instantiate(
             swordPrefab,
-            (Vector2)transform.position + lastMoveDir * 0.8f,
+            (Vector2)transform.position + lastMoveDir * 0.8f + new Vector2(0, 0.4f),
             Quaternion.identity
         );
 
