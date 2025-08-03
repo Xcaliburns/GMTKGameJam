@@ -19,6 +19,8 @@ public class sceneChangeScipt : MonoBehaviour
     public void changeScene(string nameOfScene)
     {
         DavidUIManager.Instance.Retry();
+        var ezez = Object.FindFirstObjectByType<DontDestroyCanva>();
+        Destroy(ezez.gameObject);
         SceneManager.LoadSceneAsync(nameOfScene);
         
     }
