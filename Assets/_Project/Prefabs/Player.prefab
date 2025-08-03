@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6718523386605895413}
   - component: {fileID: 7704363554508032143}
   - component: {fileID: 461806625487841360}
+  - component: {fileID: 5175702757695178045}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -81,8 +82,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 3148062877284905568, guid: 4f7be8b78b9aac247acf2c70028b084f, type: 3}
-  m_Color: {r: 0.07208972, g: 0.24131662, b: 0.5660378, a: 1}
+  m_Sprite: {fileID: 6012364587891835650, guid: 2e957eda4407e444a8075df4317559de, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -153,8 +154,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0, y: 0.39115885}
+  m_Radius: 0.41617998
 --- !u!114 &6718523386605895413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,8 +172,8 @@ MonoBehaviour:
   attackDuration: 0.15
   attackSpeedMultiplier: 0.6
   isAttacking: 0
-  currentAttackHasHit: 1
-  blockinputs: 1
+  currentAttackHasHit: 0
+  blockinputs: 0
   moveX: 0
   moveY: 0
   magicCooldown: 0.5
@@ -414,3 +415,25 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!95 &5175702757695178045
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6395721295436447240}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b264e00775dd71f4f837f67b02e86115, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

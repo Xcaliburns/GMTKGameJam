@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8409987281951908570}
   m_Layer: 0
   m_Name: Gargoyle_fury
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
