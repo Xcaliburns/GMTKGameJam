@@ -41,7 +41,7 @@ public class LevelGenerator : MonoBehaviour
         {
             isSpawning = true;
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 10; i++)
             {
                 await VerifySuperpositionsTilemap();
                 await verifytilemap();
@@ -49,12 +49,25 @@ public class LevelGenerator : MonoBehaviour
 
             }
             await DetectNoIssueFarRoom();
+            await SpawnEnemysInRooms();
             player.GetComponent<PlayerController>().blockinputs = false;
             Destroy(uiLoadingScreen);
             SpawnIsFinish = true;
             isSpawning = false; // optionnel ici, car ça ne doit plus rerentrer de toute façon
         }
     }
+
+    public async Task SpawnEnemysInRooms()
+    {
+
+        var tilemapsspawned = Object.FindObjectsByType<RandomSpawner>(FindObjectsSortMode.None).ToList();
+        foreach (var t in tilemapsspawned)
+        {
+           await t.SpawnRoutine();
+        }
+        await Task.Yield();
+    }
+
     public async Task VerifySuperpositionsTilemap()
     {
         nextTilemapsSpawned.Clear();

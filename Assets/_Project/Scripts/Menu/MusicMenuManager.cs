@@ -18,20 +18,32 @@ public class MusicMenuManager : MonoBehaviour
         if(audiosource.time == audiosource.clip.length)
         {
             audiosource.Stop();
-            if(numberOfMusicMenu == musiquesMenu.Length -1)
+            if(musiquesMenu.Length == 1)
             {
                 numberOfMusicMenu = 0;
                 audiosource.resource = musiquesMenu[numberOfMusicMenu];
                 audiosource.Play();
                 return;
+
             }
             else
             {
-                numberOfMusicMenu++;
-                audiosource.resource = musiquesMenu[numberOfMusicMenu];
-                audiosource.Play();
-                return;
+                if (numberOfMusicMenu == musiquesMenu.Length - 1)
+                {
+                    numberOfMusicMenu = 0;
+                    audiosource.resource = musiquesMenu[numberOfMusicMenu];
+                    audiosource.Play();
+                    return;
+                }
+                else
+                {
+                    numberOfMusicMenu++;
+                    audiosource.resource = musiquesMenu[numberOfMusicMenu];
+                    audiosource.Play();
+                    return;
+                }
             }
+         
             
            
         }

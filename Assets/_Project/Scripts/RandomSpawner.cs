@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class RandomSpawner : MonoBehaviour
@@ -10,20 +11,17 @@ public class RandomSpawner : MonoBehaviour
     public float spawnDelay = 0.5f;
     public float destroyDelay = 5f;
 
-    void Start()
+  
+    public async Task SpawnRoutine()
     {
-        StartCoroutine(SpawnRoutine());
-    }
-    IEnumerator SpawnRoutine()
-    {
-        yield return new WaitForSeconds(spawnDelay);
+      
 
         int randomIndex = Random.Range(0, prefabs.Length - 1);
         GameObject prefabToSpawn = prefabs[randomIndex];
 
         Instantiate(prefabToSpawn, transform.position, transform.rotation);
 
-        yield return new WaitForSeconds(destroyDelay);
+       
 
         //Debug.Log(gameObject.name + " détruit.");
         Destroy(gameObject);
