@@ -545,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 388335085}
     - target: {fileID: 4176103227461913609, guid: da8feef3a8d66054a8c3f39a2680f5ed, type: 3}
       propertyPath: numberOfTilesTarget
-      value: 3
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5344387215272089243, guid: da8feef3a8d66054a8c3f39a2680f5ed, type: 3}
       propertyPath: m_LocalPosition.x
