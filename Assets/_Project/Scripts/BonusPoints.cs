@@ -114,8 +114,26 @@ public class BonusPoints : MonoBehaviour
             }
         }
 
-        currentY = 0.3f;
+        int totalLines = 0;
+        if (swordPoints > 0) totalLines++;
+        if (shieldPoints > 0) totalLines++;
+        if (magicPoints > 0) totalLines++;
 
+        // Ajuste la position de départ en fonction du nombre total de lignes
+        if (totalLines == 1)
+        {
+            currentY = 0f; // plus bas si une seule ligne
+        }
+        else if (totalLines == 2)
+        {
+            currentY = 0.3f; // valeur par défaut
+        }
+        else if (totalLines == 3)
+        {
+            currentY = 0.4f; // plus haut si trois lignes
+        }
+
+        // Maintenant, on affiche les lignes normalement
         if (swordPoints > 0)
         {
             AddLine(swordSprite, swordPoints, currentY);
