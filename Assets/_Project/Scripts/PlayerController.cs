@@ -354,9 +354,9 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("SpikedTrap") && !isKnockedBack)
         {
-            if (nbrMagic > 0)
+            if (nbrShield > 0)
             {
-                nbrMagic--;
+                //nbrMagic--;
                 HandleDamage(Vector2.zero);
             }
 

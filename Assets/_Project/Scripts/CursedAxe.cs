@@ -75,7 +75,7 @@ public class CursedAxe : MonoBehaviour
             if (playerController != null)
             {
                 Vector2 hitDirection = transform.position - collision.transform.position;
-                playerController.nbrMagic--; 
+                //playerController.nbrShield--; 
                 playerController.HandleDamage(hitDirection); // Assuming HandleDamage handles the damage logic
                 Debug.Log("Cursed Axe hit the player!");
             }

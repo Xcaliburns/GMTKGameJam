@@ -216,9 +216,9 @@ public class DavidUIManager : MonoBehaviour
             mainMenuPanel.SetActive(false);
             playerHUD.SetActive(true);
 
-            playerController.nbrSword = 5;
-            playerController.nbrShield = 5;
-            playerController.nbrMagic = 5;
+            playerController.nbrSword = 3;
+            playerController.nbrShield = 3;
+            playerController.nbrMagic = 3;
 
             if (player != null)
             {
