@@ -19,7 +19,7 @@ public class EndGameTrigger : MonoBehaviour
         if (player != null)
         {
             triggered = true;
-            player.blockinputs = true; // Bloque le joueur
+            //player.blockinputs = true; // Bloque le joueur
             StartCoroutine(PlayEndSequence());
         }
     }
