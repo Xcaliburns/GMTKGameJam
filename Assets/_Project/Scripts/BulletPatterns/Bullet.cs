@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
                     // Calculer la direction du projectile vers le joueur pour le knockback
                     Vector2 hitDirection = transform.position - collision.transform.position;
 
-                    player.nbrShield--;
+                    //player.nbrShield--;
 
                     // Appeler HandleDamage pour gérer les dégâts et l'invulnérabilité
                     player.HandleDamage(hitDirection);
