@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2571596731647327248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6283477933880975271}
+  m_Layer: 5
+  m_Name: Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6283477933880975271
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2571596731647327248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6352474610112501171}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1.43}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3314311837377778430
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +67,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1050698762791665761}
+  - {fileID: 6283477933880975271}
   m_Father: {fileID: 1219849176989339042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -60,7 +96,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &7820173870023969437
 MonoBehaviour:
@@ -69,7 +105,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3314311837377778430}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
@@ -281,16 +317,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e80ecbe08c6884ab5a71790f773d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPoints: 1
+  swordSprite: {fileID: -6706166778979548459, guid: aa50049cdab2fd14b96274818cb0f97c, type: 3}
+  shieldSprite: {fileID: 7878951576011287232, guid: aa9ab8fb5dde64b4db4d01e702bfd155, type: 3}
+  magicSprite: {fileID: -8495506653360166795, guid: 8ade43dd61d61a6488d1188bd47faf9b, type: 3}
   minSwordPoints: 0
   maxSwordPoints: 3
-  shieldPoints: 1
   minShieldPoints: 0
   maxShieldPoints: 3
-  magicPoints: 1
   minMagicPoints: 0
   maxMagicPoints: 3
-  desactivationColor: {r: 0.2735849, g: 0.254973, b: 0.040005337, a: 1}
+  container: {fileID: 6283477933880975271}
+  background: {fileID: 1050698762791665761}
+  desactivationColor: {r: 0.03773582, g: 0.034754332, b: 0.001957991, a: 1}
+  canvas: {fileID: 2250874638806701621}
+  scale: 0.25
+  iconSpacing: 0.11
+  lineSpacing: 0.26
+  backgroundPaddingX: 0.77
+  backgroundPaddingY: 0.77
+  offsetX: 0.15
 --- !u!198 &6299625764137042880
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5243,7 +5288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
