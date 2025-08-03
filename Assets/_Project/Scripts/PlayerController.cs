@@ -109,10 +109,19 @@ public class PlayerController : MonoBehaviour
             {
                 GetComponent<Animator>().SetFloat("Move", 0.5f);
             }
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+        else
+        {
+            GetComponent<Animator>().SetFloat("Move", 0.5f);
         
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
 
-        inputDir = new Vector2(moveX, moveY);
+        }
+
+
+            inputDir = new Vector2(moveX, moveY);
 
         if (inputDir.sqrMagnitude > 0.01f)
             lastMoveDir = inputDir.normalized;
