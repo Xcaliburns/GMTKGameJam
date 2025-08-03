@@ -149,7 +149,9 @@ public class PlayerController : MonoBehaviour
     {
         if (blockinputs) { return; }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking && nbrSword > 0 && !dialogueManager.IsDialogueActive)
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking && nbrSword > 0 
+          //  && !dialogueManager.IsDialogueActive /ne peut plus ataquer
+            )
         {
             StartCoroutine(AttackCoroutine());
         }

@@ -127,199 +127,283 @@ public class LevelGenerator : MonoBehaviour
         || t.typeOfTile == NextTilemap.TypeOfTile.UpNoIssue
         || t.typeOfTile == NextTilemap.TypeOfTile.DownNoIssue);
 
+        if (listtilesnoissue.Count == 0)
+        {
+            Debug.LogWarning("Aucune salle NoIssue trouvée pour placer la séquence du boss");
+            await Task.Yield();
+            return;
+        }
+
         listtilesnoissue.Sort((a, b) =>
-    Vector2.Distance(beginRoom.position, a.transform.position)
-    .CompareTo(Vector2.Distance(beginRoom.position, b.transform.position)));
+            Vector2.Distance(beginRoom.position, a.transform.position)
+            .CompareTo(Vector2.Distance(beginRoom.position, b.transform.position)));
 
         var lasttilenoissue = listtilesnoissue.Last();
-        if (!Physics2D.OverlapCircle(new Vector2(lasttilenoissue.transform.position.x + 18+9, lasttilenoissue.transform.position.y),1, tilemapLayer))
+        if (lasttilenoissue == null)
         {
-            if(lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.UpNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndRight);
-                var ee = Instantiate(dssd[0],lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampLeft, new Vector2(lasttilenoissue.transform.position.x + 18, lasttilenoissue.transform.position.y),Quaternion.identity);
-                ee = Instantiate(prefBossLeft, new Vector2(lasttilenoissue.transform.position.x + 18*2, lasttilenoissue.transform.position.y), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.DownNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorRightAndDown);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampLeft, new Vector2(lasttilenoissue.transform.position.x + 18, lasttilenoissue.transform.position.y), Quaternion.identity);
-                ee = Instantiate(prefBossLeft, new Vector2(lasttilenoissue.transform.position.x + 18 * 2, lasttilenoissue.transform.position.y), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.LeftNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndRight);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampLeft, new Vector2(lasttilenoissue.transform.position.x + 18, lasttilenoissue.transform.position.y), Quaternion.identity);
-                ee = Instantiate(prefBossLeft, new Vector2(lasttilenoissue.transform.position.x + 18 * 2, lasttilenoissue.transform.position.y), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.RightNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndRight);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampLeft, new Vector2(lasttilenoissue.transform.position.x + 18, lasttilenoissue.transform.position.y), Quaternion.identity);
-                ee = Instantiate(prefBossLeft, new Vector2(lasttilenoissue.transform.position.x + 18 * 2, lasttilenoissue.transform.position.y), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
+            Debug.LogError("La dernière salle NoIssue est null");
+            await Task.Yield();
+            return;
         }
-        if (!Physics2D.OverlapCircle(new Vector2(lasttilenoissue.transform.position.x - 18-9, lasttilenoissue.transform.position.y),1, tilemapLayer))
+
+        Debug.Log($"Salle boss: tentative de placement à partir de {lasttilenoissue.name} de type {lasttilenoissue.typeOfTile}");
+        
+        // Sauvegarde de la position et du type pour l'utiliser après la destruction
+        Vector3 tilePosition = lasttilenoissue.transform.position;
+        NextTilemap.TypeOfTile tileType = lasttilenoissue.typeOfTile;
+        bool roomDestroyed = false;
+        
+        // Vérification vers la droite
+        if (!Physics2D.OverlapCircle(new Vector2(tilePosition.x + 18+9, tilePosition.y), 1, tilemapLayer))
         {
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.UpNoIssue)
+            if(tileType == NextTilemap.TypeOfTile.UpNoIssue)
             {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndLeft);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampLeft, new Vector2(lasttilenoissue.transform.position.x - 18, lasttilenoissue.transform.position.y), Quaternion.identity);
-                ee = Instantiate(prefBossRight, new Vector2(lasttilenoissue.transform.position.x - 18 * 2, lasttilenoissue.transform.position.y), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.DownNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndDown);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampLeft, new Vector2(lasttilenoissue.transform.position.x - 18, lasttilenoissue.transform.position.y), Quaternion.identity);
-                ee = Instantiate(prefBossRight, new Vector2(lasttilenoissue.transform.position.x - 18 * 2, lasttilenoissue.transform.position.y), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.LeftNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndRight);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampLeft, new Vector2(lasttilenoissue.transform.position.x - 18, lasttilenoissue.transform.position.y), Quaternion.identity);
-                ee = Instantiate(prefBossRight, new Vector2(lasttilenoissue.transform.position.x - 18 * 2, lasttilenoissue.transform.position.y), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.RightNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndRight);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampLeft, new Vector2(lasttilenoissue.transform.position.x - 18, lasttilenoissue.transform.position.y), Quaternion.identity);
-                ee = Instantiate(prefBossRight, new Vector2(lasttilenoissue.transform.position.x - 18 * 2, lasttilenoissue.transform.position.y), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f); ;
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
                 
-                return;
-            }
-        }
-        if (!Physics2D.OverlapCircle(new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y + 10 + 5),1, tilemapLayer))
-        {
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.UpNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndDown);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y +10 ), Quaternion.identity);
-                ee = Instantiate(prefBossDown, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y + 10 + 10), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.DownNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndDown);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y + 10), Quaternion.identity);
-                ee = Instantiate(prefBossDown, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y + 10 + 10), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.LeftNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndLeft);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y + 10), Quaternion.identity);
-                ee = Instantiate(prefBossDown, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y + 10 + 10), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.RightNoIssue)
-            {
                 var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndRight);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
                 Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y + 10), Quaternion.identity);
-                ee = Instantiate(prefBossDown, new Vector2(lasttilenoissue.transform.position.x , lasttilenoissue.transform.position.y + 10 + 10), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-        }
-        if (!Physics2D.OverlapCircle(new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y-10-5),1, tilemapLayer))
-        {
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.UpNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndDown);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y -10), Quaternion.identity);
-                ee = Instantiate(prefBossUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y-10-10), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.DownNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndDown);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y - 10), Quaternion.identity);
-                ee = Instantiate(prefBossUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y - 10 - 10), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
-                return;
-            }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.LeftNoIssue)
-            {
-                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndDown);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
-                Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y-10), Quaternion.identity);
-                ee = Instantiate(prefBossUp, new Vector2(lasttilenoissue.transform.position.x , lasttilenoissue.transform.position.y - 10 - 10), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject,0.1f);
+                ee = Instantiate(prefFireCampLeft, new Vector2(tilePosition.x + 18, tilePosition.y), Quaternion.identity);
+                ee = Instantiate(prefBossLeft, new Vector2(tilePosition.x + 18*2, tilePosition.y), Quaternion.identity);
                 
+                Debug.Log("Séquence du boss créée à droite (UpNoIssue)");
                 return;
             }
-            if (lasttilenoissue.typeOfTile == NextTilemap.TypeOfTile.RightNoIssue)
+            if (tileType == NextTilemap.TypeOfTile.DownNoIssue)
             {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
                 var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorRightAndDown);
-                var ee = Instantiate(dssd[0], lasttilenoissue.transform.position, Quaternion.identity);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
                 Destroy(ee.GetComponent<NextTilemap>());
-                ee = Instantiate(prefFireCampUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y - 10), Quaternion.identity);
-                ee = Instantiate(prefBossUp, new Vector2(lasttilenoissue.transform.position.x, lasttilenoissue.transform.position.y - 10 - 10), Quaternion.identity);
-                Destroy(lasttilenoissue.gameObject, 0.1f);
-
+                ee = Instantiate(prefFireCampLeft, new Vector2(tilePosition.x + 18, tilePosition.y), Quaternion.identity);
+                ee = Instantiate(prefBossLeft, new Vector2(tilePosition.x + 18*2, tilePosition.y), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée à droite (DownNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.LeftNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndRight);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampLeft, new Vector2(tilePosition.x + 18, tilePosition.y), Quaternion.identity);
+                ee = Instantiate(prefBossLeft, new Vector2(tilePosition.x + 18*2, tilePosition.y), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée à droite (LeftNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.RightNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndRight);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampLeft, new Vector2(tilePosition.x + 18, tilePosition.y), Quaternion.identity);
+                ee = Instantiate(prefBossLeft, new Vector2(tilePosition.x + 18*2, tilePosition.y), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée à droite (RightNoIssue)");
                 return;
             }
         }
+        
+        // Vérification vers la gauche
+        if (!Physics2D.OverlapCircle(new Vector2(tilePosition.x - 18-9, tilePosition.y), 1, tilemapLayer))
+        {
+            if (tileType == NextTilemap.TypeOfTile.UpNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndLeft);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampLeft, new Vector2(tilePosition.x - 18, tilePosition.y), Quaternion.identity);
+                ee = Instantiate(prefBossRight, new Vector2(tilePosition.x - 18*2, tilePosition.y), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée à gauche (UpNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.DownNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndDown);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampLeft, new Vector2(tilePosition.x - 18, tilePosition.y), Quaternion.identity);
+                ee = Instantiate(prefBossRight, new Vector2(tilePosition.x - 18*2, tilePosition.y), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée à gauche (DownNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.LeftNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndRight);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampLeft, new Vector2(tilePosition.x - 18, tilePosition.y), Quaternion.identity);
+                ee = Instantiate(prefBossRight, new Vector2(tilePosition.x - 18*2, tilePosition.y), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée à gauche (LeftNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.RightNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndRight);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampLeft, new Vector2(tilePosition.x - 18, tilePosition.y), Quaternion.identity);
+                ee = Instantiate(prefBossRight, new Vector2(tilePosition.x - 18*2, tilePosition.y), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée à gauche (RightNoIssue)");
+                return;
+            }
+        }
+        
+        // Vérification vers le haut
+        if (!Physics2D.OverlapCircle(new Vector2(tilePosition.x, tilePosition.y + 10 + 5), 1, tilemapLayer))
+        {
+            if (tileType == NextTilemap.TypeOfTile.UpNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndDown);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampUp, new Vector2(tilePosition.x, tilePosition.y + 10), Quaternion.identity);
+                ee = Instantiate(prefBossDown, new Vector2(tilePosition.x, tilePosition.y + 10 + 10), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée en haut (UpNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.DownNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndDown);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampUp, new Vector2(tilePosition.x, tilePosition.y + 10), Quaternion.identity);
+                ee = Instantiate(prefBossDown, new Vector2(tilePosition.x, tilePosition.y + 10 + 10), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée en haut (DownNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.LeftNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndLeft);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampUp, new Vector2(tilePosition.x, tilePosition.y + 10), Quaternion.identity);
+                ee = Instantiate(prefBossDown, new Vector2(tilePosition.x, tilePosition.y + 10 + 10), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée en haut (LeftNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.RightNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndRight);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampUp, new Vector2(tilePosition.x, tilePosition.y + 10), Quaternion.identity);
+                ee = Instantiate(prefBossDown, new Vector2(tilePosition.x, tilePosition.y + 10 + 10), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée en haut (RightNoIssue)");
+                return;
+            }
+        }
+        
+        // Vérification vers le bas
+        if (!Physics2D.OverlapCircle(new Vector2(tilePosition.x, tilePosition.y - 10 - 5), 1, tilemapLayer))
+        {
+            if (tileType == NextTilemap.TypeOfTile.UpNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndDown);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampUp, new Vector2(tilePosition.x, tilePosition.y - 10), Quaternion.identity);
+                ee = Instantiate(prefBossUp, new Vector2(tilePosition.x, tilePosition.y - 10 - 10), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée en bas (UpNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.DownNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorUpAndDown);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampUp, new Vector2(tilePosition.x, tilePosition.y - 10), Quaternion.identity);
+                ee = Instantiate(prefBossUp, new Vector2(tilePosition.x, tilePosition.y - 10 - 10), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée en bas (DownNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.LeftNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorLeftAndDown);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampUp, new Vector2(tilePosition.x, tilePosition.y - 10), Quaternion.identity);
+                ee = Instantiate(prefBossUp, new Vector2(tilePosition.x, tilePosition.y - 10 - 10), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée en bas (LeftNoIssue)");
+                return;
+            }
+            if (tileType == NextTilemap.TypeOfTile.RightNoIssue)
+            {
+                DestroyImmediate(lasttilenoissue.gameObject);
+                roomDestroyed = true;
+                
+                var dssd = tilePrefs.FindAll(t => t.GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.DoorRightAndDown);
+                var ee = Instantiate(dssd[0], tilePosition, Quaternion.identity);
+                Destroy(ee.GetComponent<NextTilemap>());
+                ee = Instantiate(prefFireCampUp, new Vector2(tilePosition.x, tilePosition.y - 10), Quaternion.identity);
+                ee = Instantiate(prefBossUp, new Vector2(tilePosition.x, tilePosition.y - 10 - 10), Quaternion.identity);
+                
+                Debug.Log("Séquence du boss créée en bas (RightNoIssue)");
+                return;
+            }
+        }
+        
+        // Si aucune condition n'a été satisfaite mais que la salle existe toujours
+        if (!roomDestroyed && lasttilenoissue != null)
+        {
+            Debug.LogWarning("Impossible de placer la séquence du boss dans une direction, destruction de la salle NoIssue");
+            DestroyImmediate(lasttilenoissue.gameObject);
+        }
+        
         await Task.Yield();
     }
     private void OnDrawGizmos()

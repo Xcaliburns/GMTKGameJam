@@ -14,9 +14,10 @@ public class SmokeAnimation : MonoBehaviour
         
     }
     
-    public void destroy()
+    public void DestroyObject()
     {
         Destroy(gameObject);
+       
     }
 
 }
