@@ -2,23 +2,32 @@ using UnityEngine;
 
 public class BonusPoints : MonoBehaviour
 {
-    public int swordPoints = 1; // The number of bonus points to award
-    public int shieldPoints = 1; // The number of bonus points to award
-    public int magicPoints = 1; // The number of bonus points to award
-    public Color desactivationColor = Color.yellow; // The color of the bonus point object
+    public int swordPoints;
+    public int minSwordPoints = 0;
+    public int maxSwordPoints = 3;
+
+    public int shieldPoints;
+    public int minShieldPoints = 0;
+    public int maxShieldPoints = 3;
+
+    public int magicPoints;
+    public int minMagicPoints = 0;
+    public int maxMagicPoints = 3;
+    public Color desactivationColor = Color.black;
     
 
-    PlayerController playerController; // Reference to the PlayerController script
-    Rigidbody2D rb; // Reference to the Rigidbody2D component
-    BoxCollider2D boxCollider; // Reference to the BoxCollider2D component
-    SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
-    //changer couleur
+    PlayerController playerController;
+    Rigidbody2D rb;
+    BoxCollider2D boxCollider;
+    SpriteRenderer spriteRenderer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Get the Rigidbody2D component attached to this GameObject    
-            rb = GetComponent<Rigidbody2D>();
+        swordPoints = Random.Range(minSwordPoints, maxSwordPoints + 1);
+        swordPoints = Random.Range(minShieldPoints, maxShieldPoints + 1);
+        swordPoints = Random.Range(minMagicPoints, maxMagicPoints + 1);
+
+        rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         playerController = FindFirstObjectByType<PlayerController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
