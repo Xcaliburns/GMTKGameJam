@@ -321,11 +321,11 @@ MonoBehaviour:
   shieldSprite: {fileID: 7878951576011287232, guid: aa9ab8fb5dde64b4db4d01e702bfd155, type: 3}
   magicSprite: {fileID: -8495506653360166795, guid: 8ade43dd61d61a6488d1188bd47faf9b, type: 3}
   minSwordPoints: 0
-  maxSwordPoints: 3
+  maxSwordPoints: 2
   minShieldPoints: 0
-  maxShieldPoints: 3
+  maxShieldPoints: 2
   minMagicPoints: 0
-  maxMagicPoints: 3
+  maxMagicPoints: 2
   container: {fileID: 6283477933880975271}
   background: {fileID: 1050698762791665761}
   desactivationColor: {r: 0.03773582, g: 0.034754332, b: 0.001957991, a: 1}

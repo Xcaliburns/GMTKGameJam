@@ -1844,7 +1844,7 @@ MonoBehaviour:
   - {fileID: 7078599108249372442, guid: 0d2fcb47b1d9e9a418d5b19725d82544, type: 3}
   nextTiles: []
   nextTileChoosed: 
-  typeOfTile: 11
+  typeOfTile: 21
   lastTile: {fileID: 0}
   tilesChoosed: []
   RandomTileMap: 0
