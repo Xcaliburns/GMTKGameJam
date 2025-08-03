@@ -703,6 +703,84 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.52, y: 5.97}
   m_EdgeRadius: 0
+--- !u!1 &2499132768737928105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3711486022779748442}
+  - component: {fileID: 5747984997221021532}
+  m_Layer: 0
+  m_Name: BlockDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3711486022779748442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499132768737928105}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.70723253, w: 0.70698106}
+  m_LocalPosition: {x: -10.01, y: 0.73, z: 0}
+  m_LocalScale: {x: 3.7800343, y: 1.563837, z: 1.9526044}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3519868236851642379}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.02}
+--- !u!61 &5747984997221021532
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499132768737928105}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.031496316}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1.0944889}
+  m_EdgeRadius: 0
 --- !u!1 &2541172641981460437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,6 +1722,7 @@ GameObject:
   - component: {fileID: 3519868236851642379}
   - component: {fileID: 3091147692739417379}
   - component: {fileID: 436217717028588143}
+  - component: {fileID: 6856745935544306759}
   m_Layer: 0
   m_Name: Rm_Boss_L
   m_TagString: Untagged
@@ -1664,6 +1743,7 @@ Transform:
   m_LocalScale: {x: 0.8600001, y: 0.8600001, z: 0.8600001}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 3711486022779748442}
   - {fileID: 3143834909492338121}
   - {fileID: 1713176511016588040}
   - {fileID: 6576771306198659069}
@@ -1758,7 +1838,7 @@ MonoBehaviour:
   - {fileID: 7078599108249372442, guid: eb6d8335252d8f0499b9d2adb395bb8f, type: 3}
   nextTiles: []
   nextTileChoosed: 
-  typeOfTile: 8
+  typeOfTile: 22
   lastTile: {fileID: 0}
   tilesChoosed: []
   RandomTileMap: 0
@@ -1771,6 +1851,21 @@ MonoBehaviour:
   layerWallTileMap:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &6856745935544306759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078599108249372442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753388ecbee59eb4bad57bff6b13d141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemys: []
+  cambrain: {fileID: 0}
+  blockDoor: {fileID: 2499132768737928105}
 --- !u!1 &7680791603359667172
 GameObject:
   m_ObjectHideFlags: 0

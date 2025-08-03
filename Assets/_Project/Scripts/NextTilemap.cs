@@ -10,7 +10,7 @@ public class NextTilemap : MonoBehaviour
     public List<string> nextTiles;
     public string nextTileChoosed;
     public enum TypeOfTile {DoorUp,DoorDown,DoorRightUp,DoorUpAndDown,DoorRightUpDown,DoorLeftUpDown, DoorLeft,DoorRight,LeftNoIssue,RightNoIssue
-            ,UpNoIssue,DownNoIssue,DoorLeftAndRight, DoorUpAndRight, DoorUpAndLeft,CampFire,Begin,DoorLeftAndDown, DoorRightAndDown,DoorUpLeftRight,DoorDownLeftRight,DoorAllDirections};
+            ,UpNoIssue,DownNoIssue,DoorLeftAndRight, DoorUpAndRight, DoorUpAndLeft,CampFire,Begin,DoorLeftAndDown, DoorRightAndDown,DoorUpLeftRight,DoorDownLeftRight,DoorAllDirections,bossRoom};
     public TypeOfTile typeOfTile;
     public GameObject lastTile;
    [HideInInspector] public List<GameObject> tilesChoosed;

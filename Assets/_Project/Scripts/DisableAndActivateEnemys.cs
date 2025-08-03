@@ -8,6 +8,7 @@ public class DisableAndActivateEnemys : MonoBehaviour
 {
     public List <EnemyComponent> enemys = new List<EnemyComponent>();
     public CinemachineCamera cambrain;
+    public GameObject blockDoor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +29,19 @@ public class DisableAndActivateEnemys : MonoBehaviour
             }
             else
             {
+                MusicMenuManager.instance.audiosource.enabled = true;
+                if(!MusicMenuManager.instance.audiosource.isPlaying)
+                {
+                    MusicMenuManager.instance.audiosource.Play();
+                }
+            }
+            if(GetComponent<NextTilemap>().typeOfTile == NextTilemap.TypeOfTile.bossRoom)
+            {
+               MusicMenuManager.instance.audiosource.enabled = false;
+            }
+            else
+            {
+                blockDoor.SetActive(true);
                 MusicMenuManager.instance.audiosource.enabled = true;
                 if(!MusicMenuManager.instance.audiosource.isPlaying)
                 {
