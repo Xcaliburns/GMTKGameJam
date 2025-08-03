@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1923685464068107925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2951911303477647190}
+  - component: {fileID: 4929678801705474782}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2951911303477647190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923685464068107925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 997.21204, y: 226.72198, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4929678801705474782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923685464068107925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3708977b0a4b2cb43ada86816ea429cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  dialogueLines:
+  - Count Hexley... today your reign of terror comes to an end.
+  - 100 years have passed and 100 more will pass. Victory is defeat. My bones and
+    my spirit still await liberation from these walls.
+  - I know you, warrior of my lineage. I know all those who came before you, and
+    I know all those to whom you will make way.
+  - You will suffer the same fate as them and turn against those who come after you.
+  - You will end up imprisoned like me.
+  - But hope is my only remedy, and I still have enough light within me to bequeath
+    my poetry to you.
+  - She will guide you through the darkness of these walls so that you may prevail.
+  - The alphabet has always fascinated me, and the letters that make it up have a
+    hidden meaning.
+  - " \u201CZ\u201D represents moving upward, advancing despite adversity."
+  - "\u201CS\u201D represents backing away from what seems too daunting in order
+    to come back stronger."
+  - "\u201CQ\u201D and \u201CD\u201D represent choosing different paths. When two
+    options are presented, either left or right."
+  - Show me what you understand about my poetry.
+  - You have the soul of a poet.
+  - Sometimes letters come together and words take on a much deeper meaning.
+  - The "SPACE" represents the time or distance that separates us from victory. All
+    that is needed is to defeat one's enemy with the sword.
+  - And finally, "SHIFT"represents change, the transformation from one state to another.
+    Matter that transforms in a strange way to produce lightning.
+  - Finally, I want to tell you one last thing before you go in to carry out your
+    mission.
+  - Your deceased brothers break swords and shields that they themselves can no longer
+    hold in their hands with a single blow.
+  - Perhaps you will be able to find the ones that once belonged to them, now broken
+    into pieces.
+  - And adventurous. Magic too consumes itself in the air. Lightning is fleeting
+    and its trail is straight. But its power can be acquired at the cost of great
+    danger.
+  typingSpeed: 0.04
