@@ -49,7 +49,6 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   moveDistance: 15
   lifetime: 0.1
-  playerController: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
 --- !u!61 &5927238131388974799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: -9188473566805506635, guid: 9ef28e43d18add74a9ade4bb19953add, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

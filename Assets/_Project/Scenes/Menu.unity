@@ -2414,10 +2414,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nDevs : jean michel\n\t       jean michel\n\t       jean michel\nDevs
-    : jean michel\n\t       jean michel\n\t       jean michel\nDevs : jean michel\n\t      
-    jean michel\n\t       jean michel\nDevs : jean michel\n\t       jean michel\n\t      
-    jean michel\nDevs : jean michel\n\t       jean michel\n\t       jean michel"
+  m_text: "\nArtists : \n\t       Volcanio\n\t       Piou San\nDevs :\n\t       David
+    Abruzzo\n\t       Agamar\n\t       Thomas C\nSound designers : \n\t       Sindroc\n\t      
+    Leonce\nGame designers : \n\t       Thomas\n\t       Keromas\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c41cac8f1c524e64d886cc1b64192575, type: 2}
   m_sharedMaterial: {fileID: -3757852528005039988, guid: c41cac8f1c524e64d886cc1b64192575, type: 2}
@@ -3020,8 +3019,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audiosource: {fileID: 1493217121}
   musiquesMenu:
-  - {fileID: 8300000, guid: 42ffa3a3357d4744b93cbd3335e362fd, type: 3}
-  - {fileID: 8300000, guid: 57d9b04d3b51aec45b1b20d736787e25, type: 3}
+  - {fileID: 8300000, guid: d8384cdfd0a11884a8958c4f664cdff8, type: 3}
+  numberOfMusicMenu: 0
 --- !u!1 &1554964787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3637,7 +3636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1905691827
 RectTransform:
   m_ObjectHideFlags: 0
