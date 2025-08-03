@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4753522059575110819}
   - component: {fileID: 7887682882581088154}
   - component: {fileID: 224302540670719244}
+  - component: {fileID: 3457434648064755288}
   m_Layer: 0
   m_Name: 'Visual '
   m_TagString: Untagged
@@ -98,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 870381378521310531}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 52a46e80e6417c14383580fd414c8958, type: 2}
+  m_Controller: {fileID: 9100000, guid: 094b0c97ab35df84ebbf63f9b3cda921, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -110,6 +111,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3457434648064755288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870381378521310531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e220e8f2b4ba25f488af36556f4cb93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3090587198166330015, guid: 66094099cd3f7434a88b4736630fa949, type: 3}
+  rotationOffset: 0
+  positionOffset: {x: 0.73, y: 0.78}
 --- !u!1 &3185217990849720998
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +269,10 @@ PrefabInstance:
     - target: {fileID: 2973752210922034870, guid: f0dc5fd68bb6f2141821259e0920254a, type: 3}
       propertyPath: m_Name
       value: ProjectileSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973752210922034870, guid: f0dc5fd68bb6f2141821259e0920254a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7586664718511190730, guid: f0dc5fd68bb6f2141821259e0920254a, type: 3}
       propertyPath: m_LocalPosition.x

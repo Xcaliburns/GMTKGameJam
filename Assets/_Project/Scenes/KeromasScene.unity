@@ -475,6 +475,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
+      propertyPath: blockinputs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718523386605895413, guid: cf09e85142787964581944a9d8de08dd, type: 3}
+      propertyPath: currentAttackHasHit
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7704363554508032143, guid: cf09e85142787964581944a9d8de08dd, type: 3}
       propertyPath: m_Volume
       value: 0.488
