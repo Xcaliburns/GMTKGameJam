@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     public GameObject MagicProjectile;
     public AudioSource audioSource;
     public float projectileOffset = 1f;
+    public DialogueManager dialogueManager;
 
     [Header("Player Sounds")]
     public AudioClip attackSuccessSound;
@@ -148,7 +149,7 @@ public class PlayerController : MonoBehaviour
     {
         if (blockinputs) { return; }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking && nbrSword > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking && nbrSword > 0 && !dialogueManager.IsDialogueActive)
         {
             StartCoroutine(AttackCoroutine());
         }
