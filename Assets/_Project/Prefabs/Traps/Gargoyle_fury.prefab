@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 6667898230362966274}
   - component: {fileID: 6926724878878525452}
   - component: {fileID: 8409987281951908570}
+  - component: {fileID: -8102454241225605943}
   m_Layer: 0
   m_Name: Gargoyle_fury
   m_TagString: Untagged
@@ -234,6 +235,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-8102454241225605943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185217990849720998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698974f6b9e9f6409c45573af10d0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4086954855556778713
 PrefabInstance:
   m_ObjectHideFlags: 0

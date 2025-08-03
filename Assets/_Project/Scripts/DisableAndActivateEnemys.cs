@@ -29,6 +29,10 @@ public class DisableAndActivateEnemys : MonoBehaviour
             else
             {
                 MusicMenuManager.instance.audiosource.enabled = true;
+                if(!MusicMenuManager.instance.audiosource.isPlaying)
+                {
+                    MusicMenuManager.instance.audiosource.Play();
+                }
             }
             activateEnemys();
         }
